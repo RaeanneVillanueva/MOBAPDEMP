@@ -17,6 +17,10 @@ public class Player extends Character{
         this.term = 0;
     }
 
+    public Player(){
+        this(null,0);
+    }
+
     public void setChanges(Consequence consequence){
         this.health += consequence.getHealth();
         this.social += consequence.getSocial();
@@ -71,6 +75,9 @@ public class Player extends Character{
 
     public String getName() { return super.getCharacterName(); }
 
-    public void setName(String name) { super.setCharacterName(name );
-    }
+    public void setName(String name) { super.setCharacterName(name );}
+
+    public int getImagePath(){ return super.getImagePath();}
+
+    public void setImagePath(int imagePath){super.setImagePath(imagePath);}
 }

@@ -9,6 +9,7 @@ public class Character {
         this.imagePath = imagePath;
     }
 
+
     public String getCharacterName() {
         return characterName;
     }
