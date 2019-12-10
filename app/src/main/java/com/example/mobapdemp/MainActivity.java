@@ -22,8 +22,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
 
 
-        CardStackView cardStackView = findViewById(R.id.card_stack_view);
-
 
 
     }
