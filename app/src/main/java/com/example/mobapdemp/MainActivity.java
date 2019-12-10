@@ -9,19 +9,24 @@ import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
 import com.yuyakaido.android.cardstackview.Direction;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity implements CardStackListener {
 
-    private CardStackLayoutManager cardStackLayoutManager;
+    private CardStackView cardStackView;
+    private CardStackAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        cardStackLayoutManager = new CardStackLayoutManager(this);
 
+        cardStackView = findViewById(R.id.card_stack_view);
 
+        ArrayList<ScenarioCard> data = new ArrayList<>();
 
+        adapter = new CardStackAdapter(data, this);
 
 
     }
