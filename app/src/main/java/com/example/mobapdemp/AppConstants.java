@@ -8,10 +8,13 @@ public class AppConstants {
                             BOB = new Character("Bob", R.drawable.bob),
                             BEK = new Character("Bek", R.drawable.bek),
                             JAMES = new Character("James", R.drawable.james),
-                            UPPERCLASSMEN1 = new Character ("Upperclassmen", R.drawable.prof1),
-                            UPPERCLASSMEN2 = new Character ("Upperclassmen", R.drawable.prof2),
-                            UPPERCLASSMEN3 = new Character ("Upperclassmen", R.drawable.prof3),
-                            UPPERCLASSMEN4 = new Character ("Upperclassmen", R.drawable.prof4);
+                            JEANETTE = new Character("Jeanette", R.drawable.jean),
+                            JEAN = new Character("Jean", R.drawable.jean_boy),
+
+                            UPPERCLASSMEN1 = new Character ("Upperclassmen", R.drawable.upperclass1),
+                            UPPERCLASSMEN2 = new Character ("Upperclassmen", R.drawable.upperclass2),
+                            PROFESSOR1 = new Character ("Upperclassmen", R.drawable.prof1),
+                            PROFESSOR2 = new Character ("Upperclassmen", R.drawable.prof2);
 
 
     public void init(){

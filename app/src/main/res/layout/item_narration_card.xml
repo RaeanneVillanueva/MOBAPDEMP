@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <FrameLayout
+        android:id="@+id/card"
+        android:layout_width="380sp"
+        android:layout_height="461dp"
+        android:layout_gravity="center"
+        android:foregroundGravity="center">
+
+        <LinearLayout
+            android:id="@+id/margin"
+            android:layout_width="match_parent"
+            android:layout_height="447dp"
+            android:layout_gravity="center"
+            android:background="@drawable/shape"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
+
+
+                <ImageView
+                    android:id="@+id/cardImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="425dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/bg3"
+                    android:padding="4dp"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:id="@+id/txt_narration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/pokemon"
+                    android:gravity="center"
+                    android:text="This is a narration"
+                    android:textSize="15dp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/right_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:background="@drawable/choicesbg_right"
+            android:fontFamily="@font/prstartk"
+            android:gravity="left"
+            android:padding="30dp"
+            android:textColor="#FFFFFF"
+            android:text="Okay"/>
+
+
+        <TextView
+            android:id="@+id/left_overlay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0"
+            android:background="@drawable/choicesbg_left"
+            android:fontFamily="@font/prstartk"
+            android:gravity="right"
+            android:padding="30dp"
+            android:textColor="#FFFFFF"
+            android:text="Okay"/>
+
+    </FrameLayout>
+
+
+</LinearLayout>

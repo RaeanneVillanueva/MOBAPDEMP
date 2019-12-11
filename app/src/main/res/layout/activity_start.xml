@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg3"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context="com.example.mobapdemp.StartActivity">
+
+    <TextView
+        android:id="@+id/gameTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/prstartk"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Lasallian Simulator"
+        android:textColor="#1A6D39"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_new"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/btn_new"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/prstartk"
+        android:onClick="startGame"
+        android:text="New Game"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toTopOf="@+id/btn_leaderboard"
+        tools:layout_editor_absoluteX="90dp" />
+
+    <Button
+        android:id="@+id/btn_leaderboard"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/prstartk"
+        android:onClick="openLeaderboard"
+        android:text="Leaderboard"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="547dp" />
+
+    <Button
+        android:id="@+id/btn_quests"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/prstartk"
+        android:onClick="openQuests"
+        android:text="Quests"
+        android:textColor="@android:color/white"
+        tools:layout_editor_absoluteX="90dp"
+        tools:layout_editor_absoluteY="602dp" />
+</LinearLayout>

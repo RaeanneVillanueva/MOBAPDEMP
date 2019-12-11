@@ -5,66 +5,108 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/bg3">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        >
 
         <LinearLayout
-            android:id="@+id/progressbars"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:id="@+id/health"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
 
-            <ProgressBar
-                android:id="@+id/progressBar"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <ProgressBar
-                android:id="@+id/progressBar2"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+            <ImageView
+                android:id="@+id/imageView6"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/social" />
 
             <ProgressBar
                 android:id="@+id/progressBar3"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="64dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:progressDrawable="@drawable/custom_progress"
+                android:scaleY="0.5"
+                android:progress="50"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/money" />
 
             <ProgressBar
-                android:id="@+id/progressBar4"
+                android:id="@+id/progressBar2"
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="wrap_content"
+                android:layout_width="64dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1" />
+                android:progressDrawable="@drawable/custom_progress"
+                android:scaleY="0.5"
+                android:progress="50"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/grades_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                app:srcCompat="@drawable/grades" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="64dp"
+                android:layout_height="wrap_content"
+                android:progressDrawable="@drawable/custom_progress"
+                android:scaleY="0.5"
+                android:progress="50"/>
         </LinearLayout>
     </LinearLayout>
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="627dp">
+        android:layout_height="550dp">
 
         <com.yuyakaido.android.cardstackview.CardStackView
             android:id="@+id/card_stack_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="4dp"/>
-
+            android:padding="4dp" />
 
 
     </FrameLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <TextView
@@ -72,15 +114,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:fontFamily="@font/prstartk"
+            android:padding="10dp"
+            android:text="TextView"
+            android:textColor="#11710F" />
 
         <TextView
             android:id="@+id/points"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/prstartk"
             android:gravity="right"
-            android:text="TextView" />
+            android:padding="10dp"
+            android:text="TextView"
+            android:textColor="#11710F" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/buttonbtn_exit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Exit Game"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/prstartk"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center"
+        android:textSize="10dp"
+        android:layout_margin="10dp"/>
 
 </LinearLayout>
