@@ -2,6 +2,7 @@ package com.example.mobapdemp;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackView cardStackView;
     private CardStackAdapter adapter;
     private CardStackLayoutManager manager;
+    private Deck carddeck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         cardStackView = findViewById(R.id.card_stack_view);
 
-        Deck carddeck = new Deck();
+        carddeck = new Deck();
         carddeck.initializeStandardDeck();
 
         adapter = new CardStackAdapter(carddeck, this);
@@ -51,12 +53,22 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardDragging(Direction direction, float ratio) {
-
+        Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
     }
 
     @Override
     public void onCardSwiped(Direction direction) {
+        Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
 
+        if(direction.equals(Direction.Left)) {
+            Card card = carddeck.getCards().get(manager.getTopPosition()-1);
+
+            if(card instanceof ScenarioCard) {
+                int health = ((ScenarioCard)card).getChoiceRight().getConsequence().getHealth();
+                String name = ((ScenarioCard)card).getCharacter().getCharacterName();
+                Log.d("ChoiceLeft", health+"" + " " + name);
+            }
+        }
     }
 
     @Override
@@ -71,7 +83,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardAppeared(View view, int position) {
-
+        Log.d("POSITION", position+"");
     }
 
     @Override

@@ -12,6 +12,9 @@ import android.widget.EditText;
 
 public class StartActivity extends AppCompatActivity {
 
+    LeaderboardDialog leaderboardDialog;
+    QuestsDialog questsDialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,40 +24,14 @@ public class StartActivity extends AppCompatActivity {
 
     public void openLeaderboard(View view) {
 
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-        final View dialogView = getLayoutInflater().inflate(R.layout.activity_leaderboard, null);
-        Button btnBack = dialogView.findViewById(R.id.btn_back);
-
-        alertBuilder.setView(dialogView);
-        final AlertDialog dialog = alertBuilder.create();
-
-        dialog.show();
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.hide();
-            }
-        });
+        leaderboardDialog = new LeaderboardDialog(this);
+        leaderboardDialog.show();
 
     }
 
     public void openQuests(View view) {
-        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
-        final View dialogView = getLayoutInflater().inflate(R.layout.activity_quests, null);
-        Button btnBack = dialogView.findViewById(R.id.btn_back);
-
-        alertBuilder.setView(dialogView);
-        final AlertDialog dialog = alertBuilder.create();
-
-        dialog.show();
-
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.hide();
-            }
-        });
+        questsDialog = new QuestsDialog(this);
+        questsDialog.show();
     }
 
     public void startGame(View view) {

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LeaderboardActivity"
+    tools:context=".LeaderboardDialog"
     android:background="@drawable/bg3">
 
     <TextView
@@ -23,13 +23,14 @@
     <!--        android:padding="20dp"/>-->
 
     <Button
-        android:id="@+id/btn_back"
+        android:id="@+id/btn_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/prstartk"
         android:textColor="@android:color/white"
         android:layout_gravity="center"
-        android:text="Go Back"/>
+        android:text="Close"
+        />
 
 </LinearLayout>

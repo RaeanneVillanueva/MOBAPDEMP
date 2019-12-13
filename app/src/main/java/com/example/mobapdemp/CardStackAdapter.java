@@ -78,8 +78,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return deck.getCards().size();
     }
 
-
-
     public class ScenarioCardViewHolder extends RecyclerView.ViewHolder {
 
         private TextView charName;
