@@ -47,14 +47,12 @@ public class MyDeckActivity extends AppCompatActivity {
         deckListAdapter = new DeckListAdapter(MyDeckActivity.this, decks);
         deckListView.setAdapter(deckListAdapter);
 
-        deckListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        deckListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Deck selectedDeck = decks.get(position);
 
                 showEditDeckDialog(selectedDeck.getName());
-                return true;
             }
         });
     }
@@ -123,16 +121,16 @@ public class MyDeckActivity extends AppCompatActivity {
         Button btnEdit = dialogView.findViewById(R.id.btn_edit);
         Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
 
-        name.setText(deckName);
+        name.setHint(deckName);
 
-//        btnEdit.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
-//                startActivity(intent);
-//                finish();
-//            }
-//        });
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         AlertDialog editDeck = dialogBuilder.create();
         editDeck.show();
