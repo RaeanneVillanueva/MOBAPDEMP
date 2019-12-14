@@ -69,7 +69,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         }else if(deck.getQueue().get(position) instanceof NarrationCard) {
             return 2;
         }
-
         return 0;
     }
 
