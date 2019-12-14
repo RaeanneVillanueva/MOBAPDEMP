@@ -4,18 +4,14 @@ import java.util.ArrayList;
 
 public class LeaderboardModel implements Comparable {
 
-    private int rank, score;
+    private int score;
     private String name;
 
-    public LeaderboardModel(int rank, String name, int score) {
-        this.rank = rank;
+    public LeaderboardModel( String name, int score) {
         this.name = name;
         this.score = score;
     }
 
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
 
     public void setPlayerName(String name) {
         this.name = name;
@@ -23,10 +19,6 @@ public class LeaderboardModel implements Comparable {
 
     public void setScore(int score) {
         this.score = score;
-    }
-
-    public int getRank() {
-        return rank;
     }
 
     public String getPlayerName() {

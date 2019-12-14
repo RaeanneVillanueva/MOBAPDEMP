@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class LeaderboardDialog extends Dialog {
@@ -17,6 +20,7 @@ public class LeaderboardDialog extends Dialog {
     Button btnClose;
     ListView leaderboardListView;
     LeaderboardAdapter leaderboardAdapter;
+    private DatabaseReference databaseSample;
 
     public LeaderboardDialog(@NonNull Context context) {
         super(context);
@@ -41,21 +45,23 @@ public class LeaderboardDialog extends Dialog {
         leaderboardAdapter = new LeaderboardAdapter(this.getContext(), leaderboardData);
         leaderboardListView.setAdapter(leaderboardAdapter);
 
+        databaseSample = FirebaseDatabase.getInstance().getReference("leaderBoard");
+
     }
 
     public void initializeData() {
         leaderboardData = new ArrayList<>();
 
-        leaderboardData.add(new LeaderboardModel(1, "Raeraeanne", 3));
-        leaderboardData.add(new LeaderboardModel(2, "Anne", 2));
-        leaderboardData.add(new LeaderboardModel(3, "John", 1));
-        leaderboardData.add(new LeaderboardModel(4, "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel(5, "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel(6, "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel(7, "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel(8, "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel(9, "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel(10, "Andrewanne", 0));
+        leaderboardData.add(new LeaderboardModel("Raeraeanne", 3));
+        leaderboardData.add(new LeaderboardModel("Anne", 2));
+        leaderboardData.add(new LeaderboardModel( "John", 1));
+        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel( "Andrewanne", 0));
 
 
     }
