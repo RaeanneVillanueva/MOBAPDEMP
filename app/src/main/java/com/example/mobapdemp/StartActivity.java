@@ -24,7 +24,7 @@ public class StartActivity extends AppCompatActivity {
     private LeaderboardDialog leaderboardDialog;
     private EditText playerName;
     private Button btnPlay;
-    DatabaseReference databaseSample;
+    private DatabaseReference databaseSample;
 
 
     @Override
@@ -39,12 +39,7 @@ public class StartActivity extends AppCompatActivity {
 
     public void openLeaderboard(View view) {
 
-//        String id = databaseSample.push().getKey();
-//
-//        Deck deck = new Deck("sampleDeck");
-//        ScenarioCard card = new ScenarioCard(AppConstants.MOM, "hello", new Choice("Ok", new Consequence(1,2,3,4)), new Choice("No", new Consequence(5,6,7,8)));
-//        deck.getCards().add(card);
-//        databaseSample.child(id).setValue(deck);
+
         leaderboardDialog = new LeaderboardDialog(this);
         leaderboardDialog.show();
 
@@ -52,36 +47,7 @@ public class StartActivity extends AppCompatActivity {
 
     public void createDeck(View view) {
 
-//        databaseSample.addValueEventListener(new ValueEventListener() {
-//            // Database entries are all DataSnapshots
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                ArrayList<Deck> decks = new ArrayList<>();
-//
-//                //iterating through all the nodes
-//                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-//                    //getting artist
-//                    Deck deck= postSnapshot.getValue(Deck.class);
-//                    //adding a0rtist to the list
-//                    decks.add(deck);
-//                }
-//
-//                for(Deck deck: decks){
-//                    Log.d("CHECKDECK", deck.getName());
-//                    Log.d("CHECKDECK", deck.getName());
-//                    Log.d("CHECKDECK", deck.getName());
-//                    Log.d("CHECKDECK", deck.getName());
-//                    Log.d("CHECKDECK", deck.getName());
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//
-//            }
-//        });
+
         Intent intent = new Intent(this, MyDeckActivity.class);
         startActivity(intent);
         finish();
