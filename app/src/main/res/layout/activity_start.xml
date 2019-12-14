@@ -42,7 +42,7 @@
         android:background="@drawable/button_shape"
         android:fontFamily="@font/prstartk"
         android:onClick="createDeck"
-        android:text="My Deck"
+        android:text="Custom Decks"
         android:textColor="@android:color/white" />
 
     <Button

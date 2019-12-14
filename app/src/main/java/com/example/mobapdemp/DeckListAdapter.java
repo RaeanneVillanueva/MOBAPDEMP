@@ -1,10 +1,12 @@
 package com.example.mobapdemp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -17,6 +19,7 @@ public class DeckListAdapter extends ArrayAdapter<Deck> {
     Context context;
     ArrayList<Deck> deckList;
     TextView deckName;
+    Button btnEdit, btnPlay;
 
     public DeckListAdapter(Context context, ArrayList<Deck> deckList) {
         super(context, R.layout.item_deck, deckList);
@@ -42,8 +45,8 @@ public class DeckListAdapter extends ArrayAdapter<Deck> {
         deckName = convertView.findViewById(R.id.etxt_deck_name);
 
         Deck deckItem = getItem(position);
-
         deckName.setText(deckItem.getName());
+
 
         return convertView;
     }

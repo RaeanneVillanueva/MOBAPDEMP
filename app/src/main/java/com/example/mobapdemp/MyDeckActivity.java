@@ -6,10 +6,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -42,10 +45,18 @@ public class MyDeckActivity extends AppCompatActivity {
 
         initializeDeckList();
         deckListAdapter = new DeckListAdapter(MyDeckActivity.this, decks);
-        deckListAdapter.notifyDataSetChanged();
         deckListView.setAdapter(deckListAdapter);
 
+        deckListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
 
+                Deck selectedDeck = decks.get(position);
+
+                showEditDeckDialog(selectedDeck.getName());
+                return true;
+            }
+        });
     }
 
     public void initializeDeckList() {
@@ -60,6 +71,7 @@ public class MyDeckActivity extends AppCompatActivity {
                     decks.add(deck);
                 }
 
+                deckListAdapter.notifyDataSetChanged();
             }
 
             @Override
@@ -99,4 +111,30 @@ public class MyDeckActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void showEditDeckDialog(String deckName) {
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_edit_deck, null);
+        dialogBuilder.setView(dialogView);
+
+        TextView name = dialogView.findViewById(R.id.etxt_new_deck_name);
+        Button btnEdit = dialogView.findViewById(R.id.btn_edit);
+        Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
+
+        name.setText(deckName);
+
+//        btnEdit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+
+        AlertDialog editDeck = dialogBuilder.create();
+        editDeck.show();
+    }
+
 }
