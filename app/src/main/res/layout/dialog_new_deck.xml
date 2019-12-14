@@ -1,23 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:padding="20dp"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="#f4f3d7"
-    >
+    android:gravity="center">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Player Name"
+        android:text="Deck Name"
         android:padding="10dp"
         android:textColor="#0E450D"
         android:fontFamily="@font/prstartk"/>
 
     <EditText
-        android:id="@+id/etxt_playername"
+        android:id="@+id/etxt_deck_name"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:ems="5"
@@ -26,19 +23,16 @@
         android:inputType="textPersonName"
         android:gravity="center"
         android:background="@drawable/custom_edit_text"
-        android:textSize="15dp"
-        />
+        android:textSize="15dp"/>
 
     <Button
-        android:id="@+id/btn_play"
+        android:id="@+id/btn_create_new_deck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Play!"
+        android:text="Create Deck"
         android:background="@drawable/button_shape"
         android:textColor="@android:color/white"
         android:fontFamily="@font/prstartk"
-        android:layout_margin="10dp"
-        />
-
+        android:layout_margin="10dp"/>
 
 </LinearLayout>

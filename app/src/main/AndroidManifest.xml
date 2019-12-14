@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateDeckActivity"></activity>
+        <activity android:name=".CustomDeckActivity"></activity>
+        <activity android:name=".CreateCardDialog" />
+        <activity android:name=".MyDeckActivity" />
         <activity android:name=".QuestsDialog" />
         <activity android:name=".LeaderboardDialog" />
         <activity android:name=".StartActivity">

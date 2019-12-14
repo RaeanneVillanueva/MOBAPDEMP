@@ -14,7 +14,12 @@ public class AppConstants {
                             UPPERCLASSMEN1 = new Character ("Upperclassmen", R.drawable.upperclass1),
                             UPPERCLASSMEN2 = new Character ("Upperclassmen", R.drawable.upperclass2),
                             PROFESSOR1 = new Character ("Upperclassmen", R.drawable.prof1),
-                            PROFESSOR2 = new Character ("Upperclassmen", R.drawable.prof2);
+                            PROFESSOR2 = new Character ("Upperclassmen", R.drawable.prof2),
+
+                            DRUGS = new Character("", R.drawable.drug),
+                            VOMIT = new Character("", R.drawable.vomit),
+                            STARVE = new Character("", R.drawable.starve),
+                            LONELINESS = new Character("", R.drawable.loneliness);
 
 
     public void init(){

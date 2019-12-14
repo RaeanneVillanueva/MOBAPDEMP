@@ -17,7 +17,7 @@
         android:gravity="center"
         android:padding="10dp"
         android:text="Lasallian Simulator"
-        android:textColor="#1A6D39"
+        android:textColor="#0E450D"
         android:textSize="30dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_new"
         tools:layout_editor_absoluteX="0dp" />
@@ -32,8 +32,18 @@
         android:onClick="startGame"
         android:text="New Game"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/btn_leaderboard"
-        tools:layout_editor_absoluteX="90dp" />
+        />
+
+    <Button
+        android:id="@+id/btn_my_deck"
+        android:layout_width="230dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/prstartk"
+        android:onClick="createDeck"
+        android:text="My Deck"
+        android:textColor="@android:color/white" />
 
     <Button
         android:id="@+id/btn_leaderboard"
@@ -45,19 +55,6 @@
         android:onClick="openLeaderboard"
         android:text="Leaderboard"
         android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="547dp" />
+         />
 
-    <Button
-        android:id="@+id/btn_quests"
-        android:layout_width="230dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@drawable/button_shape"
-        android:fontFamily="@font/prstartk"
-        android:onClick="openQuests"
-        android:text="Quests"
-        android:textColor="@android:color/white"
-        tools:layout_editor_absoluteX="90dp"
-        tools:layout_editor_absoluteY="602dp" />
 </LinearLayout>

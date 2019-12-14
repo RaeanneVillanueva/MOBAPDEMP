@@ -137,14 +137,14 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/char_name"
+            android:id="@+id/player_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:fontFamily="@font/prstartk"
             android:padding="10dp"
             android:text="TextView"
-            android:textColor="#11710F" />
+            android:textColor="#0E450D" />
 
         <TextView
             android:id="@+id/points"
@@ -155,7 +155,7 @@
             android:gravity="right"
             android:padding="10dp"
             android:text="TextView"
-            android:textColor="#11710F" />
+            android:textColor="#0E450D" />
     </LinearLayout>
 
 </LinearLayout>

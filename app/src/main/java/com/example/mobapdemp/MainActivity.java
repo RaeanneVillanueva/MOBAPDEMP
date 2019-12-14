@@ -1,12 +1,15 @@
 package com.example.mobapdemp;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.TextView;
 
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
@@ -22,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackAdapter adapter;
     private CardStackLayoutManager manager;
     private Deck carddeck;
+    private TextView playerName, playerScore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,12 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         cardStackView.setAdapter(adapter);
         cardStackView.setLayoutManager(manager);
         cardStackView.swipe();
+
+        //reflect the inputted name from dialog
+        playerName = findViewById(R.id.player_name);
+        Intent intent = getIntent();
+        String name = intent.getStringExtra("Inputted Player Name");
+        playerName.setText(name);
 
 
     }

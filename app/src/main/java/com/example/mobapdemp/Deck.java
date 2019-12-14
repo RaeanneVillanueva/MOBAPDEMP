@@ -66,6 +66,22 @@ public class Deck {
                 new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
                 new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
 
+        cards.add(new ScenarioCard(AppConstants.LONELINESS, "You became very lonely that you don't have group mates.",
+                new Choice("", new Consequence(0,0,0,0), ""),
+                new Choice("", new Consequence(0,0,0,0), "")));
+
+        cards.add(new ScenarioCard(AppConstants.DRUGS, "You ended up being peer pressured to take drugs and got addicted to it.",
+                new Choice("", new Consequence(0,0,0,0), ""),
+                new Choice("", new Consequence(0,0,0,0), "")));
+
+        cards.add(new ScenarioCard(AppConstants.VOMIT, "You partied too hard and vomitted.",
+                new Choice("", new Consequence(0,0,0,0), ""),
+                new Choice("", new Consequence(0,0,0,0), "")));
+
+        cards.add(new ScenarioCard(AppConstants.STARVE, "You don't money and ended up starving to death.",
+                new Choice("", new Consequence(0,0,0,0), ""),
+                new Choice("", new Consequence(0,0,0,0), "")));
+
 
         cards.add(new NarrationCard("This is a narration, nice!"));
 
