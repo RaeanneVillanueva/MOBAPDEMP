@@ -18,10 +18,13 @@
         android:textSize="20dp"
         android:textColor="#0E450D"/>
 
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:padding="20dp"/>-->
+    <ListView
+        android:id="@+id/leaderboard_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:layout_margin="10dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10sp" />
 
     <Button
         android:id="@+id/btn_close"
@@ -31,6 +34,7 @@
         android:fontFamily="@font/prstartk"
         android:textColor="@android:color/white"
         android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:text="Close"/>
 
 </LinearLayout>

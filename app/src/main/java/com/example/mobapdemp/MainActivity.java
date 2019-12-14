@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackLayoutManager manager;
     private Deck carddeck;
     private TextView playerName, playerScore;
+
+    private ImageView markHealth, markSocial, markGrades, markMoney;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,11 +66,31 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         playerName.setText(name);
 
 
+        //getting the marks
+        markHealth = findViewById(R.id.mark_health);
+        markSocial = findViewById(R.id.mark_social);
+        markMoney = findViewById(R.id.mark_money);
+        markGrades = findViewById(R.id.mark_grades);
     }
 
     @Override
     public void onCardDragging(Direction direction, float ratio) {
-        Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
+        Card topcard = carddeck.getQueue().get(manager.getTopPosition());
+        ScenarioCard card = (ScenarioCard)topcard;
+
+        //markings
+        if(card.getChoiceLeft().getConsequence().getHealth() != 0 || card.getChoiceRight().getConsequence().getHealth() != 0){
+            markHealth.setAlpha(1f);
+        }
+        if(card.getChoiceLeft().getConsequence().getSocial() != 0 || card.getChoiceRight().getConsequence().getSocial() != 0){
+            markSocial.setAlpha(1f);
+        }
+        if(card.getChoiceLeft().getConsequence().getMoney() != 0 || card.getChoiceRight().getConsequence().getMoney() != 0){
+            markMoney.setAlpha(1f);
+        }
+        if(card.getChoiceLeft().getConsequence().getGrades() != 0 || card.getChoiceRight().getConsequence().getGrades() != 0){
+            markGrades.setAlpha(1f);
+        }
     }
 
     @Override
@@ -92,17 +115,26 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardCanceled() {
-
+        markHealth.setAlpha(0f);
+        markSocial.setAlpha(0f);
+        markMoney.setAlpha(0f);
+        markGrades.setAlpha(0f);
     }
 
     @Override
     public void onCardAppeared(View view, int position) {
-
-        Log.d("POSITION", position+"");
+        markHealth.setAlpha(0f);
+        markSocial.setAlpha(0f);
+        markMoney.setAlpha(0f);
+        markGrades.setAlpha(0f);
     }
 
     @Override
     public void onCardDisappeared(View view, int position) {
-
+        markHealth.setAlpha(0f);
+        markSocial.setAlpha(0f);
+        markMoney.setAlpha(0f);
+        markGrades.setAlpha(0f);
     }
+
 }
