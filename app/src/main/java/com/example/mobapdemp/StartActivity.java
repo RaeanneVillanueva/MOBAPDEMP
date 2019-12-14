@@ -33,8 +33,6 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         getSupportActionBar().hide();
 
-        databaseSample = FirebaseDatabase.getInstance().getReference("leaderboard");
-
     }
 
     public void openLeaderboard(View view) {

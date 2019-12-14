@@ -9,10 +9,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class LeaderboardDialog extends Dialog {
 
@@ -52,16 +56,24 @@ public class LeaderboardDialog extends Dialog {
     public void initializeData() {
         leaderboardData = new ArrayList<>();
 
-        leaderboardData.add(new LeaderboardModel("Raeraeanne", 3));
-        leaderboardData.add(new LeaderboardModel("Anne", 2));
-        leaderboardData.add(new LeaderboardModel( "John", 1));
-        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel( "Andrew", 0));
-        leaderboardData.add(new LeaderboardModel( "Andrewanne", 0));
+        databaseSample.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    LeaderboardModel lm = postSnapshot.getValue(LeaderboardModel.class);
+                    leaderboardData.add(lm);
+                }
+
+                Collections.sort(leaderboardData);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+
 
 
     }
