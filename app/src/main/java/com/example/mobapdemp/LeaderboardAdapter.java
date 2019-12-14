@@ -46,9 +46,9 @@ public class LeaderboardAdapter extends ArrayAdapter<LeaderboardModel> {
 
         LeaderboardModel leaderboarditem = getItem(position);
 
-        txtRank.setText(leaderboarditem.getRank() + "");
+        txtRank.setText((position+1)+"");
         txtPlayerName.setText(leaderboarditem.getPlayerName());
-        txtScore.setText(leaderboarditem.getScore());
+        txtScore.setText(leaderboarditem.getScore() + "");
 
         return convertView;
     }

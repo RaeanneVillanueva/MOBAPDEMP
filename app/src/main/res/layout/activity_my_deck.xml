@@ -19,12 +19,10 @@
         android:textSize="20dp"
         android:textColor="#0E450D"/>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <ListView
+        android:id="@+id/deck_list_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        android:layout_height="wrap_content" />
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -78,19 +78,37 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Card topcard = carddeck.getQueue().get(manager.getTopPosition());
         ScenarioCard card = (ScenarioCard)topcard;
 
-        //markings
-        if(card.getChoiceLeft().getConsequence().getHealth() != 0 || card.getChoiceRight().getConsequence().getHealth() != 0){
-            markHealth.setAlpha(1f);
+
+        if(draggedLeft(direction)) {
+            if(card.getChoiceLeft().getConsequence().getHealth() != 0){
+                markHealth.setAlpha(1f);
+            }
+            if(card.getChoiceLeft().getConsequence().getSocial() != 0){
+                markSocial.setAlpha(1f);
+            }
+            if(card.getChoiceLeft().getConsequence().getMoney() != 0){
+                markMoney.setAlpha(1f);
+            }
+            if(card.getChoiceLeft().getConsequence().getGrades() != 0){
+                markGrades.setAlpha(1f);
+            }
         }
-        if(card.getChoiceLeft().getConsequence().getSocial() != 0 || card.getChoiceRight().getConsequence().getSocial() != 0){
-            markSocial.setAlpha(1f);
+
+        if(!draggedLeft(direction)) {
+            if(card.getChoiceRight().getConsequence().getHealth() != 0){
+                markHealth.setAlpha(1f);
+            }
+            if(card.getChoiceRight().getConsequence().getSocial() != 0){
+                markSocial.setAlpha(1f);
+            }
+            if(card.getChoiceRight().getConsequence().getMoney() != 0){
+                markMoney.setAlpha(1f);
+            }
+            if(card.getChoiceRight().getConsequence().getGrades() != 0){
+                markGrades.setAlpha(1f);
+            }
         }
-        if(card.getChoiceLeft().getConsequence().getMoney() != 0 || card.getChoiceRight().getConsequence().getMoney() != 0){
-            markMoney.setAlpha(1f);
-        }
-        if(card.getChoiceLeft().getConsequence().getGrades() != 0 || card.getChoiceRight().getConsequence().getGrades() != 0){
-            markGrades.setAlpha(1f);
-        }
+
     }
 
     @Override
@@ -135,6 +153,14 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         markSocial.setAlpha(0f);
         markMoney.setAlpha(0f);
         markGrades.setAlpha(0f);
+    }
+
+    public boolean draggedLeft(Direction direction) {
+        if(direction.toString().equalsIgnoreCase("Left")){
+            return true;
+        }
+
+        return false;
     }
 
 }

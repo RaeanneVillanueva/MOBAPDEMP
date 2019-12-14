@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="@font/pokemon"
+        android:gravity="center"
         android:padding="10dp"
         android:text="100"
         android:textColor="#0E450D" />
@@ -22,17 +23,19 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="@font/prstartk"
+        android:gravity="center"
         android:padding="10dp"
         android:text="rarararara"
         android:textColor="#0E450D" />
 
     <TextView
         android:id="@+id/txt_score"
-        android:layout_width="140dp"
+        android:layout_width="50dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:fontFamily="@font/pokemon"
+        android:gravity="center"
         android:padding="10dp"
-        android:text="10th Term"
+        android:text="10000"
         android:textColor="#0E450D" />
 </LinearLayout>
