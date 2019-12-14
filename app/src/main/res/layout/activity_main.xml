@@ -119,14 +119,25 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="550dp"
+        android:layout_gravity="center"
         >
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="390sp"
+            android:layout_height= "405dp"
+            android:layout_gravity="center"
+            app:srcCompat="@drawable/backgroundcard"
+            />
 
         <com.yuyakaido.android.cardstackview.CardStackView
             android:id="@+id/card_stack_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#D8D47D"
-            android:padding="4dp" />
+            android:layout_gravity="center"
+            android:padding="4dp"
+            android:background="@android:color/transparent"/>
 
 
     </FrameLayout>

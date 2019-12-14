@@ -11,7 +11,7 @@
     <FrameLayout
         android:id="@+id/card"
         android:layout_width="390sp"
-        android:layout_height="390dp"
+        android:layout_height="420sp"
         android:layout_gravity="center"
         android:background="@drawable/scenariobg"
         android:foregroundGravity="center">
@@ -19,7 +19,7 @@
         <LinearLayout
             android:id="@+id/margin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@drawable/shape"
             android:gravity="center"

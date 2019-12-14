@@ -16,6 +16,7 @@ import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
 import com.yuyakaido.android.cardstackview.Direction;
 import com.yuyakaido.android.cardstackview.StackFrom;
+import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.ArrayList;
 
@@ -45,8 +46,10 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         //settings for the swipe features
         manager.setVisibleCount(1);
         manager.setOverlayInterpolator(new OvershootInterpolator());
-        manager.setMaxDegree(30);
+        manager.setMaxDegree(50);
         manager.setCanScrollVertical(false);
+        manager.setSwipeableMethod(SwipeableMethod.Manual);
+
 
         //set up for cardstackview
         cardStackView.setAdapter(adapter);

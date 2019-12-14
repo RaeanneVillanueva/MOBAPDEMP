@@ -45,7 +45,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        Card card = deck.getCards().get(position);
+        Card card = deck.getQueue().get(position);
 
         if(card instanceof ScenarioCard) {
             ((ScenarioCardViewHolder)holder).charName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
