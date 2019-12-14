@@ -9,6 +9,14 @@
     tools:context=".CreateCardDialog"
     android:gravity="center">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose a Character"
+        android:fontFamily="@font/prstartk"
+        android:padding="5dp"
+        android:textColor="#0E450D"/>
+
     <Spinner
         android:id="@+id/spinner_characters"
         android:layout_width="match_parent"
@@ -18,7 +26,6 @@
         />
 
     <TextView
-        android:id="@+id/lblleft"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choice Left"
@@ -40,7 +47,6 @@
         android:textSize="10dp" />
 
     <TextView
-        android:id="@+id/lblright"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choice Right"
@@ -62,7 +68,6 @@
         android:textSize="10dp" />
 
     <TextView
-        android:id="@+id/lblscenario"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Scenario"
