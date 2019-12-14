@@ -92,7 +92,6 @@ public class StartActivity extends AppCompatActivity {
         View dialogView = getLayoutInflater().inflate(R.layout.dialog_player_name, null);
         playerName = dialogView.findViewById(R.id.etxt_playername);
         btnPlay = dialogView.findViewById(R.id.btn_play);
-
         btnPlay.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

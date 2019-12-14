@@ -97,6 +97,10 @@ public class Deck {
         this.scenarioCards = deck.getCards();
     }
 
+    public void enQueueCards(){
+        queue.addAll(scenarioCards);
+    }
+
 
 
     public ArrayList<ScenarioCard> getCards() {
