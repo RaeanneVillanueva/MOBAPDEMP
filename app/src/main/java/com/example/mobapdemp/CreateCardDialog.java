@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -22,6 +23,10 @@ public class CreateCardDialog extends Dialog{
     private ArrayList<Character> characterList;
     private CharacterListAdapter charAdapter;
     private Deck deck;
+
+    private EditText etxt_choice_left, etxt_choice_right, etxt_scenario, etxt_social, etxt_grades, etxt_money, etxt_health;
+    private ScenarioCard card;
+
     public CreateCardDialog(@NonNull Context context, Deck deck) {
         super(context);
         this.deck = deck;
@@ -31,6 +36,18 @@ public class CreateCardDialog extends Dialog{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_create_card);
+
+        card = new ScenarioCard();
+
+        etxt_choice_left = findViewById(R.id.etxt_choice_left);
+        etxt_choice_right = findViewById(R.id.etxt_choice_right);
+        etxt_scenario = findViewById(R.id.etxt_scenario);
+        etxt_social = findViewById(R.id.etxt_social);
+        etxt_grades = findViewById(R.id.etxt_grades);
+        etxt_money = findViewById(R.id.etxt_money);
+        etxt_health = findViewById(R.id.etxt_health);
+
+
 
         btnAdd = findViewById(R.id.btn_add);
         btnCancel = findViewById(R.id.btn_cancel);
@@ -42,12 +59,7 @@ public class CreateCardDialog extends Dialog{
             }
         });
 
-        btnAdd.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
 
-            }
-        });
 
         charSpinner = findViewById(R.id.spinner_characters);
         initCharacterList();
@@ -58,7 +70,7 @@ public class CreateCardDialog extends Dialog{
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Character selectedChar = (Character) parent.getItemAtPosition(position);
-                Toast.makeText(getContext(), selectedChar.getCharacterName(), Toast.LENGTH_SHORT).show();
+                card.setCharacter(selectedChar);
             }
 
             @Override
@@ -66,7 +78,24 @@ public class CreateCardDialog extends Dialog{
 
             }
         });
+        btnAdd.setOnClickListener(new View.OnClickListener(){
 
+            @Override
+            public void onClick(View v){
+                int social = Integer.parseInt(etxt_social.getText().toString());
+                int grades = Integer.parseInt(etxt_grades.getText().toString());
+                int money = Integer.parseInt(etxt_money.getText().toString());
+                int health = Integer.parseInt(etxt_health.getText().toString());
+                card.setScenarioText(etxt_scenario.getText().toString());
+                card.setChoiceLeft(new Choice(etxt_choice_left.getText().toString(), new Consequence(health,social,grades,money)));
+                card.setChoiceRight(new Choice(etxt_choice_right.getText().toString(), new Consequence(health,social,grades,money)));
+
+                deck.getScenarioCards().add(card);
+
+                Toast.makeText(getContext(), "Card added", Toast.LENGTH_LONG).show();
+                dismiss();
+            }
+        });
     }
 
     private void initCharacterList() {

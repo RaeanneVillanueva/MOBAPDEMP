@@ -55,9 +55,7 @@ public class LeaderboardDialog extends Dialog {
 
     public void initializeData() {
         leaderboardData = new ArrayList<>();
-
         databaseSample.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
@@ -66,6 +64,7 @@ public class LeaderboardDialog extends Dialog {
                 }
 
                 Collections.sort(leaderboardData);
+                leaderboardAdapter.notifyDataSetChanged();
             }
 
             @Override
