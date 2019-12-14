@@ -6,7 +6,7 @@ public class Consequence {
     private int grades;
     private int money;
 
-    public Consequence(int health, int social, int grades, int money){
+    public Consequence(int health, int social, int grades, int money) {
         this.health = health;
         this.social = social;
         this.grades = grades;

@@ -33,9 +33,6 @@ public class LeaderboardDialog extends Dialog {
             }
         });
 
-
-
-
     }
 
     public void initializeData() {

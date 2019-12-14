@@ -11,12 +11,8 @@ public class ScenarioCard extends Card {
         this.choiceRight = choiceRight;
     }
 
-    public Consequence getConsequenceLeft(){
-        return this.choiceLeft.getConsequence();
-    }
+    public ScenarioCard(){
 
-    public Consequence getConsequenceRight(){
-        return this.choiceRight.getConsequence();
     }
 
     public Character getCharacter() {
