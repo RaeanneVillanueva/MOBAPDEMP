@@ -13,7 +13,8 @@
         android:padding="10dp"
         android:layout_margin="5dp"
         android:fontFamily="@font/prstartk"
-        android:text="TextView" />
+        android:text="TextView"
+        android:textColor="#0E450D"/>
 
     <Button
         android:id="@+id/btn_edit"
