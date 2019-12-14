@@ -7,11 +7,14 @@ import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.Spinner;
 
-public class CreateCardDialog extends Dialog {
+public class CreateCardDialog extends Dialog implements AdapterView.OnItemSelectedListener {
 
     private Button btnAdd, btnCancel;
+    private Spinner charSpinner;
 
     public CreateCardDialog(@NonNull Context context) {
         super(context);
@@ -31,6 +34,18 @@ public class CreateCardDialog extends Dialog {
                 dismiss();
             }
         });
+
+        charSpinner = findViewById(R.id.spinner_characters);
+
     }
 
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
 }

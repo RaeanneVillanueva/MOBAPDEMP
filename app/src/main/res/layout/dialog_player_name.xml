@@ -20,14 +20,14 @@
         android:id="@+id/etxt_playername"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:ems="5"
-        android:padding="10dp"
-        android:fontFamily="@font/pokemon"
-        android:inputType="textPersonName"
-        android:gravity="center"
         android:background="@drawable/custom_edit_text"
-        android:textSize="15dp"
-        />
+        android:ems="5"
+        android:fontFamily="@font/pokemon"
+        android:gravity="center"
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        android:padding="10dp"
+        android:textSize="15dp" />
 
     <Button
         android:id="@+id/btn_play"
