@@ -12,6 +12,10 @@ public class LeaderboardModel implements Comparable {
         this.score = score;
     }
 
+    public LeaderboardModel(){
+
+    }
+
 
     public void setPlayerName(String name) {
         this.name = name;
@@ -31,6 +35,6 @@ public class LeaderboardModel implements Comparable {
 
     @Override
     public int compareTo(Object o) {
-        return this.score - ((LeaderboardModel) o).getScore();
+        return  ((LeaderboardModel) o).getScore() - this.score;
     }
 }

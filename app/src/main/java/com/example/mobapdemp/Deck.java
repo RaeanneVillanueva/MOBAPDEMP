@@ -5,10 +5,15 @@ import java.util.ArrayList;
 public class Deck {
 
 
-
+    private String id;
     private ArrayList<Card> queue;
     private ArrayList<ScenarioCard> scenarioCards;
     private String name;
+
+    public Deck(String id, String name){
+        this(name);
+        this.id = id;
+    }
 
     public Deck(String name){
         this();
@@ -133,6 +138,14 @@ public class Deck {
 
     public void setScenarioCards(ArrayList<ScenarioCard> scenarioCards) {
         this.scenarioCards = scenarioCards;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 }
