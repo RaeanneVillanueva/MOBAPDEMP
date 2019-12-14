@@ -40,7 +40,7 @@ public class MyDeckActivity extends AppCompatActivity {
         getSupportActionBar().hide();
 
         deckListView = findViewById(R.id.deck_list_view);
-
+        decks = new ArrayList<>();
         databaseSample = FirebaseDatabase.getInstance().getReference("customDecks");
 
         initializeDeckList();
@@ -65,11 +65,12 @@ public class MyDeckActivity extends AppCompatActivity {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                decks = new ArrayList<>();
+                decks.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    Deck deck= postSnapshot.getValue(Deck.class);
+                    Deck deck = postSnapshot.getValue(Deck.class);
                     decks.add(deck);
                 }
+                deckListAdapter.notifyDataSetChanged();
 
                 deckListAdapter.notifyDataSetChanged();
             }
