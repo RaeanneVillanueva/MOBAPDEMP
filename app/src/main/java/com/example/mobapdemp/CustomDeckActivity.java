@@ -26,8 +26,6 @@ public class CustomDeckActivity extends AppCompatActivity {
 
         deckName = findViewById(R.id.txt_deck_name);
 
-
-
         Intent intent = getIntent();
         String inputDeckName = intent.getStringExtra("Inputted Deck Name");
         deckName.setText(inputDeckName);

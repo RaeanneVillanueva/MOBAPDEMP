@@ -47,6 +47,7 @@ public class LeaderboardDialog extends Dialog {
         initializeData();
         leaderboardListView = findViewById(R.id.leaderboard_list_view);
         leaderboardAdapter = new LeaderboardAdapter(this.getContext(), leaderboardData);
+        leaderboardAdapter.notifyDataSetChanged();
         leaderboardListView.setAdapter(leaderboardAdapter);
 
         databaseSample = FirebaseDatabase.getInstance().getReference("leaderBoard");
@@ -66,6 +67,9 @@ public class LeaderboardDialog extends Dialog {
                 }
 
                 Collections.sort(leaderboardData);
+
+
+
             }
 
             @Override

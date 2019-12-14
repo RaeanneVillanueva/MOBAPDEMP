@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -24,6 +25,9 @@ public class MyDeckActivity extends AppCompatActivity {
     private EditText deckName;
     private Button btnCreateDeck;
     private DatabaseReference databaseSample;
+    private ArrayList<Deck> decks;
+    private DeckListAdapter deckListAdapter;
+    private ListView deckListView;
 
 
     @Override
@@ -32,21 +36,28 @@ public class MyDeckActivity extends AppCompatActivity {
         setContentView(R.layout.activity_my_deck);
         getSupportActionBar().hide();
 
+        deckListView = findViewById(R.id.deck_list_view);
+
         databaseSample = FirebaseDatabase.getInstance().getReference("customDecks");
 
+        initializeDeckList();
+        deckListAdapter = new DeckListAdapter(MyDeckActivity.this, decks);
+        deckListAdapter.notifyDataSetChanged();
+        deckListView.setAdapter(deckListAdapter);
+
+
+    }
+
+    public void initializeDeckList() {
 
         databaseSample.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                ArrayList<Deck> decks = new ArrayList<>();
+                decks = new ArrayList<>();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Deck deck= postSnapshot.getValue(Deck.class);
                     decks.add(deck);
-                }
-
-                for(Deck deck: decks){
-                    //deck.getName() to get each name of deck and put in view.
                 }
 
             }
@@ -56,6 +67,7 @@ public class MyDeckActivity extends AppCompatActivity {
 
             }
         });
+
     }
 
     public void createNewDeck(View view) {
