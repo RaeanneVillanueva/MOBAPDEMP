@@ -44,7 +44,10 @@ public class StartActivity extends AppCompatActivity {
     }
 
     public void createDeck(View view) {
-
+//        databaseSample = FirebaseDatabase.getInstance().getReference("leaderboard");
+//        LeaderboardModel lm = new LeaderboardModel("Sample Name1", 10);
+//        String id = databaseSample.push().getKey();
+//        databaseSample.child(id).setValue(lm);
 
         Intent intent = new Intent(this, MyDeckActivity.class);
         startActivity(intent);

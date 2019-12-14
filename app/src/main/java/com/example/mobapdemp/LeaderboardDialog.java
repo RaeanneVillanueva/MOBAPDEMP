@@ -35,7 +35,7 @@ public class LeaderboardDialog extends Dialog {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_leaderboard);
 
-        dataLeaderBoard = FirebaseDatabase.getInstance().getReference("leaderBoard");
+        dataLeaderBoard = FirebaseDatabase.getInstance().getReference("leaderboard");
         leaderboardData = new ArrayList<>();
 
         btnClose = findViewById(R.id.btn_close);
@@ -60,12 +60,14 @@ public class LeaderboardDialog extends Dialog {
         dataLeaderBoard.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+                leaderboardData.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     LeaderboardModel lm = postSnapshot.getValue(LeaderboardModel.class);
                     leaderboardData.add(lm);
                 }
 
                 Collections.sort(leaderboardData);
+
                 leaderboardAdapter.notifyDataSetChanged();
 
             }
