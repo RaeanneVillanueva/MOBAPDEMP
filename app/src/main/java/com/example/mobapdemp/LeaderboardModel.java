@@ -2,12 +2,12 @@ package com.example.mobapdemp;
 
 import java.util.ArrayList;
 
-public class LeaderboardModel {
+public class LeaderboardModel implements Comparable {
 
-    private int rank;
-    private String name, score;
+    private int rank, score;
+    private String name;
 
-    public LeaderboardModel(int rank, String name, String score) {
+    public LeaderboardModel(int rank, String name, int score) {
         this.rank = rank;
         this.name = name;
         this.score = score;
@@ -21,7 +21,7 @@ public class LeaderboardModel {
         this.name = name;
     }
 
-    public void setScore(String score) {
+    public void setScore(int score) {
         this.score = score;
     }
 
@@ -33,8 +33,12 @@ public class LeaderboardModel {
         return name;
     }
 
-    public String getScore() {
+    public int getScore() {
         return score;
     }
 
+    @Override
+    public int compareTo(Object o) {
+        return this.score - ((LeaderboardModel) o).getScore();
+    }
 }

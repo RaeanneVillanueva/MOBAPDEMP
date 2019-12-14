@@ -46,16 +46,16 @@ public class LeaderboardDialog extends Dialog {
     public void initializeData() {
         leaderboardData = new ArrayList<>();
 
-        leaderboardData.add(new LeaderboardModel(1, "Raeraeanne", "3rd Term"));
-        leaderboardData.add(new LeaderboardModel(2, "Anne", "2nd Term"));
-        leaderboardData.add(new LeaderboardModel(3, "John", "1st Term"));
-        leaderboardData.add(new LeaderboardModel(4, "Andrew", "0 Term"));
-        leaderboardData.add(new LeaderboardModel(5, "Andrew", "0 Term"));
-        leaderboardData.add(new LeaderboardModel(6, "Andrew", "0 Term"));
-        leaderboardData.add(new LeaderboardModel(7, "Andrew", "0 Term"));
-        leaderboardData.add(new LeaderboardModel(8, "Andrew", "0 Term"));
-        leaderboardData.add(new LeaderboardModel(9, "Andrew", "0 Term"));
-        leaderboardData.add(new LeaderboardModel(10, "Andrewanne", "10th Term"));
+        leaderboardData.add(new LeaderboardModel(1, "Raeraeanne", 3));
+        leaderboardData.add(new LeaderboardModel(2, "Anne", 2));
+        leaderboardData.add(new LeaderboardModel(3, "John", 1));
+        leaderboardData.add(new LeaderboardModel(4, "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel(5, "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel(6, "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel(7, "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel(8, "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel(9, "Andrew", 0));
+        leaderboardData.add(new LeaderboardModel(10, "Andrewanne", 0));
 
 
     }
