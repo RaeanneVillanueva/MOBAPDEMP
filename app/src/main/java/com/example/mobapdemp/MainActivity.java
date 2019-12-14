@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardAppeared(View view, int position) {
+
         Log.d("POSITION", position+"");
     }
 

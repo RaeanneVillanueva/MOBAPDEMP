@@ -1,21 +1,4 @@
 <resources>
     <string name="app_name">MOBAPDEMP</string>
 
-
-    <string-array name="game_characters">
-
-        <item>Mom</item>
-        <item>Dad</item>
-        <item>Bek</item>
-        <item>James</item>
-        <item>Jean</item>
-        <item>Bob</item>
-        <item>Jyle</item>
-        <item>Jeanette</item>
-        <item>Upperclassmen1</item>
-        <item>Upperclassmen2</item>
-        <item>Professor1</item>
-        <item>Professor2</item>
-
-    </string-array>
 </resources>
