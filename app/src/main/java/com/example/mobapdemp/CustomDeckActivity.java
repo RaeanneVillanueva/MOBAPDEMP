@@ -8,26 +8,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class CustomDeckActivity extends AppCompatActivity {
 
     private CreateCardDialog createCardDialog;
     private TextView deckName;
-
+    private DatabaseReference databaseSample;
+    private Deck deck;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_deck);
         getSupportActionBar().hide();
+        databaseSample = FirebaseDatabase.getInstance().getReference("customDecks");
 
         deckName = findViewById(R.id.txt_deck_name);
+
+
 
         Intent intent = getIntent();
         String inputDeckName = intent.getStringExtra("Inputted Deck Name");
         deckName.setText(inputDeckName);
+
+        String id = databaseSample.push().getKey();
+        deck = new Deck(inputDeckName);
+        databaseSample.child(id).setValue(deck);
     }
 
     public void openAddCard(View view) {
-        createCardDialog = new CreateCardDialog(this);
+        createCardDialog = new CreateCardDialog(this, deck);
         createCardDialog.show();
     }
 

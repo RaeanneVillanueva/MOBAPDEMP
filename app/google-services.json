@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "440145705975",
+    "firebase_url": "https://lasalliansimulator-e367d.firebaseio.com",
+    "project_id": "lasalliansimulator-e367d",
+    "storage_bucket": "lasalliansimulator-e367d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:440145705975:android:df112cdee1d527fe708cf2",
+        "android_client_info": {
+          "package_name": "com.example.mobapdemp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "440145705975-s5roanmddmo8g0d6m4pu3stmn3o8aijo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.mobapdemp",
+            "certificate_hash": "ed56fb2039145a44651b33ee4f2acd2ed07e4552"
+          }
+        },
+        {
+          "client_id": "440145705975-omt89pud4v42o38q4ujs1c8u6sld65eu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVVTSbRvsWBabLQh1YyPGkXD39n1wjJKg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "440145705975-omt89pud4v42o38q4ujs1c8u6sld65eu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

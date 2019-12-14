@@ -16,7 +16,6 @@
         <activity android:name=".CustomDeckActivity"></activity>
         <activity android:name=".CreateCardDialog" />
         <activity android:name=".MyDeckActivity" />
-        <activity android:name=".QuestsDialog" />
         <activity android:name=".LeaderboardDialog" />
         <activity android:name=".StartActivity">
             <intent-filter>

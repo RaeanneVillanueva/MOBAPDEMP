@@ -64,12 +64,11 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     @Override
     public int getItemViewType(int position) {
 
-        if(deck.getCards().get(position) instanceof ScenarioCard) {
+        if(deck.getQueue().get(position) instanceof ScenarioCard) {
             return 1;
-        }else if(deck.getCards().get(position) instanceof NarrationCard) {
+        }else if(deck.getQueue().get(position) instanceof NarrationCard) {
             return 2;
         }
-
         return 0;
     }
 

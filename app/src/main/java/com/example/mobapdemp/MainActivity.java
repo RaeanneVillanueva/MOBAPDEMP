@@ -37,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         carddeck = new Deck();
         carddeck.initializeStandardDeck();
+        carddeck.enQueueCards();
 
         adapter = new CardStackAdapter(carddeck, this);
         manager = new CardStackLayoutManager(this, this);

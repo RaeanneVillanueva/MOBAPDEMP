@@ -10,6 +10,10 @@ public class Choice {
         this.narration = new NarrationCard(narration);
     }
 
+    public Choice(){
+
+    }
+
     public Choice(String text, Consequence consequence){
         this(text, consequence, null);
     }

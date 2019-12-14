@@ -21,9 +21,10 @@ public class CreateCardDialog extends Dialog{
     private Spinner charSpinner;
     private ArrayList<Character> characterList;
     private CharacterListAdapter charAdapter;
-
-    public CreateCardDialog(@NonNull Context context) {
+    private Deck deck;
+    public CreateCardDialog(@NonNull Context context, Deck deck) {
         super(context);
+        this.deck = deck;
     }
 
     @Override
@@ -38,6 +39,13 @@ public class CreateCardDialog extends Dialog{
             @Override
             public void onClick(View v) {
                 dismiss();
+            }
+        });
+
+        btnAdd.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
             }
         });
 
