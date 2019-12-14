@@ -13,8 +13,8 @@ public class AppConstants {
 
                             UPPERCLASSMEN1 = new Character ("Upperclassmen", R.drawable.upperclass1),
                             UPPERCLASSMEN2 = new Character ("Upperclassmen", R.drawable.upperclass2),
-                            PROFESSOR1 = new Character ("Upperclassmen", R.drawable.prof1),
-                            PROFESSOR2 = new Character ("Upperclassmen", R.drawable.prof2),
+                            PROFESSOR1 = new Character ("Professor", R.drawable.prof1),
+                            PROFESSOR2 = new Character ("Professor", R.drawable.prof2),
 
                             DRUGS = new Character("", R.drawable.drug),
                             VOMIT = new Character("", R.drawable.vomit),

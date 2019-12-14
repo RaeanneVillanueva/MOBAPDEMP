@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/prstartk"
-            android:text="Create"
+            android:text="Create Deck"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
             android:onClick="createNewDeck"/>

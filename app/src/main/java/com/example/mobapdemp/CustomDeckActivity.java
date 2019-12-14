@@ -17,6 +17,7 @@ public class CustomDeckActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_deck);
+        getSupportActionBar().hide();
 
         deckName = findViewById(R.id.txt_deck_name);
 

@@ -22,8 +22,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="10dp"
-        android:spinnerMode="dropdown"
-        />
+        android:background="@drawable/custom_edit_text"
+        android:dropDownWidth="340dp"
+        android:spinnerMode="dropdown" />
 
     <TextView
         android:layout_width="match_parent"
