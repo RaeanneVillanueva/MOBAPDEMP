@@ -14,12 +14,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/prstartk"
         android:gravity="center"
-        android:padding="10dp"
-        android:text="Lasallian Simulator"
+        android:padding="20dp"
+        android:text="Username"
+        android:layout_margin="10dp"
+        android:background="@drawable/custom_edit_text"
         android:textColor="#0E450D"
-        android:textSize="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_new"
-        tools:layout_editor_absoluteX="0dp" />
+        android:textSize="25dp"
+         />
 
     <Button
         android:id="@+id/btn_new"
