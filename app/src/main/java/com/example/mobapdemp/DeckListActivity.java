@@ -47,6 +47,7 @@ public class DeckListActivity extends AppCompatActivity {
         deckListAdapter = new DeckListAdapter(DeckListActivity.this, decks);
         deckListView.setAdapter(deckListAdapter);
 
+        //onlicklistener of deck_item
         deckListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -56,8 +57,9 @@ public class DeckListActivity extends AppCompatActivity {
             }
         });
 
-        spinnerDeckCategory = findViewById(R.id.spinner_deck_category);
 
+        //spinner
+        spinnerDeckCategory = findViewById(R.id.spinner_deck_category);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_decklist_option, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDeckCategory.setAdapter(adapter);

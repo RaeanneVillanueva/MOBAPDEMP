@@ -46,16 +46,36 @@
         android:padding="15dp"
         android:textSize="12dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
         <Button
             android:id="@+id/btn_login"
+            android:text="Login"
+            android:textSize="15dp"
+            android:textColor="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/button_shape"
+            android:fontFamily="@font/bungee" />
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@android:color/transparent"
             android:fontFamily="@font/bungee"
-            android:text="Login"
-            android:textSize="15dp"
-            android:textColor="@android:color/white" />
+            android:onClick="openSignUpDialog"
+            android:shadowColor="@android:color/transparent"
+            android:text="Sign Up"
+            android:textColor="#0E450D"
+            android:textSize="15dp" />
+    </LinearLayout>
 
 
     <Button
@@ -71,18 +91,5 @@
         android:paddingLeft="20dp"
         android:textSize="18dp" />
 
-
-    <Button
-        android:id="@+id/btn_signup"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:background="@android:color/transparent"
-        android:fontFamily="@font/bungee"
-        android:onClick="openSignUpDialog"
-        android:shadowColor="@android:color/transparent"
-        android:text="Sign Up"
-        android:textColor="#0E450D"
-        android:textSize="15dp" />
 
 </LinearLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -21,12 +22,18 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class StartActivity extends AppCompatActivity {
 
     private LeaderboardDialog leaderboardDialog;
+    private UserProfileDialog profileDialog;
     private EditText playerName;
-    private Button btnPlay, btn_signout;
+    private Button btnPlay, btn_signout, btnLogout;
     private DatabaseReference databaseSample;
+    private CircleImageView profileImg, viewProfileImg;
+    private TextView viewProfileName, viewProfileEmail;
+
 
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
@@ -76,10 +83,35 @@ public class StartActivity extends AppCompatActivity {
                     case R.id.btn_signout:
                         signOut();
                         break;
-
                 }
             }
         });
+
+        //view profile dialog, logout onclicklistener is here
+        profileImg = findViewById(R.id.profile_image);
+        profileImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(StartActivity.this);
+                View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
+                viewProfileName = dialogView.findViewById(R.id.view_profile_name);
+                viewProfileEmail = dialogView.findViewById(R.id.view_profile_email);
+                btnLogout = dialogView.findViewById(R.id.btn_logout);
+
+                btnLogout.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        //do logout stuff here
+                    }
+                });
+
+                alertBuilder.setView(dialogView);
+                AlertDialog dialog = alertBuilder.create();
+
+                dialog.show();
+            }
+        });
+
     }
 
     public void openLeaderboard(View view) {

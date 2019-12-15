@@ -18,8 +18,8 @@ public class DeckListAdapter extends ArrayAdapter<Deck> {
 
     Context context;
     ArrayList<Deck> deckList;
-    TextView deckName;
-    Button btnPlayDeck;
+    TextView deckName, creatorName;
+    //Button btnPlayDeck;
 
     public DeckListAdapter(Context context, ArrayList<Deck> deckList) {
         super(context, R.layout.item_deck, deckList);
@@ -43,8 +43,7 @@ public class DeckListAdapter extends ArrayAdapter<Deck> {
         }
 
         deckName = convertView.findViewById(R.id.etxt_deck_name);
-
-        btnPlayDeck = convertView.findViewById(R.id.btn_play_deck);
+        creatorName = convertView.findViewById(R.id.txt_creator_name);
 
         Deck deckItem = getItem(position);
         deckName.setText(deckItem.getName());
