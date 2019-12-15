@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class MyDeckActivity extends AppCompatActivity {
+public class DeckListActivity extends AppCompatActivity {
 
     private CreateCardDialog dialog;
     private EditText deckName;
@@ -41,7 +41,7 @@ public class MyDeckActivity extends AppCompatActivity {
         databaseSample = FirebaseDatabase.getInstance().getReference("customDecks");
 
         initializeDeckList();
-        deckListAdapter = new DeckListAdapter(MyDeckActivity.this, decks);
+        deckListAdapter = new DeckListAdapter(DeckListActivity.this, decks);
         deckListView.setAdapter(deckListAdapter);
 
         deckListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -88,7 +88,7 @@ public class MyDeckActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
+                Intent intent = new Intent(DeckListActivity.this, CustomDeckActivity.class);
                 intent.putExtra("Inputted Deck Name", deckName.getText().toString());
                 startActivity(intent);
                 finish();
@@ -122,7 +122,7 @@ public class MyDeckActivity extends AppCompatActivity {
 //        btnEdit.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
+//                Intent intent = new Intent(DeckListActivity.this, CustomDeckActivity.class);
 //                startActivity(intent);
 //                finish();
 //            }
