@@ -31,6 +31,7 @@
         android:onClick="startGame"
         android:text="New Game"
         android:textColor="@android:color/white"
+        android:textSize="13dp"
         />
 
     <Button
@@ -42,7 +43,8 @@
         android:fontFamily="@font/prstartk"
         android:onClick="createDeck"
         android:text="Custom Decks"
-        android:textColor="@android:color/white" />
+        android:textColor="@android:color/white"
+        android:textSize="13dp"/>
 
     <Button
         android:id="@+id/btn_leaderboard"
@@ -54,6 +56,7 @@
         android:onClick="openLeaderboard"
         android:text="Leaderboard"
         android:textColor="@android:color/white"
+        android:textSize="13dp"
          />
 
 </LinearLayout>

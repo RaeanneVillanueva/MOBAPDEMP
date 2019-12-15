@@ -35,7 +35,7 @@
 
         <Button
             android:id="@+id/btn_create"
-            android:layout_width="wrap_content"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/button_shape"
@@ -43,7 +43,8 @@
             android:text="Create Deck"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
-            android:onClick="createNewDeck"/>
+            android:onClick="createNewDeck"
+            android:textSize="13dp"/>
 
         <Button
             android:id="@+id/btn_close"
@@ -55,7 +56,8 @@
             android:text="Close"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
-            android:onClick="closeCreateDeck"/>
+            android:onClick="closeCreateDeck"
+            android:textSize="13dp"/>
     </LinearLayout>
 
 </LinearLayout>

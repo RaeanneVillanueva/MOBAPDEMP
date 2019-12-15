@@ -25,6 +25,7 @@ public class CustomDeckActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_deck);
         getSupportActionBar().hide();
+
         databaseCustomDecks = FirebaseDatabase.getInstance().getReference("customDecks");
 
         deckName = findViewById(R.id.txt_deck_name);
