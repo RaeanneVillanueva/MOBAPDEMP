@@ -9,14 +9,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserProfileDialog extends Dialog {
 
     private CircleImageView viewProfileImg;
-    private TextView name, email;
+    private TextView viewProfileName, viewProfileEmail;
     private Button logout;
 
     public UserProfileDialog(@NonNull Context context) {
@@ -27,9 +30,14 @@ public class UserProfileDialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        viewProfileImg = findViewById(R.id.view_profile_img);
-        name = findViewById(R.id.view_profile_name);
-        email = findViewById(R.id.view_profile_email);
+        viewProfileImg = (CircleImageView) findViewById(R.id.view_profile_image);
+        viewProfileName = findViewById(R.id.view_profile_name);
+        viewProfileEmail = findViewById(R.id.view_profile_email);
         logout = findViewById(R.id.btn_logout);
+
+
+
     }
+
+
 }

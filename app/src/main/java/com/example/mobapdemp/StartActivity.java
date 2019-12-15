@@ -7,11 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -51,6 +53,7 @@ public class StartActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -86,27 +89,50 @@ public class StartActivity extends AppCompatActivity {
         });
 
         //view profile dialog, logout onclicklistener is here
+
         profileImg = findViewById(R.id.profile_image);
+        Glide.with(this).load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg")).into(profileImg);
+        if(AppConstants.user.getPhoto() != null){
+            Glide.with(this).load(String.valueOf(AppConstants.user.getPhoto())).into(profileImg);
+        }
+
         profileImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder alertBuilder = new AlertDialog.Builder(StartActivity.this);
+
+                profileDialog = new UserProfileDialog(StartActivity.this);
+
                 View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
+
+                btnLogout = dialogView.findViewById(R.id.btn_logout);
+                viewProfileImg = dialogView.findViewById(R.id.view_profile_image);
                 viewProfileName = dialogView.findViewById(R.id.view_profile_name);
                 viewProfileEmail = dialogView.findViewById(R.id.view_profile_email);
-                btnLogout = dialogView.findViewById(R.id.btn_logout);
+
+
+                Glide.with(StartActivity.this)
+                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
+                        .into(viewProfileImg);
+                if(AppConstants.user.getPhoto() != null) {
+                    Glide.with(StartActivity.this)
+                            .load(String.valueOf(AppConstants.user.getPhoto()))
+                            .into(viewProfileImg);
+                }
+                viewProfileName.setText(AppConstants.user.getName());
+                viewProfileEmail.setText(AppConstants.user.getEmail());
+
+
+
+
 
                 btnLogout.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-                        //do logout stuff here
+                        signOut();
                     }
                 });
+                profileDialog.show();
 
-                alertBuilder.setView(dialogView);
-                AlertDialog dialog = alertBuilder.create();
-
-                dialog.show();
             }
         });
 
