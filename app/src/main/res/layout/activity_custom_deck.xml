@@ -19,11 +19,12 @@
 
 
     <ListView
+        android:id="@+id/card_list_view"
         android:layout_width="match_parent"
         android:layout_height="500dp"
-        android:dividerHeight="10sp"
+        android:layout_margin="10dp"
         android:divider="@android:color/transparent"
-        android:layout_margin="10dp"/>
+        android:dividerHeight="10sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -38,11 +39,12 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@fnt/prstartk"
             android:text="Add Card"
             android:textColor="@android:color/white"
             android:onClick="openAddCard"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="13dp"/>
 
         <Button
             android:id="@+id/btn_save"
@@ -55,7 +57,9 @@
             android:text="Save"
             android:textColor="@android:color/white"
             android:onClick="saveCustomDeck"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="13dp"/>
+
 
         <Button
             android:layout_width="wrap_content"
@@ -67,7 +71,8 @@
             android:onClick="closeCustomDeck"
             android:text="Close"
             android:textColor="@android:color/white"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:textSize="13dp"/>
 
     </LinearLayout>
 

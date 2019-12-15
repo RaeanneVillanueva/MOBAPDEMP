@@ -13,17 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CustomDeckActivity"></activity>
-        <activity android:name=".CreateCardDialog" />
-        <activity android:name=".MyDeckActivity" />
-        <activity android:name=".LeaderboardDialog" />
-        <activity android:name=".StartActivity">
+        <activity android:name=".SignUpDialog"></activity>
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".CustomDeckActivity" />
+        <activity android:name=".CreateCardDialog" />
+        <activity android:name=".MyDeckActivity" />
+        <activity android:name=".LeaderboardDialog" />
+        <activity android:name=".StartActivity"></activity>
         <activity android:name=".MainActivity" />
     </application>
 

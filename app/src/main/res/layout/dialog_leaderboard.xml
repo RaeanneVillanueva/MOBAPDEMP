@@ -35,6 +35,7 @@
         android:textColor="@android:color/white"
         android:layout_gravity="center"
         android:layout_margin="10dp"
-        android:text="Close"/>
+        android:text="Close"
+        android:textSize="13dp"/>
 
 </LinearLayout>
