@@ -39,7 +39,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@fnt/prstartk"
             android:text="Add Card"
             android:textColor="@android:color/white"
             android:onClick="openAddCard"

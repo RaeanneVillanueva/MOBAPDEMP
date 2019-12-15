@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".SignUpActivity"
+    android:gravity="center"
+    android:background="#f4f3d7"
+    >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/prstartk"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="Create an Account"
+        android:textColor="#0E450D"
+        android:textSize="15dp"
+        />
+
+    <EditText
+        android:id="@+id/etxt_username_signup"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edit_text"
+        android:ems="5"
+        android:fontFamily="@font/pokemon"
+        android:maxLength="10"
+        android:padding="15dp"
+        android:textSize="12dp"
+        android:hint="Username"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/etxt_password_signup"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edit_text"
+        android:ems="5"
+        android:fontFamily="@font/pokemon"
+        android:maxLength="10"
+        android:padding="15dp"
+        android:textSize="12dp"
+        android:hint="Password"/>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/prstartk"
+        android:text="Sign Up"
+        android:textColor="@android:color/white"
+        android:textSize="13dp"/>
+
+</LinearLayout>

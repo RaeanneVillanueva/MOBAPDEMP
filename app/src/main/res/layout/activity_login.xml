@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity"
+    android:gravity="center"
+    android:background="@drawable/bg3">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/prstartk"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Lasallian Simulator"
+        android:textColor="#0E450D"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_new" />
+
+    <EditText
+        android:id="@+id/etxt_username"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edit_text"
+        android:ems="5"
+        android:fontFamily="@font/pokemon"
+        android:maxLength="10"
+        android:padding="15dp"
+        android:textSize="12dp"
+        android:hint="Username"
+        android:layout_margin="5dp"/>
+
+    <EditText
+        android:id="@+id/etxt_password"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_edit_text"
+        android:ems="5"
+        android:fontFamily="@font/pokemon"
+        android:maxLength="10"
+        android:padding="15dp"
+        android:textSize="12dp"
+        android:hint="Password"/>
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/prstartk"
+            android:text="Login"
+            android:textSize="13dp"
+            android:textColor="@android:color/white"
+            android:onClick="login"/>
+
+    <Button
+        android:id="@+id/btn_google_signin"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:text="Sign in with Google"
+        android:background="@android:color/transparent"
+        android:textColor="#0E450D"
+        android:fontFamily="@font/prstartk"
+        android:layout_margin="5dp"
+        android:textSize="13dp"
+        />
+
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/prstartk"
+        android:text="Sign Up"
+        android:textColor= "#0E450D"
+        android:shadowColor="@android:color/transparent"
+        android:textSize="13dp"
+        android:onClick="openSignUpDialog"
+        />
+
+</LinearLayout>
