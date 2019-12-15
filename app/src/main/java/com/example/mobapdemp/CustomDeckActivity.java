@@ -45,4 +45,11 @@ public class CustomDeckActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void saveCustomDeck(View view){
+        DatabaseReference drUpdate = FirebaseDatabase.getInstance().getReference("customDecks").child(deck.getId());
+
+        drUpdate.setValue(deck);
+        finish();
+    }
 }

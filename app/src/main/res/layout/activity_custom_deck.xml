@@ -54,6 +54,7 @@
             android:fontFamily="@font/prstartk"
             android:text="Save"
             android:textColor="@android:color/white"
+            android:onClick="saveCustomDeck"
             android:layout_weight="1"/>
 
         <Button
