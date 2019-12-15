@@ -25,14 +25,15 @@
         android:id="@+id/etxt_username_signup"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
+        android:layout_margin="5dp"
         android:background="@drawable/custom_edit_text"
         android:ems="5"
         android:fontFamily="@font/pokemon"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
         android:maxLength="30"
         android:padding="15dp"
-        android:textSize="12dp"
-        android:hint="Email"
-        android:layout_margin="5dp"/>
+        android:textSize="12dp" />
 
     <EditText
         android:id="@+id/etxt_password_signup"
@@ -41,10 +42,11 @@
         android:background="@drawable/custom_edit_text"
         android:ems="5"
         android:fontFamily="@font/pokemon"
+        android:hint="Password"
+        android:inputType="textPassword"
         android:maxLength="30"
         android:padding="15dp"
-        android:textSize="12dp"
-        android:hint="Password"/>
+        android:textSize="12dp" />
 
     <Button
         android:id="@+id/btn_submit"
