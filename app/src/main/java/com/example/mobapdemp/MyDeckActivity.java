@@ -91,7 +91,6 @@ public class MyDeckActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
                 Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
                 intent.putExtra("Inputted Deck Name", deckName.getText().toString());
                 startActivity(intent);

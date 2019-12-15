@@ -2,11 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:background="@drawable/custom_edit_text">
+    android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/etxt_deck_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_weight="1"
@@ -16,15 +14,5 @@
         android:text="TextView"
         android:textColor="#0E450D"/>
 
-    <Button
-        android:id="@+id/btn_play_deck"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_shape"
-        android:fontFamily="@font/prstartk"
-        android:text="Play"
-        android:textColor="@android:color/white" />
 
 </LinearLayout>
