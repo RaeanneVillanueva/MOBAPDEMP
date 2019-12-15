@@ -31,62 +31,72 @@ public class Deck {
                     new Choice("Ok", new Consequence(-5, 0, 15, 0), "Welcome to DLSU"),
                     new Choice("Pfft. No", new Consequence(0, 0, -50, 0), "You failed 0/100...")));
 
-        scenarioCards.add(  new ScenarioCard(AppConstants.MOM, "Go home now! It's late already",
-                new Choice("Book a grab", new Consequence(10, 0, 0, -15)),
-                new Choice("LRT", new Consequence(-10, 0, 0, 0))));
-
         scenarioCards.add(  new ScenarioCard(AppConstants.DAD, "Here's your allowance, enjoy!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.JYLE, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.BEK, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.BOB, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.JEAN, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.JEANETTE, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.PROFESSOR1, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.PROFESSOR2, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
-
-        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
+                new Choice("Thanks!", new Consequence(0, 0, 0, 20), ""),
+                new Choice("No need, Dad!", new Consequence(0, 0, 0, 0), "")));
 
 
-        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Miss you, mumsh!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "Welcome to DLSU"),
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), "You failed 0/100...")));
+        scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Hi, I am from Shavier Academy! I like to weightlift in my free time!",
+                new Choice("Hi!", new Consequence(10, 0, 0, 0)),
+                new Choice("Hi!", new Consequence(-10, 0, 0, 0))));
 
-        scenarioCards.add(new ScenarioCard(AppConstants.LONELINESS, "You became very lonely that you don't have group mates.",
-                new Choice("", new Consequence(0,0,0,0), ""),
-                new Choice("", new Consequence(0,0,0,0), "")));
+        scenarioCards.add(  new ScenarioCard(AppConstants.JEAN, " Hi, I am from Dos High School! I know how to play drums!",
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), "")));
 
-        scenarioCards.add(new ScenarioCard(AppConstants.DRUGS, "You ended up being peer pressured to take drugs and got addicted to it.",
-                new Choice("", new Consequence(0,0,0,0), ""),
-                new Choice("", new Consequence(0,0,0,0), "")));
+        scenarioCards.add(  new ScenarioCard(AppConstants.BEK, "Hi, I am from Shanghai Shek College! I like to draw!",
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), "")));
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.BEK, "Hi, I am from Shanghai Shek College! I like to draw!",
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), "")));
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.JYLE, "Hi, I am from Atenew High School! Reading is my hobby.",
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
+                new Choice("Hi!", new Consequence(0, 0, 0, 0), "")));
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Hey frosh! Would like to join us for dinner? Your blockmates are coming too!",
+                new Choice("Sure!", new Consequence(0, 5, 0, -5), ""),
+                new Choice("I'm going home", new Consequence(0, -5, 0, 0), "")));
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Hey there! I am inviting you to our afterparty. Can you join us?",
+                new Choice("G!", new Consequence(0, 10, 0, -5), "You gained a lot of friends because of the party!"),
+                new Choice("Need to go home", new Consequence(0, -5, 0, 0), "You ended up forcefully going to the party. You did not enjoy it.")));
+
+        //ended up going to the party
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.MOM, "Go home now!",
+                new Choice("Book a Grab", new Consequence(0, 0, 0, -20), ""),
+                new Choice("LRT", new Consequence(-5, 0, 0, 0), "")));
+
+        //Recruitment Week
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Welcome to our annual recruitment week!",
+                new Choice("Wow!", new Consequence(0, 0, 0, 0), "Welcome to DLSU"),
+                new Choice("Nice", new Consequence(0, 0, 0, 0), "You failed 0/100...")));
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Join our organization and be a part of a committee! Your blockmates are joining too!",
+                new Choice("Sure!", new Consequence(0, 5, 0, -15), "Welcome to DLSU"),
+                new Choice("Not interested..", new Consequence(0, -3, 0, 0), "You failed 0/100...")));
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.JYLE, "They said it can help with our resume in the future. Come on, Join with me!",
+                new Choice("Nice!", new Consequence(0, 0, 3, 0), "Welcome to DLSU"),
+                new Choice("No thanks..", new Consequence(0, -2, -5, 0), "You failed 0/100...")));
+
+
+        scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Hey! We’re forming groups of five for the membership, would you like to join us?",
+                new Choice("Yes!", new Consequence(0, 10, 0, 10), "You gained more new friends and get to save money from membership fee!"),
+                new Choice("No thanks..", new Consequence(0, -5, 0, 20), "You ended up joining and paid the non-discounted membership fee.")));
+
+
+        scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Join our Junior Officership and gain leadership skills! Invite your friends to join too!",
+                new Choice("Yes!", new Consequence(0,3,3,0), ""),
+                new Choice("No.", new Consequence(0,-3,-2,0), "")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.DRUGS, "We’ll be having a graded recitation tomorrow. Please be ready and review the slides.",
+                new Choice("Okay :(", new Consequence(0,0,0,0), ""),
+                new Choice("Okay :(", new Consequence(0,0,0,0), "")));
 
         scenarioCards.add(new ScenarioCard(AppConstants.VOMIT, "You partied too hard and vomitted.",
                 new Choice("", new Consequence(0,0,0,0), ""),

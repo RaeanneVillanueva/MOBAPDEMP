@@ -50,7 +50,6 @@ public class StartActivity extends AppCompatActivity {
 
     public void openLeaderboard(View view) {
 
-
         leaderboardDialog = new LeaderboardDialog(this);
         leaderboardDialog.show();
 
