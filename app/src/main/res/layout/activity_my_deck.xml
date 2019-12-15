@@ -13,10 +13,10 @@
         android:id="@+id/label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"
         android:padding="20dp"
         android:text="All Decks"
-        android:textSize="20dp"
         android:textColor="#0E450D"/>
 
     <ListView
@@ -39,12 +39,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
+            android:textSize="15dp"
             android:text="Create Deck"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
-            android:onClick="createNewDeck"
-            android:textSize="13dp"/>
+            android:onClick="createNewDeck" />
 
         <Button
             android:id="@+id/btn_close"
@@ -52,12 +52,12 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
+            android:textSize="15dp"
             android:text="Close"
             android:layout_margin="5dp"
             android:textColor="@android:color/white"
-            android:onClick="closeCreateDeck"
-            android:textSize="13dp"/>
+            android:onClick="closeCreateDeck" />
     </LinearLayout>
 
 </LinearLayout>

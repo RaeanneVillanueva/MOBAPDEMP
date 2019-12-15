@@ -39,6 +39,7 @@ public class StartActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
+        getSupportActionBar().hide();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -48,7 +49,7 @@ public class StartActivity extends AppCompatActivity {
 
         btn_signout = findViewById(R.id.btn_signout);
 
-        getSupportActionBar().hide();
+
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             String personName = acct.getDisplayName();

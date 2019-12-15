@@ -49,7 +49,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
         if(card instanceof ScenarioCard) {
             ((ScenarioCardViewHolder)holder).charName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
-            ((ScenarioCardViewHolder)holder).txtScenario.setText(((ScenarioCard) card).getScenarioText());
+//            ((ScenarioCardViewHolder)holder).txtScenario.setText(((ScenarioCard) card).getScenarioText());
             ((ScenarioCardViewHolder)holder).choiceLeft.setText(((ScenarioCard) card).getChoiceLeft().getText());
             ((ScenarioCardViewHolder)holder).choiceRight.setText(((ScenarioCard) card).getChoiceRight().getText());
             Glide.with(context).load(((ScenarioCard) card).getCharacter().getImagePath()).into(((ScenarioCardViewHolder)holder).cardImage);
@@ -92,7 +92,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             cardImage = itemView.findViewById(R.id.cardImage);
             choiceLeft = itemView.findViewById(R.id.left_overlay);
             choiceRight = itemView.findViewById(R.id.right_overlay);
-            txtScenario = itemView.findViewById(R.id.txtScenario);
+//            txtScenario = itemView.findViewById(R.id.txtScenario);
         }
     }
 

@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackAdapter adapter;
     private CardStackLayoutManager manager;
     private Deck carddeck;
-    private TextView playerName, playerScore;
+    private TextView txtScenario, playerName, playerScore;
 
     private ImageView markHealth, markSocial, markGrades, markMoney;
 
@@ -71,6 +71,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         markSocial = findViewById(R.id.mark_social);
         markMoney = findViewById(R.id.mark_money);
         markGrades = findViewById(R.id.mark_grades);
+
+        //scenario text view
+        txtScenario = findViewById(R.id.txt_scenario);
     }
 
     @Override
@@ -145,6 +148,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         markSocial.setAlpha(0f);
         markMoney.setAlpha(0f);
         markGrades.setAlpha(0f);
+
+        Card card = carddeck.getQueue().get(position);
+        txtScenario.setText(((ScenarioCard)card).getScenarioText());
     }
 
     @Override

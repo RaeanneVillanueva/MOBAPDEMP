@@ -9,11 +9,12 @@
         android:id="@+id/etxt_deck_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="20dp"
         android:layout_margin="5dp"
-        android:fontFamily="@font/prstartk"
+        android:layout_weight="1"
+        android:fontFamily="@font/bungee"
+        android:padding="5dp"
         android:text="TextView"
-        android:textColor="#0E450D"/>
+        android:textColor="#0E450D"
+        android:textSize="15dp"/>
 
 </LinearLayout>

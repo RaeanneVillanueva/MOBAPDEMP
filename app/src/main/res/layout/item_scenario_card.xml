@@ -86,24 +86,23 @@
 
     </FrameLayout>
 
-    <LinearLayout
-        android:layout_width="390sp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape2"
-        android:orientation="vertical">
+<!--    <LinearLayout-->
+<!--        android:layout_width="390sp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@drawable/shape2"-->
+<!--        android:orientation="vertical">-->
 
-        <TextView
-            android:id="@+id/txtScenario"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/pokemon"
-            android:gravity="center"
-            android:justificationMode="inter_word"
-            android:lineSpacingExtra="5dp"
-            android:padding="10dp"
-            android:text="TextView"
-            android:textColor="#030303" />
-    </LinearLayout>
-
+<!--        <TextView-->
+<!--            android:id="@+id/txtScenario"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:fontFamily="@font/pokemon"-->
+<!--            android:gravity="center"-->
+<!--            android:justificationMode="inter_word"-->
+<!--            android:lineSpacingExtra="5dp"-->
+<!--            android:padding="10dp"-->
+<!--            android:text="TextView"-->
+<!--            android:textColor="#030303" />-->
+<!--    </LinearLayout>-->
 
 </LinearLayout>

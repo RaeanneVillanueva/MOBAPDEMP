@@ -14,7 +14,8 @@
         android:text="Player Name"
         android:padding="10dp"
         android:textColor="#0E450D"
-        android:fontFamily="@font/prstartk"/>
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"/>
 
     <EditText
         android:id="@+id/etxt_playername"
@@ -36,9 +37,9 @@
         android:text="Play!"
         android:background="@drawable/button_shape"
         android:textColor="@android:color/white"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="15dp"
         android:layout_margin="10dp"
-        android:textSize="13dp"
         />
 
 

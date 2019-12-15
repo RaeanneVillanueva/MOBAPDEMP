@@ -13,7 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choose a Character"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"
         android:padding="5dp"
         android:textColor="#0E450D"/>
 
@@ -30,7 +31,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choice Left"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"
         android:padding="5dp"
         android:textColor="#0E450D"/>
 
@@ -51,7 +53,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Choice Right"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"
         android:padding="5dp"
         android:textColor="#0E450D"/>
 
@@ -72,7 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Scenario"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"
         android:padding="5dp"
         android:textColor="#0E450D"/>
 
@@ -95,7 +99,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Status Affected"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
+        android:textSize="18dp"
         android:padding="5dp"
         android:textColor="#0E450D"/>
 
@@ -176,10 +181,10 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
+            android:textSize="18dp"
             android:text="Add"
-            android:textColor="@android:color/white"
-            android:textSize="13dp"/>
+            android:textColor="@android:color/white" />
 
         <Button
             android:id="@+id/btn_cancel"
@@ -188,10 +193,10 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
+            android:textSize="18dp"
             android:text="Cancel"
             android:textColor="@android:color/white"
-            android:textSize="13dp"
             />
 
     </LinearLayout>

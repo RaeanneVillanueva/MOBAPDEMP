@@ -14,11 +14,10 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
         android:gravity="center"
-        android:padding="10dp"
+        android:padding="15dp"
         android:text="Lasallian Simulator"
-        android:textColor="#0E450D"
-        android:textSize="25dp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_new" />
+        android:textColor="#71db77"
+        android:textSize="30dp" />
 
     <EditText
         android:id="@+id/etxt_username"
@@ -51,9 +50,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
             android:text="Login"
-            android:textSize="13dp"
+            android:textSize="15dp"
             android:textColor="@android:color/white"
             android:onClick="login"/>
 
@@ -66,7 +65,7 @@
         android:fontFamily="@font/bungee"
         android:text="Sign in with Google"
         android:textColor="#0E450D"
-        android:textSize="13dp" />
+        android:textSize="18dp" />
 
 
     <Button
@@ -80,6 +79,6 @@
         android:shadowColor="@android:color/transparent"
         android:text="Sign Up"
         android:textColor="#0E450D"
-        android:textSize="13dp" />
+        android:textSize="15dp" />
 
 </LinearLayout>

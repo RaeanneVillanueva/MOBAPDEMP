@@ -32,13 +32,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
             android:foregroundGravity="center"
             android:gravity="center"
-            android:padding="20dp"
+            android:padding="12dp"
             android:text="Lasallian Simulator"
-            android:textColor="#0E450D"
-            android:textSize="25dp" />
+            android:textColor="#71db77"
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/btn_new"
@@ -46,11 +46,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
             android:onClick="startGame"
             android:text="New Game"
             android:textColor="@android:color/white"
-            android:textSize="13dp" />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/btn_my_deck"
@@ -58,11 +58,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
             android:onClick="createDeck"
             android:text="Custom Decks"
             android:textColor="@android:color/white"
-            android:textSize="13dp" />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/btn_leaderboard"
@@ -70,11 +70,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
             android:onClick="openLeaderboard"
             android:text="Leaderboard"
             android:textColor="@android:color/white"
-            android:textSize="13dp" />
+            android:textSize="15dp" />
 
         <Button
             android:id="@+id/btn_signout"
@@ -82,11 +82,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
-            android:fontFamily="@font/prstartk"
+            android:fontFamily="@font/bungee"
             android:onClick="openLeaderboard"
             android:text="Sign Out"
             android:textColor="@android:color/white"
-            android:textSize="13dp" />
+            android:textSize="15dp" />
     </LinearLayout>
 
 </LinearLayout>
