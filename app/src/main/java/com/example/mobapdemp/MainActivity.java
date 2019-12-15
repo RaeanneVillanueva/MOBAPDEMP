@@ -26,7 +26,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackView cardStackView;
     private CardStackAdapter adapter;
     private CardStackLayoutManager manager;
-    private Deck carddeck;
     private TextView txtScenario, playerName, playerScore;
 
     private ImageView markHealth, markSocial, markGrades, markMoney;
@@ -40,7 +39,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         cardStackView = findViewById(R.id.card_stack_view);
 
 
-        adapter = new CardStackAdapter(carddeck, this);
+
+        adapter = new CardStackAdapter(AppConstants.deck, this);
         manager = new CardStackLayoutManager(this, this);
 
         //settings for the swipe features
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardDragging(Direction direction, float ratio) {
-        Card topcard = carddeck.getQueue().get(manager.getTopPosition());
+        Card topcard = AppConstants.deck.getQueue().get(manager.getTopPosition());
         ScenarioCard card = (ScenarioCard)topcard;
 
 
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
 
         if(direction.equals(Direction.Left)) {
-            Card card = carddeck.getCards().get(manager.getTopPosition()-1);
+            Card card = AppConstants.deck.getCards().get(manager.getTopPosition()-1);
 
             if(card instanceof ScenarioCard) {
                 int health = ((ScenarioCard)card).getChoiceRight().getConsequence().getHealth();
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         markMoney.setAlpha(0f);
         markGrades.setAlpha(0f);
 
-        Card card = carddeck.getQueue().get(position);
+        Card card = AppConstants.deck.getQueue().get(position);
         txtScenario.setText(((ScenarioCard)card).getScenarioText());
     }
 
