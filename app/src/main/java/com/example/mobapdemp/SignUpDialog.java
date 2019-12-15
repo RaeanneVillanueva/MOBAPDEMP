@@ -10,10 +10,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class SignUpDialog extends Dialog {
 
     private EditText usernameSignUp, passwordSignUp;
     private Button btnSubmit;
+    private FirebaseAuth mAuth;
 
     public SignUpDialog(@NonNull Context context) {
         super(context);
@@ -28,19 +32,27 @@ public class SignUpDialog extends Dialog {
         passwordSignUp = findViewById(R.id.etxt_password_signup);
         btnSubmit = findViewById(R.id.btn_submit);
 
+
+        mAuth = FirebaseAuth.getInstance();
+
+
         btnSubmit.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                //do db stuff here
-                //usernameSignUp.getText();
-                //passwordSignUp.getText();
 
                 Intent intent = new Intent(getContext(), StartActivity.class);
                 getContext().startActivity(intent);
                 dismiss();
             }
         });
+    }
+
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
     }
 }

@@ -101,7 +101,6 @@ public class StartActivity extends AppCompatActivity {
                 Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 intent.putExtra("Inputted Player Name", playerName.getText().toString());
                 startActivity(intent);
-                finish();
             }
         });
 
