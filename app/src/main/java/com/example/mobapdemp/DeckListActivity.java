@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +30,7 @@ public class DeckListActivity extends AppCompatActivity {
     private ArrayList<Deck> decks;
     private DeckListAdapter deckListAdapter;
     private ListView deckListView;
+    private Spinner spinnerDeckCategory;
 
 
     @Override
@@ -50,6 +53,23 @@ public class DeckListActivity extends AppCompatActivity {
                 Deck selectedDeck = decks.get(position);
 
                 //play the selected deck
+            }
+        });
+
+        spinnerDeckCategory = findViewById(R.id.spinner_deck_category);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_decklist_option, R.layout.item_spinner_deck_option);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerDeckCategory.setAdapter(adapter);
+        spinnerDeckCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
             }
         });
     }

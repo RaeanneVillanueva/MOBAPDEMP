@@ -19,10 +19,17 @@
         android:text="All Decks"
         android:textColor="#0E450D"/>
 
+    <Spinner
+        android:id="@+id/spinner_deck_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        />
+
     <ListView
         android:id="@+id/deck_list_view"
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="450dp"
         android:dividerHeight="10sp"
         android:divider="@android:color/transparent"
         android:layout_margin="10dp"/>
