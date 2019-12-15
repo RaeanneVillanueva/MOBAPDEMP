@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".LeaderboardDialog"
-    android:background="@drawable/bg3">
+    android:background="#f4f3d7">
 
     <TextView
         android:id="@+id/label"

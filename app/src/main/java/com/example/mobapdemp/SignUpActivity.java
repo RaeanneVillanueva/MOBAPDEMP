@@ -1,9 +1,7 @@
 package com.example.mobapdemp;
 
-import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,20 +11,17 @@ import android.widget.EditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class SignUpDialog extends Dialog {
+
+public class SignUpActivity extends AppCompatActivity {
 
     private EditText usernameSignUp, passwordSignUp;
     private Button btnSubmit;
     private FirebaseAuth mAuth;
 
-    public SignUpDialog(@NonNull Context context) {
-        super(context);
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.dialog_sign_up);
+        setContentView(R.layout.activity_sign_up);
 
         usernameSignUp = findViewById(R.id.etxt_username_signup);
         passwordSignUp = findViewById(R.id.etxt_password_signup);
@@ -42,9 +37,9 @@ public class SignUpDialog extends Dialog {
             public void onClick(View v) {
 
 
-                Intent intent = new Intent(getContext(), StartActivity.class);
-                getContext().startActivity(intent);
-                dismiss();
+                Intent intent = new Intent(SignUpActivity.this, StartActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
     }

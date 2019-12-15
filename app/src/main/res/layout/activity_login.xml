@@ -7,12 +7,12 @@
     android:orientation="vertical"
     tools:context=".LoginActivity"
     android:gravity="center"
-    android:background="@drawable/bg3">
+    android:background="#f4f3d7">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/prstartk"
+        android:fontFamily="@font/bungee"
         android:gravity="center"
         android:padding="10dp"
         android:text="Lasallian Simulator"
@@ -61,13 +61,12 @@
         android:id="@+id/btn_google_signin"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
-        android:text="Sign in with Google"
-        android:background="@android:color/transparent"
-        android:textColor="#0E450D"
-        android:fontFamily="@font/prstartk"
         android:layout_margin="5dp"
-        android:textSize="13dp"
-        />
+        android:background="@android:color/transparent"
+        android:fontFamily="@font/bungee"
+        android:text="Sign in with Google"
+        android:textColor="#0E450D"
+        android:textSize="13dp" />
 
 
     <Button
@@ -76,12 +75,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@android:color/transparent"
-        android:fontFamily="@font/prstartk"
-        android:text="Sign Up"
-        android:textColor= "#0E450D"
-        android:shadowColor="@android:color/transparent"
-        android:textSize="13dp"
+        android:fontFamily="@font/bungee"
         android:onClick="openSignUpDialog"
-        />
+        android:shadowColor="@android:color/transparent"
+        android:text="Sign Up"
+        android:textColor="#0E450D"
+        android:textSize="13dp" />
 
 </LinearLayout>
