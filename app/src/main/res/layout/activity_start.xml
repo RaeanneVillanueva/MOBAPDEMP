@@ -10,6 +10,7 @@
     tools:context="com.example.mobapdemp.StartActivity">
 
     <TextView
+        android:id="@+id/txt_username"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/prstartk"
@@ -19,7 +20,7 @@
         android:layout_margin="10dp"
         android:background="@drawable/custom_edit_text"
         android:textColor="#0E450D"
-        android:textSize="25dp"
+        android:textSize="18dp"
          />
 
     <Button
