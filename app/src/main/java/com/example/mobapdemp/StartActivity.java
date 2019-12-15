@@ -102,6 +102,7 @@ public class StartActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                AppConstants.initStandardDeck();
                 Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 intent.putExtra("Inputted Player Name", playerName.getText().toString());
                 startActivity(intent);

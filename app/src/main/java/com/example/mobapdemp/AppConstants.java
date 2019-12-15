@@ -24,11 +24,7 @@ public class AppConstants {
                             LONELINESS = new Character("", R.drawable.loneliness);
 
 
-    public void init(){
-        player = new Player();
-    }
-
-    public void initStandardDeck(){
+    public static void initStandardDeck(){
         deck = new Deck();
         deck.initializeStandardDeck();
         deck.enQueueCards();
