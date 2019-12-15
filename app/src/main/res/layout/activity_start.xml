@@ -67,7 +67,6 @@
         android:layout_margin="5dp"
         android:background="@drawable/button_shape"
         android:fontFamily="@font/prstartk"
-        android:onClick="openLeaderboard"
         android:text="Sign Out"
         android:textColor="@android:color/white"
         android:textSize="13dp"

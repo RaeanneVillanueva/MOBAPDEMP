@@ -34,6 +34,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         getSupportActionBar().hide();
 
+        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
+        if(account != null) {
+            Intent intent = new Intent(this, StartActivity.class);
+            startActivity(intent);
+        }
+
         btnLogin = findViewById(R.id.btn_login);
         btnGoogleSignIn = findViewById(R.id.btn_google_signin);
 
@@ -58,11 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        if(account != null) {
-            Intent intent = new Intent(this, StartActivity.class);
-            startActivity(intent);
-        }
+
     }
 
     public void login(View view) {
@@ -101,7 +103,8 @@ public class LoginActivity extends AppCompatActivity {
         try {
             GoogleSignInAccount account = completedTask.getResult(ApiException.class);
 
-            // Signed in successfully, show authenticated UI.
+            Intent intent = new Intent(this, StartActivity.class);
+            startActivity(intent);
 
         } catch (ApiException e) {
             // The ApiException status code indicates the detailed failure reason.
