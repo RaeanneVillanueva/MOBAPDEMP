@@ -36,30 +36,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void openSignUpDialog(View view) {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_sign_up, null);
-        dialogBuilder.setView(dialogView);
-
-        EditText usernameSignUp = dialogView.findViewById(R.id.etxt_username_signup);
-        EditText passwordSignUp = dialogView.findViewById(R.id.etxt_password_signup);
-        Button submit = dialogView.findViewById(R.id.btn_submit);
-
-        //use this to get the inputted username and password
-        //usernameSignUp.getText();
-        //passwordSignUp.getText();
-
-        submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, StartActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-
-        AlertDialog signupDialog = dialogBuilder.create();
-        signupDialog.show();
+        SignUpDialog signUpDialog = new SignUpDialog(this);
+        signUpDialog.show();
     }
 }
