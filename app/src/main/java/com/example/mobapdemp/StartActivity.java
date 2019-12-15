@@ -69,10 +69,11 @@ public class StartActivity extends AppCompatActivity {
         }else if(currentUser != null){
             personName = currentUser.getDisplayName();
             personEmail = currentUser.getEmail();
-            personPhoto = currentUser.getPhotoUrl();
             personId = currentUser.getUid();
+            personPhoto = currentUser.getPhotoUrl();
         }
 
+        AppConstants.user = new User(personId, personName, personEmail, personPhoto);
 
 
         btn_signout.setOnClickListener(new View.OnClickListener() {
@@ -127,6 +128,7 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void signOut() {
+        AppConstants.user = null;
         FirebaseAuth.getInstance().signOut();
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
