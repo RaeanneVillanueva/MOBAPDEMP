@@ -17,12 +17,13 @@
         android:textSize="18dp"
         android:textColor="#0E450D"/>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/custom_cards"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
 
-    </androidx.recyclerview.widget.RecyclerView>
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:dividerHeight="10sp"
+        android:divider="@android:color/transparent"
+        android:layout_margin="10dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -40,7 +41,8 @@
             android:fontFamily="@font/prstartk"
             android:text="Add Card"
             android:textColor="@android:color/white"
-            android:onClick="openAddCard"/>
+            android:onClick="openAddCard"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/btn_save"
@@ -50,9 +52,22 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/prstartk"
-            android:onClick="closeCustomDeck"
             android:text="Save"
-            android:textColor="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:layout_weight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/prstartk"
+            android:onClick="closeCustomDeck"
+            android:text="Close"
+            android:textColor="@android:color/white"
+            android:layout_weight="1"/>
+
     </LinearLayout>
 
 </LinearLayout>
