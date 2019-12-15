@@ -2,7 +2,6 @@ package com.example.mobapdemp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -55,7 +54,7 @@ public class CustomDeckActivity extends AppCompatActivity {
     }
 
     public void closeCustomDeck(View view) {
-        Intent intent = new Intent(this, MyDeckActivity.class);
+        Intent intent = new Intent(this, DeckListActivity.class);
         startActivity(intent);
         finish();
     }

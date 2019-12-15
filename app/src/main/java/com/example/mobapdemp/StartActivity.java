@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -18,14 +17,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class StartActivity extends AppCompatActivity {
 
@@ -33,13 +27,21 @@ public class StartActivity extends AppCompatActivity {
     private EditText playerName;
     private Button btnPlay, btn_signout;
     private DatabaseReference databaseSample;
+
     private GoogleSignInClient mGoogleSignInClient;
+    private FirebaseAuth mAuth;
+
+
+    private String personName, personGivenName, personFamilyName, personEmail, personId;
+    private Uri personPhoto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start);
         getSupportActionBar().hide();
+
+        mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -51,15 +53,21 @@ public class StartActivity extends AppCompatActivity {
 
 
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        FirebaseUser currentUser = mAuth.getCurrentUser();
         if (acct != null) {
-            String personName = acct.getDisplayName();
-            String personGivenName = acct.getGivenName();
-            String personFamilyName = acct.getFamilyName();
-            String personEmail = acct.getEmail();
-            String personId = acct.getId();
-            Uri personPhoto = acct.getPhotoUrl();
-            //set name and pic here
+            personName = acct.getDisplayName();
+            personEmail = acct.getEmail();
+            personId = acct.getId();
+            personPhoto = acct.getPhotoUrl();
+        }else if(currentUser != null){
+            personName = currentUser.getDisplayName();
+            personEmail = currentUser.getEmail();
+            personId = currentUser.getUid();
+            personPhoto = currentUser.getPhotoUrl();
         }
+
+        AppConstants.user = new User(personId, personName, personEmail, personPhoto);
+
 
         btn_signout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +76,7 @@ public class StartActivity extends AppCompatActivity {
                     case R.id.btn_signout:
                         signOut();
                         break;
+
                 }
             }
         });
@@ -86,7 +95,7 @@ public class StartActivity extends AppCompatActivity {
 //        String id = databaseSample.push().getKey();
 //        databaseSample.child(id).setValue(lm);
 
-        Intent intent = new Intent(this, MyDeckActivity.class);
+        Intent intent = new Intent(this, DeckListActivity.class);
         startActivity(intent);
         finish();
     }
@@ -112,10 +121,14 @@ public class StartActivity extends AppCompatActivity {
     }
 
     private void signOut() {
+        AppConstants.user = null;
+        FirebaseAuth.getInstance().signOut();
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
+                        Intent intent = new Intent(StartActivity.this, LoginActivity.class);
+                        startActivity(intent);
                         finish();
                     }
                 });

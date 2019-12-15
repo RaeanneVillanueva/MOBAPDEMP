@@ -2,6 +2,7 @@ package com.example.mobapdemp;
 
 public class AppConstants {
     Player player;
+    public static User user;
     final static Character  MOM = new Character("Mom", R.drawable.mom),
                             DAD = new Character("Dad", R.drawable.dad),
                             JYLE = new Character("Jyle", R.drawable.jyle),
