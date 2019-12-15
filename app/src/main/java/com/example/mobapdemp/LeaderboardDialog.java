@@ -17,6 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 public class LeaderboardDialog extends Dialog {
 
@@ -67,6 +68,11 @@ public class LeaderboardDialog extends Dialog {
                 }
 
                 Collections.sort(leaderboardData);
+                int size = 10;
+
+                int k = leaderboardData.size();
+                if ( k > size )
+                    leaderboardData.subList(10, k).clear();
 
                 leaderboardAdapter.notifyDataSetChanged();
 

@@ -1,8 +1,9 @@
 package com.example.mobapdemp;
 
 public class AppConstants {
-    Player player;
+    public static Player player;
     public static User user;
+    public static Deck deck;
     final static Character  MOM = new Character("Mom", R.drawable.mom),
                             DAD = new Character("Dad", R.drawable.dad),
                             JYLE = new Character("Jyle", R.drawable.jyle),
@@ -25,5 +26,11 @@ public class AppConstants {
 
     public void init(){
         player = new Player();
+    }
+
+    public void initStandardDeck(){
+        deck = new Deck();
+        deck.initializeStandardDeck();
+        deck.enQueueCards();
     }
 }

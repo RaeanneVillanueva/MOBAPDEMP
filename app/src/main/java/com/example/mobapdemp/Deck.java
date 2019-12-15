@@ -9,6 +9,12 @@ public class Deck {
     private ArrayList<Card> queue;
     private ArrayList<ScenarioCard> scenarioCards;
     private String name;
+    private String owner;
+
+    public Deck(String id, String name, String owner){
+        this(id, name);
+        this.owner = owner;
+    }
 
     public Deck(String id, String name){
         this(name);
@@ -116,8 +122,6 @@ public class Deck {
         queue.addAll(scenarioCards);
     }
 
-
-
     public ArrayList<ScenarioCard> getCards() {
         return scenarioCards;
     }
@@ -157,5 +161,14 @@ public class Deck {
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
+
 
 }
