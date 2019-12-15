@@ -35,6 +35,10 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
+    public void googleLogin(View view) {
+        //do google sign in here
+    }
+
     public void openSignUpDialog(View view) {
         SignUpDialog signUpDialog = new SignUpDialog(this);
         signUpDialog.show();

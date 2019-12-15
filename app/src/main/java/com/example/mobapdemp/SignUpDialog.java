@@ -29,8 +29,14 @@ public class SignUpDialog extends Dialog {
         btnSubmit = findViewById(R.id.btn_submit);
 
         btnSubmit.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
+                //do db stuff here
+                //usernameSignUp.getText();
+                //passwordSignUp.getText();
+
                 Intent intent = new Intent(getContext(), StartActivity.class);
                 getContext().startActivity(intent);
                 dismiss();
