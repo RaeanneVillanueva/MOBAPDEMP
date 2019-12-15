@@ -14,10 +14,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/bungee"
-        android:textSize="18dp"
         android:padding="20dp"
-        android:text="All Decks"
-        android:textColor="#0E450D"/>
+        android:text="Custom Decks"
+        android:textColor="#0E450D"
+        android:textSize="18dp" />
 
     <Spinner
         android:id="@+id/spinner_deck_category"

@@ -74,7 +74,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     @Override
     public int getItemCount() {
-        return deck.getCards().size();
+        return deck.getQueue().size();
     }
 
     public class ScenarioCardViewHolder extends RecyclerView.ViewHolder {

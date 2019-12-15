@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         cardStackView = findViewById(R.id.card_stack_view);
 
 
-
         adapter = new CardStackAdapter(carddeck, this);
         manager = new CardStackLayoutManager(this, this);
 
