@@ -52,7 +52,7 @@ public class MyDeckActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Deck selectedDeck = decks.get(position);
 
-                showEditDeckDialog(selectedDeck.getName());
+                //play the selected deck
             }
         });
     }
@@ -110,29 +110,29 @@ public class MyDeckActivity extends AppCompatActivity {
         finish();
     }
 
-    public void showEditDeckDialog(String deckName) {
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        View dialogView = inflater.inflate(R.layout.dialog_edit_deck, null);
-        dialogBuilder.setView(dialogView);
-
-        TextView name = dialogView.findViewById(R.id.etxt_new_deck_name);
-        Button btnEdit = dialogView.findViewById(R.id.btn_edit);
-        Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
-
-        name.setHint(deckName);
-
-        btnEdit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        AlertDialog editDeck = dialogBuilder.create();
-        editDeck.show();
-    }
+//    public void showEditDeckDialog(String deckName) {
+//        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+//        LayoutInflater inflater = getLayoutInflater();
+//        View dialogView = inflater.inflate(R.layout.dialog_edit_deck, null);
+//        dialogBuilder.setView(dialogView);
+//
+//        TextView name = dialogView.findViewById(R.id.etxt_new_deck_name);
+//        Button btnEdit = dialogView.findViewById(R.id.btn_edit);
+//        Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
+//
+//        name.setHint(deckName);
+//
+//        btnEdit.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(MyDeckActivity.this, CustomDeckActivity.class);
+//                startActivity(intent);
+//                finish();
+//            }
+//        });
+//
+//        AlertDialog editDeck = dialogBuilder.create();
+//        editDeck.show();
+//    }
 
 }

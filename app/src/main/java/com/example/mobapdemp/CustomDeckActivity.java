@@ -6,6 +6,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.database.DatabaseReference;
@@ -17,6 +19,7 @@ public class CustomDeckActivity extends AppCompatActivity {
     private TextView deckName;
     private DatabaseReference databaseCustomDecks;
     private Deck deck;
+    private ListView cardListView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +36,16 @@ public class CustomDeckActivity extends AppCompatActivity {
         String id = databaseCustomDecks.push().getKey();
         deck = new Deck(id, inputDeckName);
         databaseCustomDecks.child(id).setValue(deck);
+
+        //listener for each item card
+        cardListView = findViewById(R.id.card_list_view);
+        cardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //edit the card here..
+            }
+        });
+
     }
 
     public void openAddCard(View view) {

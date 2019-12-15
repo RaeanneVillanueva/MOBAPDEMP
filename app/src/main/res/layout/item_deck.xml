@@ -16,15 +16,4 @@
         android:text="TextView"
         android:textColor="#0E450D"/>
 
-    <Button
-        android:id="@+id/btn_play_deck"
-        android:layout_width="1dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:layout_weight="1"
-        android:background="@drawable/button_shape"
-        android:fontFamily="@font/prstartk"
-        android:text="Play"
-        android:textColor="@android:color/white" />
-
 </LinearLayout>

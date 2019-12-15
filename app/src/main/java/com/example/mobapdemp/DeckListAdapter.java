@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 
-public class DeckListAdapter extends ArrayAdapter<Deck> implements View.OnClickListener {
+public class DeckListAdapter extends ArrayAdapter<Deck> {
 
     Context context;
     ArrayList<Deck> deckList;
@@ -50,10 +50,5 @@ public class DeckListAdapter extends ArrayAdapter<Deck> implements View.OnClickL
         deckName.setText(deckItem.getName());
 
         return convertView;
-    }
-
-    @Override
-    public void onClick(View v) {
-        
     }
 }
