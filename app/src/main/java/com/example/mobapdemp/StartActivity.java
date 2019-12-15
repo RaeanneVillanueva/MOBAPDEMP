@@ -49,9 +49,6 @@ public class StartActivity extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        btn_signout = findViewById(R.id.btn_signout);
-
-
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if (acct != null) {
@@ -68,6 +65,7 @@ public class StartActivity extends AppCompatActivity {
 
         AppConstants.user = new User(personId, personName, personEmail, personPhoto);
 
+        btn_signout = findViewById(R.id.btn_signout);
 
         btn_signout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,7 +74,6 @@ public class StartActivity extends AppCompatActivity {
                     case R.id.btn_signout:
                         signOut();
                         break;
-
                 }
             }
         });
@@ -128,4 +125,6 @@ public class StartActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 }

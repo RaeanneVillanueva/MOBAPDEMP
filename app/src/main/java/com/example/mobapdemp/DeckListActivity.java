@@ -1,5 +1,6 @@
 package com.example.mobapdemp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +32,7 @@ public class DeckListActivity extends AppCompatActivity {
     private DeckListAdapter deckListAdapter;
     private ListView deckListView;
     private Spinner spinnerDeckCategory;
-
+    private String choice = "All Decks";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,7 +65,29 @@ public class DeckListActivity extends AppCompatActivity {
         spinnerDeckCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                choice = spinnerDeckCategory.getSelectedItem().toString();
+                databaseSample.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        decks.clear();
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            Deck deck = postSnapshot.getValue(Deck.class);
+                            if(choice.equalsIgnoreCase("My Custom Deck")) {
+                                if(deck.getOwner().getId().equalsIgnoreCase(AppConstants.user.getId())) {
+                                    decks.add(deck);
+                                }
+                            }else{
+                                decks.add(deck);
+                            }
+                        }
+                        deckListAdapter.notifyDataSetChanged();
+                    }
 
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
@@ -83,10 +106,14 @@ public class DeckListActivity extends AppCompatActivity {
                 decks.clear();
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     Deck deck = postSnapshot.getValue(Deck.class);
-                    decks.add(deck);
+                    if(choice.equalsIgnoreCase("My Custom Deck")) {
+                        if(deck.getOwner().getId().equalsIgnoreCase(AppConstants.user.getId())) {
+                            decks.add(deck);
+                        }
+                    }else{
+                        decks.add(deck);
+                    }
                 }
-                deckListAdapter.notifyDataSetChanged();
-
                 deckListAdapter.notifyDataSetChanged();
             }
 

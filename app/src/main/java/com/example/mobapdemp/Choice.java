@@ -11,7 +11,7 @@ public class Choice {
     }
 
     public Choice(){
-
+        this.narration = null;
     }
 
     public Choice(String text, Consequence consequence){
