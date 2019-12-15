@@ -87,7 +87,6 @@
             android:text="Sign Out"
             android:textColor="@android:color/white"
             android:textSize="13dp" />
-
     </LinearLayout>
 
 </LinearLayout>

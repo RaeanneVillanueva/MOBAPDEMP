@@ -20,9 +20,9 @@ import java.util.Collections;
 
 public class LeaderboardDialog extends Dialog {
 
-    ArrayList<LeaderboardModel> leaderboardData;
+    private ArrayList<LeaderboardModel> leaderboardData;
     Button btnClose;
-    ListView leaderboardListView;
+    private ListView leaderboardListView;
     LeaderboardAdapter leaderboardAdapter;
     private DatabaseReference dataLeaderBoard;
 
