@@ -58,7 +58,7 @@ public class DeckListActivity extends AppCompatActivity {
 
         spinnerDeckCategory = findViewById(R.id.spinner_deck_category);
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_decklist_option, R.layout.item_spinner_deck_option);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.spinner_decklist_option, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerDeckCategory.setAdapter(adapter);
         spinnerDeckCategory.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
