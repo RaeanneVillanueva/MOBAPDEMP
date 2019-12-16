@@ -44,19 +44,11 @@ public class UserProfileDialog extends Dialog {
         viewProfileEmail = findViewById(R.id.view_profile_email_dialog);
         logout = findViewById(R.id.btn_logout_dialog);
 
-        Glide.with(getContext())
-                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
-                        .into(viewProfileImg);
-                if(AppConstants.user.getPhoto() != null) {
-                    Glide.with(getContext())
-                            .load(String.valueOf(AppConstants.user.getPhoto()))
-                            .into(viewProfileImg);
-                }
-                viewProfileName.setText(AppConstants.user.getName());
-                viewProfileEmail.setText(AppConstants.user.getEmail());
+
 
 
     }
+
 
 
 

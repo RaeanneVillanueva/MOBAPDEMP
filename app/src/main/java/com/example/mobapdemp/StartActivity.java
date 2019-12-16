@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -33,9 +34,8 @@ public class StartActivity extends AppCompatActivity {
     private EditText playerName;
     private Button btnPlay, btn_signout, btnLogout;
     private DatabaseReference databaseSample;
-    private CircleImageView profileImg, viewProfileImg;
-    private TextView viewProfileName, viewProfileEmail;
-
+    private CircleImageView profileImg;
+    private AlertDialog dialogUserProfile;
 
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
@@ -43,6 +43,9 @@ public class StartActivity extends AppCompatActivity {
 
     private String personName, personGivenName, personFamilyName, personEmail, personId;
     private Uri personPhoto;
+
+    public StartActivity() {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,21 +55,22 @@ public class StartActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-
-        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//                .requestIdToken(getString(R.string.default_web_client_id))
+//                .requestEmail()
+//                .build();
+//
+//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+//
+//        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (acct != null) {
-            personName = acct.getDisplayName();
-            personEmail = acct.getEmail();
-            personId = acct.getId();
-            personPhoto = acct.getPhotoUrl();
-        }else if(currentUser != null){
+//        if (acct != null) {
+//            personName = acct.getDisplayName();
+//            personEmail = acct.getEmail();
+//            personId = acct.getId();
+//            personPhoto = acct.getPhotoUrl();
+//        }else
+        if(currentUser != null){
             personName = currentUser.getDisplayName();
             personEmail = currentUser.getEmail();
             personId = currentUser.getUid();
@@ -77,16 +81,16 @@ public class StartActivity extends AppCompatActivity {
 
         btn_signout = findViewById(R.id.btn_signout);
 
-        btn_signout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switch (v.getId()) {
-                    case R.id.btn_signout:
-                        signOut();
-                        break;
-                }
-            }
-        });
+//        btn_signout.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                switch (v.getId()) {
+//                    case R.id.btn_signout:
+//                        signOut();
+//                        break;
+//                }
+//            }
+//        });
 
         //view profile dialog, logout onclicklistener is here
 
@@ -104,10 +108,10 @@ public class StartActivity extends AppCompatActivity {
 //
 //                View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
 //
-//                btnLogout = dialogView.findViewById(R.id.btn_logout);
-//                viewProfileImg = dialogView.findViewById(R.id.view_profile_image);
-//                viewProfileName = dialogView.findViewById(R.id.view_profile_name);
-//                viewProfileEmail = dialogView.findViewById(R.id.view_profile_email);
+//                btnLogout = dialogView.findViewById(R.id.btn_logout_dialog);
+//                viewProfileImg = dialogView.findViewById(R.id.view_profile_image_dialog);
+//                viewProfileName = dialogView.findViewById(R.id.view_profile_name_dialog);
+//                viewProfileEmail = dialogView.findViewById(R.id.view_profile_email_dialog);
 //
 //
 //                Glide.with(StartActivity.this)
@@ -137,10 +141,44 @@ public class StartActivity extends AppCompatActivity {
 
     }
 
+
+
+
     public void openUserDialog(View view){
-        profileDialog = new UserProfileDialog(this);
-        profileDialog.show();
+        AlertDialog.Builder alertBuilder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
+        TextView viewProfileName = dialogView.findViewById(R.id.view_profile_name_dialog);
+        TextView viewProfileEmail = dialogView.findViewById(R.id.view_profile_email_dialog);
+        CircleImageView viewProfileImage = dialogView.findViewById(R.id.view_profile_image_dialog);
+        btnLogout = dialogView.findViewById(R.id.btn_logout_dialog);
+
+        viewProfileName.setText(AppConstants.user.getName());
+        viewProfileEmail.setText(AppConstants.user.getEmail());
+        Glide.with(this)
+                .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
+                .into(viewProfileImage);
+        if(AppConstants.user.getPhoto() != null) {
+            Glide.with(this)
+                    .load(String.valueOf(AppConstants.user.getPhoto()))
+                    .into(viewProfileImage);
+        }
+
+        btnLogout.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                dialogUserProfile.dismiss();
+                signOut();
+            }
+        });
+
+        alertBuilder.setView(dialogView);
+        dialogUserProfile = alertBuilder.create();
+        dialogUserProfile.show();
+
+//        profileDialog = new UserProfileDialog(this);
+//        profileDialog.show();
     }
+
 
 
     public void openLeaderboard(View view) {
