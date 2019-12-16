@@ -156,18 +156,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         if(card instanceof ScenarioCard) {
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
-
-                narrationCard = ScenarioCard.getLeftNarration(card);
-                if(narrationCard!=null){
-                    //add narration card if any
-
-                }
-            }
-        }else{
-            if(card instanceof ScenarioCard) {
                 narrationCard = ScenarioCard.getLeftNarration(card);
             }else {
-
                 AppConstants.player.change(ScenarioCard.getRightConsequence(card));
                 narrationCard = ScenarioCard.getRightNarration(card);
             }
