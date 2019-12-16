@@ -11,7 +11,7 @@
     <FrameLayout
         android:id="@+id/card"
         android:layout_width="390sp"
-        android:layout_height="420sp"
+        android:layout_height="400sp"
         android:layout_gravity="center"
         android:background="@drawable/scenariobg"
         android:foregroundGravity="center">
@@ -40,24 +40,16 @@
 
             </FrameLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top|center_horizontal"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/characterName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/prstartk"
-                    android:gravity="center"
-                    android:padding="5dp"
-                    android:text="Name"
-                    android:textColor="@android:color/black"
-                    android:textSize="20dp" />
-
-            </LinearLayout>
+<!--            <TextView-->
+<!--                android:id="@+id/characterName"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/bungee"-->
+<!--                android:gravity="center"-->
+<!--                android:padding="5dp"-->
+<!--                android:text="Name"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:textSize="15dp" />-->
 
         </LinearLayout>
 

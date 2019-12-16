@@ -48,7 +48,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         Card card = deck.getQueue().get(position);
 
         if(card instanceof ScenarioCard) {
-            ((ScenarioCardViewHolder)holder).charName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
+//            ((ScenarioCardViewHolder)holder).charName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
 //            ((ScenarioCardViewHolder)holder).txtScenario.setText(((ScenarioCard) card).getScenarioText());
             ((ScenarioCardViewHolder)holder).choiceLeft.setText(((ScenarioCard) card).getChoiceLeft().getText());
             ((ScenarioCardViewHolder)holder).choiceRight.setText(((ScenarioCard) card).getChoiceRight().getText());
@@ -88,7 +88,7 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         public ScenarioCardViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            charName = itemView.findViewById(R.id.characterName);
+//            charName = itemView.findViewById(R.id.characterName);
             cardImage = itemView.findViewById(R.id.cardImage);
             choiceLeft = itemView.findViewById(R.id.left_overlay);
             choiceRight = itemView.findViewById(R.id.right_overlay);

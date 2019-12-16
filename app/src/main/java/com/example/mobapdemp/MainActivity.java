@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackView cardStackView;
     private CardStackAdapter adapter;
     private CardStackLayoutManager manager;
-    private TextView txtScenario, playerName, playerScore;
+    private TextView txtScenario, txtCharacterName, playerName, playerScore;
 
     private ImageView markHealth, markSocial, markGrades, markMoney;
 
@@ -45,7 +45,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         //settings for the swipe features
         manager.setVisibleCount(1);
         manager.setOverlayInterpolator(new OvershootInterpolator());
-        manager.setMaxDegree(50);
+        manager.setMaxDegree(30);
         manager.setCanScrollVertical(false);
         manager.setSwipeableMethod(SwipeableMethod.Manual);
 
@@ -68,8 +68,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         markMoney = findViewById(R.id.mark_money);
         markGrades = findViewById(R.id.mark_grades);
 
-        //scenario text view
+        //scenario and character text view
         txtScenario = findViewById(R.id.txt_scenario);
+        txtCharacterName = findViewById(R.id.txt_character_name);
     }
 
     @Override
@@ -147,6 +148,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         Card card = AppConstants.deck.getQueue().get(position);
         txtScenario.setText(((ScenarioCard)card).getScenarioText());
+        txtCharacterName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
     }
 
     @Override
