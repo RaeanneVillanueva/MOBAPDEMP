@@ -56,7 +56,7 @@ public class DeckListActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Deck selectedDeck = decks.get(position);
 
-                showEditDeckDialog(selectedDeck.getName());
+                showEditDeckDialog(selectedDeck);
             }
         });
 
@@ -158,7 +158,7 @@ public class DeckListActivity extends AppCompatActivity {
         finish();
     }
 
-    public void showEditDeckDialog(String deckName) {
+    public void showEditDeckDialog(Deck deckName) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_edit_deck, null);
@@ -169,7 +169,7 @@ public class DeckListActivity extends AppCompatActivity {
         Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
         Button btnDelete = dialogView.findViewById(R.id.btn_delete_deck);
 
-        name.setText(deckName);
+        name.setText(deckName.getName());
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
