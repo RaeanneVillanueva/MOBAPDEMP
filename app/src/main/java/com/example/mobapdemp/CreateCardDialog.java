@@ -12,6 +12,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.ArrayList;
 
 public class CreateCardDialog extends Dialog{
@@ -27,6 +30,8 @@ public class CreateCardDialog extends Dialog{
     private EditText etxt_choice_left, etxt_choice_right, etxt_scenario, etxt_social, etxt_grades, etxt_money, etxt_health;
     private ScenarioCard card;
 
+    private DatabaseReference dbRef;
+
     public CreateCardDialog(@NonNull Context context, Deck deck) {
         super(context);
         this.deck = deck;
@@ -36,6 +41,8 @@ public class CreateCardDialog extends Dialog{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_create_card);
+
+        dbRef = FirebaseDatabase.getInstance().getReference("card").child(deck.getId());
 
         card = new ScenarioCard();
 
@@ -90,8 +97,8 @@ public class CreateCardDialog extends Dialog{
                 card.setChoiceLeft(new Choice(etxt_choice_left.getText().toString(), new Consequence(health,social,grades,money)));
                 card.setChoiceRight(new Choice(etxt_choice_right.getText().toString(), new Consequence(health,social,grades,money)));
 
-                deck.getScenarioCards().add(card);
-
+                String id = dbRef.push().getKey();
+                dbRef.child(id).setValue(card);
                 Toast.makeText(getContext(), "Card added", Toast.LENGTH_LONG).show();
                 dismiss();
             }
