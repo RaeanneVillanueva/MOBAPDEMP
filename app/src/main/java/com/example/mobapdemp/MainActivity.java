@@ -151,11 +151,13 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
         Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
 
-        if(direction.equals(Direction.Left)) {
+        NarrationCard narrationCard = null;
 
-            if(card instanceof ScenarioCard) {
+        if(card instanceof ScenarioCard) {
+            if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
-                NarrationCard narrationCard = ScenarioCard.getLeftNarration(card);
+
+                narrationCard = ScenarioCard.getLeftNarration(card);
                 if(narrationCard!=null){
                     //add narration card if any
 
@@ -163,17 +165,21 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
             }
         }else{
             if(card instanceof ScenarioCard) {
-                AppConstants.player.change(ScenarioCard.getRightConsequence(card));
-                NarrationCard narrationCard = ScenarioCard.getRightNarration(card);
-                if(narrationCard!=null){
-                    //add narration card if any
-                }
-            }
-        }
+                narrationCard = ScenarioCard.getLeftNarration(card);
+            }else {
 
-        if(card instanceof DeathCard){
+                AppConstants.player.change(ScenarioCard.getRightConsequence(card));
+                narrationCard = ScenarioCard.getRightNarration(card);
+            }
+        }else if(card instanceof DeathCard){
             gameOver();
         }
+
+        if(narrationCard!=null){
+            AppConstants.deck.getQueue().add(0, narrationCard);
+        }
+
+
 
         progressBar_grades.setProgress(AppConstants.player.getGrades());
         progressBar_health.setProgress(AppConstants.player.getHealth());
@@ -181,7 +187,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         progressBar_social.setProgress(AppConstants.player.getSocial());
 
         if(!AppConstants.player.isSurviving()){
-            //clear cards
             switch (AppConstants.player.causeOfDeath()){
                 case "health0":
                     //add death card to respective death
