@@ -148,12 +148,14 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardSwiped(Direction direction) {
-        Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
+        Log.d("CHECKCARD", (manager.getTopPosition()-1)+ "" + "   prev card: " + manager.getTopPosition() + "");
         Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
 
         NarrationCard narrationCard = null;
 
-        if(card instanceof ScenarioCard) {
+        if(card instanceof ScenarioCard
+                && !((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase("")
+                && !((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase("")) {
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
                 narrationCard = ScenarioCard.getLeftNarration(card);
@@ -166,11 +168,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         }
 
         if(narrationCard!=null){
-            AppConstants.deck.getQueue().add(manager.getTopPosition()+1, narrationCard);
-            adapter.notifyDataSetChanged();
+            AppConstants.deck.getQueue().add(manager.getTopPosition(), narrationCard);
+            adapter = new CardStackAdapter(AppConstants.deck, this);
         }
-        AppConstants.deck.getQueue().remove(manager.getTopPosition());
-        adapter.notifyDataSetChanged();
 
         progressBar_grades.setProgress(AppConstants.player.getGrades());
         progressBar_health.setProgress(AppConstants.player.getHealth());
@@ -198,8 +198,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
                     break;
             }
         }
-
-
     }
 
     @Override
@@ -217,6 +215,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
     @Override
     public void onCardAppeared(View view, int position) {
+
+        Log.d("CheckAppearedCard", position+"" + " top position: " + manager.getTopPosition() + "");
         markHealth.setAlpha(0f);
         markSocial.setAlpha(0f);
         markMoney.setAlpha(0f);

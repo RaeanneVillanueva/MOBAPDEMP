@@ -40,13 +40,13 @@ public class Deck {
                     new Choice("Pfft. No", new Consequence(0, 0, -50, 0), "You failed 0/100...")));
 
         scenarioCards.add(  new ScenarioCard(AppConstants.DAD, "Here's your allowance, enjoy!",
-                new Choice("Thanks!", new Consequence(0, 0, 0, 20), ""),
+                new Choice("Thanks!", new Consequence(0, 0, 0, 30), ""),
                 new Choice("No need, Dad!", new Consequence(0, 0, 0, 0), "")));
 
 
         scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Hi, I am from Shavier Academy! I like to weightlift in my free time!",
-                new Choice("Hi!", new Consequence(10, 0, 0, 0)),
-                new Choice("Hi!", new Consequence(-10, 0, 0, 0))));
+                new Choice("Hi!", new Consequence(10, 0, 0, 0), ""),
+                new Choice("Hi!", new Consequence(-10, 0, 0, 0), "")));
 
         scenarioCards.add(  new ScenarioCard(AppConstants.JEAN, " Hi, I am from Dos High School! I know how to play drums!",
                 new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
@@ -77,16 +77,16 @@ public class Deck {
         //Recruitment Week
 
         scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Welcome to our annual recruitment week!",
-                new Choice("Wow!", new Consequence(0, 0, 0, 0), "Welcome to DLSU"),
-                new Choice("Nice", new Consequence(0, 0, 0, 0), "You failed 0/100...")));
+                new Choice("Wow!", new Consequence(0, 0, 0, 0), ""),
+                new Choice("Nice", new Consequence(0, 0, 0, 0), "")));
 
         scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Join our organization and be a part of a committee! Your blockmates are joining too!",
-                new Choice("Sure!", new Consequence(0, 5, 0, -15), "Welcome to DLSU"),
-                new Choice("Not interested..", new Consequence(0, -3, 0, 0), "You failed 0/100...")));
+                new Choice("Sure!", new Consequence(0, 5, 0, -15), ""),
+                new Choice("Not interested..", new Consequence(0, -3, 0, 0), "")));
 
         scenarioCards.add(  new ScenarioCard(AppConstants.JYLE, "They said it can help with our resume in the future. Come on, Join with me!",
-                new Choice("Nice!", new Consequence(0, 0, 3, 0), "Welcome to DLSU"),
-                new Choice("No thanks..", new Consequence(0, -2, -5, 0), "You failed 0/100...")));
+                new Choice("Nice!", new Consequence(0, 0, 3, 0), ""),
+                new Choice("No thanks..", new Consequence(0, -2, -5, 0), "")));
 
 
         scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Hey! We’re forming groups of five for the membership, would you like to join us?",
