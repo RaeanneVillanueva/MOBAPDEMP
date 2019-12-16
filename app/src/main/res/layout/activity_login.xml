@@ -32,7 +32,8 @@
         android:inputType="textEmailAddress"
         android:maxLength="30"
         android:padding="15dp"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <EditText
         android:id="@+id/etxt_password"
@@ -46,7 +47,8 @@
         android:maxLength="30"
         android:padding="15dp"
         android:textColor="#0E450D"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <LinearLayout
         android:layout_width="match_parent"

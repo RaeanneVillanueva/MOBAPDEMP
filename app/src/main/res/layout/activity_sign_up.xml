@@ -34,7 +34,8 @@
         android:maxLength="30"
         android:padding="15dp"
         android:textSize="12dp"
-        android:textColor="#0E450D"/>
+        android:textColor="#0E450D"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <EditText
         android:id="@+id/etxt_password_signup"
@@ -48,7 +49,8 @@
         android:maxLength="30"
         android:padding="15dp"
         android:textColor="#0E450D"
-        android:textSize="12dp" />
+        android:textSize="12dp"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <Button
         android:id="@+id/btn_submit"

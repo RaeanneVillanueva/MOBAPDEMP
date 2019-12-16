@@ -48,7 +48,8 @@
         android:maxLines="1"
         android:padding="15dp"
         android:textSize="10dp"
-        android:textColor="#0E450D"/>
+        android:textColor="#0E450D"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -71,7 +72,8 @@
         android:maxLines="1"
         android:padding="15dp"
         android:textSize="10dp"
-        android:textColor="#0E450D"/>
+        android:textColor="#0E450D"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -96,7 +98,8 @@
         android:maxLines="3"
         android:padding="15dp"
         android:textSize="10dp"
-        android:textColor="#0E450D"/>
+        android:textColor="#0E450D"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -126,7 +129,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textSize="10dp"
-            android:textColor="#0E450D"/>
+            android:textColor="#0E450D"
+            android:textCursorDrawable="@drawable/text_cursor"/>
 
         <EditText
             android:id="@+id/etxt_social"
@@ -141,7 +145,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textSize="10dp"
-            android:textColor="#0E450D"/>
+            android:textColor="#0E450D"
+            android:textCursorDrawable="@drawable/text_cursor"/>
 
         <EditText
             android:id="@+id/etxt_grades"
@@ -156,7 +161,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textSize="10dp"
-            android:textColor="#0E450D"/>
+            android:textColor="#0E450D"
+            android:textCursorDrawable="@drawable/text_cursor"/>
 
         <EditText
             android:id="@+id/etxt_money"
@@ -171,7 +177,8 @@
             android:maxLines="1"
             android:padding="10dp"
             android:textSize="10dp"
-            android:textColor="#0E450D"/>
+            android:textColor="#0E450D"
+            android:textCursorDrawable="@drawable/text_cursor"/>
 
     </LinearLayout>
 
@@ -190,7 +197,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/bungee"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:text="Add"
             android:textColor="@android:color/white" />
 
@@ -202,7 +209,7 @@
             android:layout_margin="5dp"
             android:background="@drawable/button_shape"
             android:fontFamily="@font/bungee"
-            android:textSize="18dp"
+            android:textSize="15dp"
             android:text="Cancel"
             android:textColor="@android:color/white"
             />

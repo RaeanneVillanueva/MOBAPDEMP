@@ -26,8 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
-
 public class DeckListActivity extends AppCompatActivity {
 
     private CreateCardDialog dialog;
@@ -40,7 +38,7 @@ public class DeckListActivity extends AppCompatActivity {
     private Spinner spinnerDeckCategory;
     private String choice = "All Decks";
     private  AlertDialog dialogCreateDeck, editDeckDialog;
-    private CircularProgressButton btnPlay;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -181,8 +179,9 @@ public class DeckListActivity extends AppCompatActivity {
         Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
         Button btnDelete = dialogView.findViewById(R.id.btn_delete_deck);
 
-        if(!(deck.getOwner().getId() == AppConstants.user.getId())){
-            //disable edit
+        if(!(deck.getOwner().getId().equalsIgnoreCase(AppConstants.user.getId()))){
+            btnEdit.setVisibility(View.INVISIBLE);
+            btnDelete.setVisibility(View.INVISIBLE);
         }
 
         name.setText(deck.getName());
