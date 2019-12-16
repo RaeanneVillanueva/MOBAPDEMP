@@ -51,7 +51,6 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             ((ScenarioCardViewHolder)holder).choiceLeft.setText(((ScenarioCard) card).getChoiceLeft().getText());
             ((ScenarioCardViewHolder)holder).choiceRight.setText(((ScenarioCard) card).getChoiceRight().getText());
             Glide.with(context).load(((ScenarioCard) card).getCharacter().getImagePath()).into(((ScenarioCardViewHolder)holder).cardImage);
-
         }else if(card instanceof NarrationCard) {
             ((NarrationCardViewHolder)holder).txtNarration.setText(card.getScenarioText());
         }

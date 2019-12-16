@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
-
         cardStackView = findViewById(R.id.card_stack_view);
 
         progressBar_health = findViewById(R.id.progressBar_health);

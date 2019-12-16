@@ -15,7 +15,7 @@
         android:padding="5dp"
         android:text="TextView"
         android:textColor="#0E450D"
-        android:textSize="15dp"/>z
+        android:textSize="15dp"/>
 
     <TextView
         android:layout_width="wrap_content"
