@@ -47,6 +47,7 @@ public class DeckListAdapter extends ArrayAdapter<Deck> {
 
         Deck deckItem = getItem(position);
         deckName.setText(deckItem.getName());
+        creatorName.setText(deckItem.getOwner().getName());
 
         return convertView;
     }

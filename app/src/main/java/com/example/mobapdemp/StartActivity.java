@@ -55,21 +55,21 @@ public class StartActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-//        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-//                .requestIdToken(getString(R.string.default_web_client_id))
-//                .requestEmail()
-//                .build();
-//
-//        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-//
-//        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+
+        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         FirebaseUser currentUser = mAuth.getCurrentUser();
-//        if (acct != null) {
-//            personName = acct.getDisplayName();
-//            personEmail = acct.getEmail();
-//            personId = acct.getId();
-//            personPhoto = acct.getPhotoUrl();
-//        }else
+        if (acct != null) {
+            personName = acct.getDisplayName();
+            personEmail = acct.getEmail();
+            personId = acct.getId();
+            personPhoto = acct.getPhotoUrl();
+        }else
         if(currentUser != null){
             personName = currentUser.getDisplayName();
             personEmail = currentUser.getEmail();
@@ -217,6 +217,7 @@ public class StartActivity extends AppCompatActivity {
     private void signOut() {
         AppConstants.user = null;
         FirebaseAuth.getInstance().signOut();
+
         mGoogleSignInClient.signOut()
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override

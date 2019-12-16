@@ -22,6 +22,7 @@ public class CustomDeckActivity extends AppCompatActivity {
     private CreateCardDialog createCardDialog;
     private TextView deckName;
     private DatabaseReference databaseCustomDecks;
+    private DatabaseReference databaseCards;
     private Deck deck;
     private ListView cardListView;
     private CardListAdapter cardListAdapter;
@@ -32,9 +33,8 @@ public class CustomDeckActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_custom_deck);
         getSupportActionBar().hide();
-
+        cardList = new ArrayList<>();
         databaseCustomDecks = FirebaseDatabase.getInstance().getReference("customDecks");
-
         deckName = findViewById(R.id.txt_deck_name);
         Intent intent = getIntent();
         String inputDeckName = intent.getStringExtra("Inputted Deck Name");
@@ -82,8 +82,8 @@ public class CustomDeckActivity extends AppCompatActivity {
     }
 
     public void initializeCardListData() {
-        cardList = new ArrayList<>();
-        databaseCustomDecks.addValueEventListener(new ValueEventListener() {
+        databaseCards = FirebaseDatabase.getInstance().getReference("card").child(deck.getId());
+        databaseCards.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 cardList.clear();

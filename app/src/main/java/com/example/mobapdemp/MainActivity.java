@@ -166,7 +166,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         }
 
         if(narrationCard!=null){
-            AppConstants.deck.getQueue().add(manager.getTopPosition()-1, narrationCard);
+            AppConstants.deck.getQueue().add(manager.getTopPosition()+1, narrationCard);
             adapter.notifyDataSetChanged();
         }
 
