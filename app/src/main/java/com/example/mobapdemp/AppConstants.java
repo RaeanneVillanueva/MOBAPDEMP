@@ -6,6 +6,8 @@ public class AppConstants {
     public static Player player;
     public static User user;
     public static Deck deck;
+
+    public static Deck currentDeckEdit;
     final static Character  MOM = new Character("Mom", R.drawable.mom),
                             DAD = new Character("Dad", R.drawable.dad),
                             JYLE = new Character("Jyle", R.drawable.jyle),

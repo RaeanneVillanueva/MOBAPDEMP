@@ -1,5 +1,6 @@
 package com.example.mobapdemp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -23,6 +24,7 @@ public class CustomDeckActivity extends AppCompatActivity {
     private TextView deckName;
     private DatabaseReference databaseCustomDecks;
     private DatabaseReference databaseCards;
+    private DatabaseReference databaseCustomDecksSpecific;
     private Deck deck;
     private ListView cardListView;
     private CardListAdapter cardListAdapter;
@@ -36,14 +38,10 @@ public class CustomDeckActivity extends AppCompatActivity {
         cardList = new ArrayList<>();
         databaseCustomDecks = FirebaseDatabase.getInstance().getReference("customDecks");
         deckName = findViewById(R.id.txt_deck_name);
-        Intent intent = getIntent();
-        String inputDeckName = intent.getStringExtra("Inputted Deck Name");
-        deckName.setText(inputDeckName);
 
-        String id = databaseCustomDecks.push().getKey();
-        deck = new Deck(id, inputDeckName, AppConstants.user);
-        databaseCustomDecks.child(id).setValue(deck);
 
+        deck = AppConstants.currentDeckEdit;
+        deckName.setText(deck.getName());
 
         //set up of card list view and adapter
         initializeCardListData();
@@ -69,8 +67,6 @@ public class CustomDeckActivity extends AppCompatActivity {
     }
 
     public void closeCustomDeck(View view) {
-        Intent intent = new Intent(this, DeckListActivity.class);
-        startActivity(intent);
         finish();
     }
 
@@ -99,5 +95,9 @@ public class CustomDeckActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    public void initializeDeck(String deckID){
+
     }
 }

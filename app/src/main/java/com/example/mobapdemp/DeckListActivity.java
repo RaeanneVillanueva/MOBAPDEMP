@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,19 +24,23 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.concurrent.TimeUnit;
+
+import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 
 public class DeckListActivity extends AppCompatActivity {
 
     private CreateCardDialog dialog;
     private EditText deckName;
     private Button btnCreateDeck;
-    private DatabaseReference databaseSample;
+    private DatabaseReference databaseCustomDecks;
     private ArrayList<Deck> decks;
     private DeckListAdapter deckListAdapter;
     private ListView deckListView;
     private Spinner spinnerDeckCategory;
     private String choice = "All Decks";
-
+    private  AlertDialog dialogCreateDeck, editDeckDialog;
+    private CircularProgressButton btnPlay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,7 +49,7 @@ public class DeckListActivity extends AppCompatActivity {
 
         deckListView = findViewById(R.id.deck_list_view);
         decks = new ArrayList<>();
-        databaseSample = FirebaseDatabase.getInstance().getReference("customDecks");
+        databaseCustomDecks = FirebaseDatabase.getInstance().getReference("customDecks");
 
         initializeDeckList();
         deckListAdapter = new DeckListAdapter(DeckListActivity.this, decks);
@@ -70,7 +75,7 @@ public class DeckListActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 choice = spinnerDeckCategory.getSelectedItem().toString();
-                databaseSample.addListenerForSingleValueEvent(new ValueEventListener() {
+                databaseCustomDecks.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         decks.clear();
@@ -103,7 +108,7 @@ public class DeckListActivity extends AppCompatActivity {
 
     public void initializeDeckList() {
 
-        databaseSample.addValueEventListener(new ValueEventListener() {
+        databaseCustomDecks.addValueEventListener(new ValueEventListener() {
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -140,16 +145,23 @@ public class DeckListActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(DeckListActivity.this, CustomDeckActivity.class);
-                intent.putExtra("Inputted Deck Name", deckName.getText().toString());
+
+                String id = databaseCustomDecks.push().getKey();
+                Deck deck = new Deck(id, deckName.getText().toString(), AppConstants.user);
+                databaseCustomDecks.child(id).setValue(deck);
+
+                AppConstants.currentDeckEdit = deck;
+
+                dialogCreateDeck.dismiss();
                 startActivity(intent);
                 finish();
             }
         });
 
         alertBuilder.setView(dialogView);
-        AlertDialog dialog = alertBuilder.create();
+        dialogCreateDeck = alertBuilder.create();
 
-        dialog.show();
+        dialogCreateDeck.show();
     }
 
     public void closeCreateDeck(View view) {
@@ -158,7 +170,7 @@ public class DeckListActivity extends AppCompatActivity {
         finish();
     }
 
-    public void showEditDeckDialog(Deck deckName) {
+    public void showEditDeckDialog(final Deck deck) {
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
         View dialogView = inflater.inflate(R.layout.dialog_edit_deck, null);
@@ -169,26 +181,84 @@ public class DeckListActivity extends AppCompatActivity {
         Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
         Button btnDelete = dialogView.findViewById(R.id.btn_delete_deck);
 
-        name.setText(deckName.getName());
+
+
+        name.setText(deck.getName());
 
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(DeckListActivity.this, CustomDeckActivity.class);
+                AppConstants.currentDeckEdit = deck;
+                editDeckDialog.dismiss();
                 startActivity(intent);
-                finish();
+            }
+        });
+
+        btnPlay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                AppConstants.deck = deck;
+
+                DatabaseReference dr = FirebaseDatabase.getInstance().getReference("card").child(AppConstants.deck.getId());
+                dr.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                        for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                            ScenarioCard sc = postSnapshot.getValue(ScenarioCard.class);
+                            AppConstants.deck.getScenarioCards().add(sc);
+                        }
+                        AppConstants.deck.enQueueCards();
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
+
+                try {
+                    TimeUnit.SECONDS.sleep(1);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(DeckListActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                deleteDeck(deck.getId());
+                editDeckDialog.dismiss();
 
             }
         });
 
-        AlertDialog editDeck = dialogBuilder.create();
-        editDeck.show();
+        editDeckDialog = dialogBuilder.create();
+        editDeckDialog.show();
+    }
+
+    private boolean deleteDeck(String id){
+//getting the specified artist reference
+        DatabaseReference dr = FirebaseDatabase.getInstance().getReference("customDecks").child(id);
+
+        //removing artist
+        dr.removeValue();
+
+        //getting the tracks reference for the specified artist
+        DatabaseReference drCards = FirebaseDatabase.getInstance().getReference("card").child(id);
+
+        //removing all tracks
+        drCards.removeValue();
+        Toast.makeText(getApplicationContext(), "Deck Deleted", Toast.LENGTH_LONG).show();
+
+        return true;
     }
 
 }
