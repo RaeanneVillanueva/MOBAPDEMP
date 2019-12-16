@@ -41,10 +41,10 @@ public class UserProfileDialog extends Dialog {
         super.onCreate(savedInstanceState);
 
 
-        viewProfileImg = findViewById(R.id.view_profile_image_dialog);
-        viewProfileName = findViewById(R.id.view_profile_name_dialog);
-        viewProfileEmail = findViewById(R.id.view_profile_email_dialog);
-        logout = findViewById(R.id.btn_logout_dialog);
+////        viewProfileImg = findViewById(R.id.view_profile_image_dialog);
+//        viewProfileName = findViewById(R.id.view_profile_name_dialog);
+//        viewProfileEmail = findViewById(R.id.view_profile_email_dialog);
+//        logout = findViewById(R.id.btn_logout_dialog);
 
 
     }
