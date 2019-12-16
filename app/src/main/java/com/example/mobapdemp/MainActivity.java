@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         progressBar_grades = findViewById(R.id.progressBar_grades);
 
 
+        //adapter
         adapter = new CardStackAdapter(AppConstants.deck, this);
         manager = new CardStackLayoutManager(this, this);
 
@@ -95,49 +96,49 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     @Override
     public void onCardDragging(Direction direction, float ratio) {
         Card topcard = AppConstants.deck.getQueue().get(manager.getTopPosition());
-        ScenarioCard card = (ScenarioCard)topcard;
+//        ScenarioCard card = (ScenarioCard)topcard;
 
 
-        if(draggedLeft(direction)) {
-            if(card.getChoiceLeft().getConsequence().getHealth() != 0){
+        if((topcard instanceof ScenarioCard) && draggedLeft(direction)) {
+            if(((ScenarioCard)topcard).getChoiceLeft().getConsequence().getHealth() != 0){
                 markHealth.setAlpha(1f);
             }else{
                 markHealth.setAlpha(0f);
             }
-            if(card.getChoiceLeft().getConsequence().getSocial() != 0){
+            if(((ScenarioCard)topcard).getChoiceLeft().getConsequence().getSocial() != 0){
                 markSocial.setAlpha(1f);
             }else{
                 markSocial.setAlpha(0f);
             }
-            if(card.getChoiceLeft().getConsequence().getMoney() != 0){
+            if(((ScenarioCard)topcard).getChoiceLeft().getConsequence().getMoney() != 0){
                 markMoney.setAlpha(1f);
             }else{
                 markMoney.setAlpha(0f);
             }
-            if(card.getChoiceLeft().getConsequence().getGrades() != 0){
+            if(((ScenarioCard)topcard).getChoiceLeft().getConsequence().getGrades() != 0){
                 markGrades.setAlpha(1f);
             }else{
                 markGrades.setAlpha(0f);
             }
         }
 
-        if(!draggedLeft(direction)) {
-            if(card.getChoiceRight().getConsequence().getHealth() != 0){
+        if((topcard instanceof ScenarioCard) && !draggedLeft(direction)) {
+            if(((ScenarioCard)topcard).getChoiceRight().getConsequence().getHealth() != 0){
                 markHealth.setAlpha(1f);
             }else{
                 markHealth.setAlpha(0f);
             }
-            if(card.getChoiceRight().getConsequence().getSocial() != 0){
+            if(((ScenarioCard)topcard).getChoiceRight().getConsequence().getSocial() != 0){
                 markSocial.setAlpha(1f);
             }else{
                 markSocial.setAlpha(0f);
             }
-            if(card.getChoiceRight().getConsequence().getMoney() != 0){
+            if(((ScenarioCard)topcard).getChoiceRight().getConsequence().getMoney() != 0){
                 markMoney.setAlpha(1f);
             }else{
                 markMoney.setAlpha(0f);
             }
-            if(card.getChoiceRight().getConsequence().getGrades() != 0){
+            if(((ScenarioCard)topcard).getChoiceRight().getConsequence().getGrades() != 0){
                 markGrades.setAlpha(1f);
             }else{
                 markGrades.setAlpha(0f);
@@ -166,10 +167,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         }
 
         if(narrationCard!=null){
-            AppConstants.deck.getQueue().add(0, narrationCard);
+            AppConstants.deck.getQueue().add(manager.getTopPosition()-1, narrationCard);
+            adapter.notifyDataSetChanged();
         }
-
-
 
         progressBar_grades.setProgress(AppConstants.player.getGrades());
         progressBar_health.setProgress(AppConstants.player.getHealth());
@@ -222,8 +222,16 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         markGrades.setAlpha(0f);
 
         Card card = AppConstants.deck.getQueue().get(position);
-        txtScenario.setText(((ScenarioCard)card).getScenarioText());
-        txtCharacterName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
+
+        if(card instanceof ScenarioCard) {
+            txtScenario.setText(((ScenarioCard)card).getScenarioText());
+            txtCharacterName.setText(((ScenarioCard)card).getCharacter().getCharacterName());
+
+        }else if(card instanceof NarrationCard) {
+            txtCharacterName.setText("");
+            txtScenario.setText("");
+        }
+
     }
 
     @Override
