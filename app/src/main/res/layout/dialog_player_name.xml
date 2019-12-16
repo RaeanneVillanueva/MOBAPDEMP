@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:text="Player Name"
         android:padding="10dp"
-        android:textColor="#0E450D"
+        android:textColor="#71db77"
         android:fontFamily="@font/bungee"
         android:textSize="18dp"/>
 
