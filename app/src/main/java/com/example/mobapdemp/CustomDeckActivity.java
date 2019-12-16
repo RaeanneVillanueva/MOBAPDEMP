@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
+
 public class CustomDeckActivity extends AppCompatActivity {
 
     private CreateCardDialog createCardDialog;
@@ -19,6 +21,9 @@ public class CustomDeckActivity extends AppCompatActivity {
     private DatabaseReference databaseCustomDecks;
     private Deck deck;
     private ListView cardListView;
+    private CardListAdapter cardListAdapter;
+    private ArrayList<Card> cardList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +33,6 @@ public class CustomDeckActivity extends AppCompatActivity {
         databaseCustomDecks = FirebaseDatabase.getInstance().getReference("customDecks");
 
         deckName = findViewById(R.id.txt_deck_name);
-
         Intent intent = getIntent();
         String inputDeckName = intent.getStringExtra("Inputted Deck Name");
         deckName.setText(inputDeckName);
@@ -37,8 +41,16 @@ public class CustomDeckActivity extends AppCompatActivity {
         deck = new Deck(id, inputDeckName, AppConstants.user);
         databaseCustomDecks.child(id).setValue(deck);
 
-        //listener for each item card
+
+        //set up of card list view and adapter
+        initializeCardListData();
         cardListView = findViewById(R.id.card_list_view);
+        cardListAdapter = new CardListAdapter(this, cardList);
+        cardListAdapter.notifyDataSetChanged();
+        cardListView.setAdapter(cardListAdapter);
+
+
+        //listener for each item card
         cardListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -64,5 +76,9 @@ public class CustomDeckActivity extends AppCompatActivity {
 
         drUpdate.setValue(deck);
         finish();
+    }
+
+    public void initializeCardListData() {
+        cardList = new ArrayList<>();
     }
 }

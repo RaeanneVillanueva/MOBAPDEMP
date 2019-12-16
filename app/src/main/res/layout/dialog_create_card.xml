@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/custom_edit_text"
-        android:dropDownWidth="340dp"
+        android:dropDownWidth="350dp"
         android:spinnerMode="dropdown" />
 
     <TextView
