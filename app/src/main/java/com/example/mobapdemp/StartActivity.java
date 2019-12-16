@@ -98,6 +98,7 @@ public class StartActivity extends AppCompatActivity {
         Glide.with(this).load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg")).into(profileImg);
         if(AppConstants.user.getPhoto() != null){
             Glide.with(this).load(String.valueOf(AppConstants.user.getPhoto())).into(profileImg);
+
         }
 
 //        profileImg.setOnClickListener(new View.OnClickListener() {

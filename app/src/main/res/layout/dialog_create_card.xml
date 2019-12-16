@@ -15,7 +15,7 @@
         android:text="Choose a Character"
         android:fontFamily="@font/bungee"
         android:textSize="15dp"
-        android:padding="5dp"
+        android:padding="3dp"
         android:textColor="#0E450D"/>
 
     <Spinner
@@ -33,7 +33,7 @@
         android:text="Choice Left"
         android:fontFamily="@font/bungee"
         android:textSize="15dp"
-        android:padding="5dp"
+        android:padding="3dp"
         android:textColor="#0E450D"/>
 
     <EditText
@@ -55,7 +55,7 @@
         android:text="Choice Right"
         android:fontFamily="@font/bungee"
         android:textSize="15dp"
-        android:padding="5dp"
+        android:padding="3dp"
         android:textColor="#0E450D"/>
 
     <EditText
@@ -77,7 +77,7 @@
         android:text="Scenario"
         android:fontFamily="@font/bungee"
         android:textSize="15dp"
-        android:padding="5dp"
+        android:padding="3dp"
         android:textColor="#0E450D"/>
 
     <EditText
@@ -101,7 +101,7 @@
         android:text="Status Affected"
         android:fontFamily="@font/bungee"
         android:textSize="15dp"
-        android:padding="5dp"
+        android:padding="3dp"
         android:textColor="#0E450D"/>
 
     <LinearLayout

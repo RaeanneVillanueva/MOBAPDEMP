@@ -24,6 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserProfileDialog extends Dialog {
 
+    private Context context;
     private CircleImageView viewProfileImg;
     private TextView viewProfileName, viewProfileEmail;
     private Button logout;
@@ -32,6 +33,7 @@ public class UserProfileDialog extends Dialog {
 
     public UserProfileDialog(@NonNull Context context) {
         super(context);
+        this.context = context;
     }
 
     @Override
@@ -43,8 +45,6 @@ public class UserProfileDialog extends Dialog {
         viewProfileName = findViewById(R.id.view_profile_name_dialog);
         viewProfileEmail = findViewById(R.id.view_profile_email_dialog);
         logout = findViewById(R.id.btn_logout_dialog);
-
-
 
 
     }
