@@ -1,5 +1,7 @@
 package com.example.mobapdemp;
 
+import android.net.Uri;
+
 public class AppConstants {
     public static Player player;
     public static User user;
@@ -29,4 +31,5 @@ public class AppConstants {
         deck.initializeStandardDeck();
         deck.enQueueCards();
     }
+
 }

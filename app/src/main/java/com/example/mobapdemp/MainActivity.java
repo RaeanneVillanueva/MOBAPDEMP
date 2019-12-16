@@ -1,5 +1,6 @@
 package com.example.mobapdemp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -10,8 +11,15 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
@@ -20,6 +28,7 @@ import com.yuyakaido.android.cardstackview.StackFrom;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MainActivity extends AppCompatActivity implements CardStackListener {
 
@@ -28,8 +37,12 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     private CardStackLayoutManager manager;
     private TextView txtScenario, txtCharacterName, playerName, playerScore;
 
+    private ProgressBar progressBar_health, progressBar_social, progressBar_money, progressBar_grades;
+
+
     private ImageView markHealth, markSocial, markGrades, markMoney;
 
+    private DatabaseReference db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +50,11 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         getSupportActionBar().hide();
 
         cardStackView = findViewById(R.id.card_stack_view);
+
+        progressBar_health = findViewById(R.id.progressBar_health);
+        progressBar_social = findViewById(R.id.progressBar_social);
+        progressBar_money = findViewById(R.id.progressBar_money);
+        progressBar_grades = findViewById(R.id.progressBar_grades);
 
 
         adapter = new CardStackAdapter(AppConstants.deck, this);
@@ -48,7 +66,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         manager.setMaxDegree(30);
         manager.setCanScrollVertical(false);
         manager.setSwipeableMethod(SwipeableMethod.Manual);
-
 
         //set up for cardstackview
         cardStackView.setAdapter(adapter);
@@ -70,7 +87,12 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         //scenario and character text view
         txtScenario = findViewById(R.id.txt_scenario);
+<<<<<<< HEAD
         txtCharacterName = findViewById(R.id.txt_character_name);
+=======
+
+        AppConstants.player = new Player(name);
+>>>>>>> 72cb2ce18296a3aad265279bc53f0d32372d15bb
     }
 
     @Override
@@ -82,30 +104,46 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         if(draggedLeft(direction)) {
             if(card.getChoiceLeft().getConsequence().getHealth() != 0){
                 markHealth.setAlpha(1f);
+            }else{
+                markHealth.setAlpha(0f);
             }
             if(card.getChoiceLeft().getConsequence().getSocial() != 0){
                 markSocial.setAlpha(1f);
+            }else{
+                markSocial.setAlpha(0f);
             }
             if(card.getChoiceLeft().getConsequence().getMoney() != 0){
                 markMoney.setAlpha(1f);
+            }else{
+                markMoney.setAlpha(0f);
             }
             if(card.getChoiceLeft().getConsequence().getGrades() != 0){
                 markGrades.setAlpha(1f);
+            }else{
+                markGrades.setAlpha(0f);
             }
         }
 
         if(!draggedLeft(direction)) {
             if(card.getChoiceRight().getConsequence().getHealth() != 0){
                 markHealth.setAlpha(1f);
+            }else{
+                markHealth.setAlpha(0f);
             }
             if(card.getChoiceRight().getConsequence().getSocial() != 0){
                 markSocial.setAlpha(1f);
+            }else{
+                markSocial.setAlpha(0f);
             }
             if(card.getChoiceRight().getConsequence().getMoney() != 0){
                 markMoney.setAlpha(1f);
+            }else{
+                markMoney.setAlpha(0f);
             }
             if(card.getChoiceRight().getConsequence().getGrades() != 0){
                 markGrades.setAlpha(1f);
+            }else{
+                markGrades.setAlpha(0f);
             }
         }
 
@@ -114,16 +152,60 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     @Override
     public void onCardSwiped(Direction direction) {
         Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
+        Card card = AppConstants.deck.getCards().get(manager.getTopPosition()-1);
 
         if(direction.equals(Direction.Left)) {
-            Card card = AppConstants.deck.getCards().get(manager.getTopPosition()-1);
 
             if(card instanceof ScenarioCard) {
-                int health = ((ScenarioCard)card).getChoiceRight().getConsequence().getHealth();
-                String name = ((ScenarioCard)card).getCharacter().getCharacterName();
-                Log.d("ChoiceLeft", health+"" + " " + name);
+                AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
+                NarrationCard narrationCard = ScenarioCard.getLeftNarration(card);
+                if(narrationCard!=null){
+                    //add narration card if any
+                }
+            }
+        }else{
+            if(card instanceof ScenarioCard) {
+                AppConstants.player.change(ScenarioCard.getRightConsequence(card));
+                NarrationCard narrationCard = ScenarioCard.getRightNarration(card);
+                if(narrationCard!=null){
+                    //add narration card if any
+                }
             }
         }
+
+        if(card instanceof DeathCard){
+            gameOver();
+        }
+
+        progressBar_grades.setProgress(AppConstants.player.getGrades());
+        progressBar_health.setProgress(AppConstants.player.getHealth());
+        progressBar_money.setProgress(AppConstants.player.getMoney());
+        progressBar_social.setProgress(AppConstants.player.getSocial());
+
+        if(!AppConstants.player.isSurviving()){
+            //clear cards
+            switch (AppConstants.player.causeOfDeath()){
+                case "health0":
+                    //add death card to respective death
+                    break;
+                case "health100":
+                    break;
+                case "social0":
+                    break;
+                case "social100":
+                    break;
+                case "money0":
+                    break;
+                case "money100":
+                    break;
+                case "grades0":
+                    break;
+                case "grades100":
+                    break;
+            }
+        }
+
+
     }
 
     @Override
@@ -163,8 +245,54 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         if(direction.toString().equalsIgnoreCase("Left")){
             return true;
         }
-
         return false;
     }
 
+    public boolean draggedRight(Direction direction){
+        return !draggedLeft(direction);
+    }
+
+
+    private void gameOver(){
+
+        db = FirebaseDatabase.getInstance().getReference("leaderboard");
+
+        //check leaderboard
+        db.addListenerForSingleValueEvent(new ValueEventListener() {
+            ArrayList<LeaderboardModel> leaders = new ArrayList<>();
+            LeaderboardModel curr = new LeaderboardModel(AppConstants.player.getName(), 15, AppConstants.user.getName());
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                leaders.clear();
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    LeaderboardModel leaderboardModel = postSnapshot.getValue(LeaderboardModel.class);
+                    leaders.add(leaderboardModel);
+                }
+
+                Collections.sort(leaders);
+
+                if(leaders.get(leaders.size()-1).getScore() < curr.getScore()) {
+                    leaders.add(curr);
+
+
+                    Collections.sort(leaders);
+
+                    int size = 10;
+
+                    int k = leaders.size();
+                    if (k > size)
+                        leaders.subList(10, k).clear();
+
+                    Toast.makeText(getApplicationContext(), "Congratulations you are rank "+ leaders.indexOf(curr) +" in the leaderboard!", Toast.LENGTH_LONG).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 }

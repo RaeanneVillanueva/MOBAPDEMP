@@ -6,13 +6,20 @@ public class User {
     private String id;
     private String name;
     private String email;
-    private Uri photo;
+    private String photo;
+
+    public User(String id, String name, String email, String photo){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.photo = photo;
+    }
 
     public User(String id, String name, String email, Uri photo){
         this.id = id;
         this.name = name;
         this.email = email;
-        this.photo = photo;
+        this.photo = photo.toString();
     }
 
     public User(){
@@ -43,11 +50,15 @@ public class User {
         this.email = email;
     }
 
-    public Uri getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(Uri photo) {
+    public void setPhotoUri(Uri photo) {
+        this.photo = photo.toString();
+    }
+
+    public void setPhoto(String photo){
         this.photo = photo;
     }
 }

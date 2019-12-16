@@ -1,5 +1,7 @@
 package com.example.mobapdemp;
 
+import android.os.DeadObjectException;
+
 import java.util.ArrayList;
 
 public class Deck {
@@ -9,9 +11,9 @@ public class Deck {
     private ArrayList<Card> queue;
     private ArrayList<ScenarioCard> scenarioCards;
     private String name;
-    private String owner;
+    private User owner;
 
-    public Deck(String id, String name, String owner){
+    public Deck(String id, String name, User owner){
         this(id, name);
         this.owner = owner;
     }
@@ -108,9 +110,14 @@ public class Deck {
                 new Choice("I'm shy..", new Consequence(0,-2,0,0), ""),
                 new Choice("What to do??", new Consequence(0,3,0,0), "")));
 
+
         scenarioCards.add(new ScenarioCard(AppConstants.BEK, "Let’s join the General Assembly, let’s meet new friends! Our other blockmates will come too! Let’s study for the graded recitation after.",
                 new Choice("Yea sure!", new Consequence(-4,5,-3,0), "You gained a lot of friends today! However, you were not able to recite."),
                 new Choice("Priorities..", new Consequence(3,-5,5,0), "You were able to study of the graded recitation. However, the professor forgot about it.")));
+        scenarioCards.add(new DeathCard(AppConstants.VOMIT, "You partied too hard and vomitted."));
+
+        scenarioCards.add(new DeathCard(AppConstants.STARVE, "You don't money and ended up starving to death."));
+
 
 
     }
@@ -163,11 +170,11 @@ public class Deck {
         this.id = id;
     }
 
-    public String getOwner() {
+    public User getOwner() {
         return owner;
     }
 
-    public void setOwner(String owner) {
+    public void setOwner(User owner) {
         this.owner = owner;
     }
 

@@ -34,7 +34,7 @@ public class CustomDeckActivity extends AppCompatActivity {
         deckName.setText(inputDeckName);
 
         String id = databaseCustomDecks.push().getKey();
-        deck = new Deck(id, inputDeckName);
+        deck = new Deck(id, inputDeckName, AppConstants.user);
         databaseCustomDecks.child(id).setValue(deck);
 
         //listener for each item card
