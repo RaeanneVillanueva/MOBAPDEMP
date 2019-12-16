@@ -24,7 +24,9 @@
         android:inputType="textPersonName"
         android:gravity="center"
         android:background="@drawable/custom_edit_text"
-        android:textSize="15dp"/>
+        android:textSize="15dp"
+        android:textColor="#0E450D"
+        android:textCursorDrawable="@drawable/text_cursor"/>
 
     <Button
         android:id="@+id/btn_create_new_deck"

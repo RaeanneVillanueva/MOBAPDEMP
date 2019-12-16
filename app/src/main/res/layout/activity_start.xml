@@ -74,17 +74,6 @@
             android:textColor="@android:color/white"
             android:textSize="15dp" />
 
-        <Button
-            android:id="@+id/btn_signout"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_shape"
-            android:fontFamily="@font/bungee"
-            android:onClick="openLeaderboard"
-            android:text="Sign Out"
-            android:textColor="@android:color/white"
-            android:textSize="15dp" />
     </LinearLayout>
 
 </LinearLayout>
