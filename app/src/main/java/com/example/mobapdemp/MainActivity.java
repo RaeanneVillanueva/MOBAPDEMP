@@ -87,12 +87,10 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         //scenario and character text view
         txtScenario = findViewById(R.id.txt_scenario);
-<<<<<<< HEAD
         txtCharacterName = findViewById(R.id.txt_character_name);
-=======
 
         AppConstants.player = new Player(name);
->>>>>>> 72cb2ce18296a3aad265279bc53f0d32372d15bb
+
     }
 
     @Override

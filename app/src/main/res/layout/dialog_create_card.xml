@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="@drawable/bg3"
     tools:context=".CreateCardDialog"
-    android:gravity="center">
+    >
 
     <TextView
         android:layout_width="match_parent"
