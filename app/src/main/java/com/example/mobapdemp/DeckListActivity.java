@@ -181,7 +181,9 @@ public class DeckListActivity extends AppCompatActivity {
         Button btnPlay = dialogView.findViewById(R.id.btn_play_deck);
         Button btnDelete = dialogView.findViewById(R.id.btn_delete_deck);
 
-
+        if(!(deck.getOwner().getId() == AppConstants.user.getId())){
+            //disable edit
+        }
 
         name.setText(deck.getName());
 

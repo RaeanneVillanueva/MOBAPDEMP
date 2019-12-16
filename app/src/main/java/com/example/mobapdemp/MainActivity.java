@@ -31,6 +31,7 @@ import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity implements CardStackListener {
 
@@ -159,23 +160,20 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
-
-                if(!((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase(""))
-                    narrationCard = ScenarioCard.getLeftNarration(card);
+                if(((ScenarioCard)card).getChoiceLeft().getNarration() != null)
+                    if(!((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase(""))
+                        narrationCard = ScenarioCard.getLeftNarration(card);
             }else {
                 AppConstants.player.change(ScenarioCard.getRightConsequence(card));
-
-                if(!((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase(""))
-                    narrationCard = ScenarioCard.getRightNarration(card);
+                if(((ScenarioCard)card).getChoiceRight().getNarration() != null)
+                    if(!((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase(""))
+                        narrationCard = ScenarioCard.getRightNarration(card);
             }
         }else if(card instanceof DeathCard){
             gameOver();
         }
 
-        if(narrationCard!=null){
-            AppConstants.deck.getQueue().add(manager.getTopPosition(), narrationCard);
-            adapter = new CardStackAdapter(AppConstants.deck, this);
-        }
+
 
         progressBar_grades.setProgress(AppConstants.player.getGrades());
         progressBar_health.setProgress(AppConstants.player.getHealth());
@@ -183,25 +181,50 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         progressBar_social.setProgress(AppConstants.player.getSocial());
 
         if(!AppConstants.player.isSurviving()){
+            DeathCard dc = null;
             switch (AppConstants.player.causeOfDeath()){
                 case "health0":
-                    //add death card to respective death
+                    dc = new DeathCard(AppConstants.VOMIT, "You got sick. The university kicked you out of the school for excessive amounts of absences.");
                     break;
                 case "health100":
+                    dc = new DeathCard(AppConstants.DRUGS, "You were so healthy that you thought you were immune to anything. So you overdosed");
                     break;
                 case "social0":
+                    dc = new DeathCard(AppConstants.LONELINESS, "You neglected your friends so they left you.");
                     break;
                 case "social100":
+                    dc = new DeathCard(AppConstants.DRUGS, "You were such a people pleaser that you easily caved in to peer pressure and overdosed drugs");
                     break;
                 case "money0":
+                    dc = new DeathCard(AppConstants.STARVE, "You are broke. You starved.");
                     break;
                 case "money100":
+                    dc = new DeathCard(AppConstants.LONELINESS, "You were so rich.");
                     break;
                 case "grades0":
+                    dc = new DeathCard(AppConstants.LONELINESS, "You failed every subject imaginable");
                     break;
                 case "grades100":
+                    dc = new DeathCard(AppConstants.VOMIT, "You got a 4.0 in every subject imaginable. The university suspected you of cheating and kicked you out");
                     break;
             }
+            AppConstants.deck.getQueue().add(manager.getTopPosition(), dc);
+            try {
+                TimeUnit.SECONDS.sleep(1);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            adapter = new CardStackAdapter(AppConstants.deck, this);
+
+        }
+
+        if(narrationCard!=null){
+            AppConstants.deck.getQueue().add(manager.getTopPosition(), narrationCard);
+            adapter = new CardStackAdapter(AppConstants.deck, this);
+        }
+
+        if(AppConstants.deck.getQueue().size() == 0){
+            //win
         }
     }
 

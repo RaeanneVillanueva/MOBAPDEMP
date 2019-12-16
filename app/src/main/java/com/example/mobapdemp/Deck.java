@@ -34,7 +34,8 @@ public class Deck {
     }
 
     public void initializeStandardDeck(){
-
+        this.name = "standard";
+        this.id = "0";
         scenarioCards.add(  new ScenarioCard(AppConstants.MOM, "DCAT is coming, you should study!",
                     new Choice("Ok", new Consequence(-5, 0, 15, 0), "Welcome to DLSU"),
                     new Choice("Pfft. No", new Consequence(0, 0, -50, 0), "You failed 0/100...")));
