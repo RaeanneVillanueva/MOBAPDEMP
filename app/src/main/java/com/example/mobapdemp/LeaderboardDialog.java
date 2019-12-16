@@ -22,7 +22,7 @@ import java.util.List;
 public class LeaderboardDialog extends Dialog {
 
     private ArrayList<LeaderboardModel> leaderboardData;
-    Button btnClose;
+    private Button btnClose;
     private ListView leaderboardListView;
     LeaderboardAdapter leaderboardAdapter;
     private DatabaseReference dataLeaderBoard;

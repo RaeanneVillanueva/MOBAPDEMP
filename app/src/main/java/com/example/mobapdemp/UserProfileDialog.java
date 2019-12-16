@@ -24,6 +24,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class UserProfileDialog extends Dialog {
 
+    private Context context;
     private CircleImageView viewProfileImg;
     private TextView viewProfileName, viewProfileEmail;
     private Button logout;
@@ -32,6 +33,7 @@ public class UserProfileDialog extends Dialog {
 
     public UserProfileDialog(@NonNull Context context) {
         super(context);
+        this.context = context;
     }
 
     @Override
@@ -39,23 +41,21 @@ public class UserProfileDialog extends Dialog {
         super.onCreate(savedInstanceState);
 
 
-        viewProfileImg = findViewById(R.id.view_profile_image_dialog);
+//        viewProfileImg = findViewById(R.id.view_profile_image_dialog);
         viewProfileName = findViewById(R.id.view_profile_name_dialog);
         viewProfileEmail = findViewById(R.id.view_profile_email_dialog);
         logout = findViewById(R.id.btn_logout_dialog);
 
-        Glide.with(getContext())
-                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
-                        .into(viewProfileImg);
-                if(AppConstants.user.getPhoto() != null) {
-                    Glide.with(getContext())
-                            .load(String.valueOf(AppConstants.user.getPhoto()))
-                            .into(viewProfileImg);
-                }
+//        Glide.with(context)
+////                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
+////                        .into(viewProfileImg);
+//                if(AppConstants.user.getPhoto() != null) {
+//                    Glide.with(getContext())
+//                            .load(String.valueOf(AppConstants.user.getPhoto()))
+//                            .into(viewProfileImg);
+//                }
                 viewProfileName.setText(AppConstants.user.getName());
                 viewProfileEmail.setText(AppConstants.user.getEmail());
-
-
     }
 
 
