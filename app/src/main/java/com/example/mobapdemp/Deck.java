@@ -64,7 +64,7 @@ public class Deck {
                 new Choice("Sure!", new Consequence(0, 5, 0, -5), ""),
                 new Choice("I'm going home", new Consequence(0, -5, 0, 0), "")));
 
-        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Hey there! I am inviting you to our afterparty. Can you join us?",
+        scenarioCards.add(  new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Hey there! I am inviting you to our after party. Can you join us?",
                 new Choice("G!", new Consequence(0, 10, 0, -5), "You gained a lot of friends because of the party!"),
                 new Choice("Need to go home", new Consequence(0, -5, 0, 0), "You ended up forcefully going to the party. You did not enjoy it.")));
 
@@ -91,7 +91,7 @@ public class Deck {
 
         scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Hey! We’re forming groups of five for the membership, would you like to join us?",
                 new Choice("Yes!", new Consequence(0, 10, 0, 10), "You gained more new friends and get to save money from membership fee!"),
-                new Choice("No thanks..", new Consequence(0, -5, 0, 20), "You ended up joining and paid the non-discounted membership fee.")));
+                new Choice("No thanks..", new Consequence(0, -5, 0, -20), "You ended up joining and paid the non-discounted membership fee.")));
 
 
         scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Join our Junior Officership and gain leadership skills! Invite your friends to join too!",

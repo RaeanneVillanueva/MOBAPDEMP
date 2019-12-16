@@ -40,8 +40,11 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/pokemon"
                     android:gravity="center"
-                    android:text="This is a narration"
+                    android:text="This is a narration djksdfjnsdfjnsjfnsdjfnjsdnfjsnsddjnsjdnjsdn"
+                    android:justificationMode="inter_word"
+                    android:lineSpacingExtra="7dp"
                     android:textColor="@android:color/black"
+                    android:layout_margin="10dp"
                     android:textSize="15dp" />
 
             </FrameLayout>

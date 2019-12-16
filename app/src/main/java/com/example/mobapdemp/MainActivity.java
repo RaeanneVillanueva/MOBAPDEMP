@@ -2,6 +2,7 @@ package com.example.mobapdemp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,6 +26,7 @@ import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
 import com.yuyakaido.android.cardstackview.Direction;
 import com.yuyakaido.android.cardstackview.StackFrom;
+import com.yuyakaido.android.cardstackview.SwipeAnimationSetting;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.ArrayList;
@@ -60,12 +62,14 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         adapter = new CardStackAdapter(AppConstants.deck, this);
         manager = new CardStackLayoutManager(this, this);
 
+
         //settings for the swipe features
         manager.setVisibleCount(1);
         manager.setOverlayInterpolator(new OvershootInterpolator());
         manager.setMaxDegree(30);
         manager.setCanScrollVertical(false);
         manager.setSwipeableMethod(SwipeableMethod.Manual);
+
 
         //set up for cardstackview
         cardStackView.setAdapter(adapter);
@@ -95,8 +99,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     @Override
     public void onCardDragging(Direction direction, float ratio) {
         Card topcard = AppConstants.deck.getQueue().get(manager.getTopPosition());
-//        ScenarioCard card = (ScenarioCard)topcard;
-
 
         if((topcard instanceof ScenarioCard) && draggedLeft(direction)) {
             if(((ScenarioCard)topcard).getChoiceLeft().getConsequence().getHealth() != 0){
@@ -153,15 +155,18 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         NarrationCard narrationCard = null;
 
-        if(card instanceof ScenarioCard
-                && !((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase("")
-                && !((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase("")) {
+        if(card instanceof ScenarioCard) {
+
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
-                narrationCard = ScenarioCard.getLeftNarration(card);
+
+                if(!((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase(""))
+                    narrationCard = ScenarioCard.getLeftNarration(card);
             }else {
                 AppConstants.player.change(ScenarioCard.getRightConsequence(card));
-                narrationCard = ScenarioCard.getRightNarration(card);
+
+                if(!((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase(""))
+                    narrationCard = ScenarioCard.getRightNarration(card);
             }
         }else if(card instanceof DeathCard){
             gameOver();
@@ -233,6 +238,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
             txtScenario.setText("");
         }
 
+        adapter = new CardStackAdapter(AppConstants.deck, this);
     }
 
     @Override
