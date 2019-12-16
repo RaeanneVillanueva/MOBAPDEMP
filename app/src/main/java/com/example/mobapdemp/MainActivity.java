@@ -150,13 +150,24 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     public void onCardSwiped(Direction direction) {
         Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
         Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
+
         NarrationCard narrationCard = null;
 
         if(card instanceof ScenarioCard) {
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
+
+                narrationCard = ScenarioCard.getLeftNarration(card);
+                if(narrationCard!=null){
+                    //add narration card if any
+
+                }
+            }
+        }else{
+            if(card instanceof ScenarioCard) {
                 narrationCard = ScenarioCard.getLeftNarration(card);
             }else {
+
                 AppConstants.player.change(ScenarioCard.getRightConsequence(card));
                 narrationCard = ScenarioCard.getRightNarration(card);
             }
