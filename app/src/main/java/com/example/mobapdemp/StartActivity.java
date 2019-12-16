@@ -96,50 +96,54 @@ public class StartActivity extends AppCompatActivity {
             Glide.with(this).load(String.valueOf(AppConstants.user.getPhoto())).into(profileImg);
         }
 
-        profileImg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                profileDialog = new UserProfileDialog(StartActivity.this);
-
-                View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
-
-                btnLogout = dialogView.findViewById(R.id.btn_logout);
-                viewProfileImg = dialogView.findViewById(R.id.view_profile_image);
-                viewProfileName = dialogView.findViewById(R.id.view_profile_name);
-                viewProfileEmail = dialogView.findViewById(R.id.view_profile_email);
-
-
-                Glide.with(StartActivity.this)
-                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
-                        .into(viewProfileImg);
-                if(AppConstants.user.getPhoto() != null) {
-                    Glide.with(StartActivity.this)
-                            .load(String.valueOf(AppConstants.user.getPhoto()))
-                            .into(viewProfileImg);
-                }
-                viewProfileName.setText(AppConstants.user.getName());
-                viewProfileEmail.setText(AppConstants.user.getEmail());
-
-
-
-
-
-                btnLogout.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-                        signOut();
-                    }
-                });
-                profileDialog.show();
-
-            }
-        });
+//        profileImg.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//
+//                View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
+//
+//                btnLogout = dialogView.findViewById(R.id.btn_logout);
+//                viewProfileImg = dialogView.findViewById(R.id.view_profile_image);
+//                viewProfileName = dialogView.findViewById(R.id.view_profile_name);
+//                viewProfileEmail = dialogView.findViewById(R.id.view_profile_email);
+//
+//
+//                Glide.with(StartActivity.this)
+//                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
+//                        .into(viewProfileImg);
+//                if(AppConstants.user.getPhoto() != null) {
+//                    Glide.with(StartActivity.this)
+//                            .load(String.valueOf(AppConstants.user.getPhoto()))
+//                            .into(viewProfileImg);
+//                }
+//                viewProfileName.setText(AppConstants.user.getName());
+//                viewProfileEmail.setText(AppConstants.user.getEmail());
+//
+//
+//
+//
+//
+//                btnLogout.setOnClickListener(new View.OnClickListener(){
+//                    @Override
+//                    public void onClick(View v) {
+//                        signOut();
+//                    }
+//                });
+//
+//            }
+//        });
 
     }
 
-    public void openLeaderboard(View view) {
+    public void openUserDialog(View view){
+        profileDialog = new UserProfileDialog(this);
+        profileDialog.show();
+    }
 
+
+    public void openLeaderboard(View view) {
         leaderboardDialog = new LeaderboardDialog(this);
         leaderboardDialog.show();
 

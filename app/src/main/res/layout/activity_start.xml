@@ -24,7 +24,8 @@
             android:layout_centerInParent="true"
             android:gravity="top"
             app:civ_border_color="#0E450D"
-            app:civ_border_width="2dp" />
+            app:civ_border_width="2dp"
+            android:onClick="openUserDialog"/>
 
         <TextView
             android:id="@+id/txt_username"

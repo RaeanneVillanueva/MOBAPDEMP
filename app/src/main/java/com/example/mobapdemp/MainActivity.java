@@ -90,7 +90,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         txtCharacterName = findViewById(R.id.txt_character_name);
 
         AppConstants.player = new Player(name);
-
     }
 
     @Override
