@@ -162,12 +162,13 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
-                if(((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText() != null)
+                if(((ScenarioCard)card).getChoiceRight().getNarration()!= null && ((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText() != null)
                     if(!((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase(""))
                         narrationCard = ScenarioCard.getLeftNarration(card);
             }else {
                 AppConstants.player.change(ScenarioCard.getRightConsequence(card));
-                if(((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText() != null)
+
+                if(((ScenarioCard)card).getChoiceRight().getNarration()!= null && ((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText() != null)
                     if(!((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase(""))
                         narrationCard = ScenarioCard.getRightNarration(card);
             }
@@ -209,11 +210,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
                     break;
             }
             AppConstants.deck.getQueue().add(manager.getTopPosition(), dc);
-            try {
-                TimeUnit.SECONDS.sleep(1);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
             adapter = new CardStackAdapter(AppConstants.deck, this);
 
         }
