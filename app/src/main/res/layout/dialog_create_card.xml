@@ -46,7 +46,7 @@
         android:hint="Type choice left here.."
         android:maxLength="20"
         android:maxLines="1"
-        android:padding="20dp"
+        android:padding="10dp"
         android:textSize="10dp" />
 
     <TextView
@@ -68,7 +68,7 @@
         android:hint="Type choice right here.."
         android:maxLength="20"
         android:maxLines="1"
-        android:padding="20dp"
+        android:padding="10dp"
         android:textSize="10dp" />
 
     <TextView
@@ -92,7 +92,7 @@
         android:hint="Type the scenario here.."
         android:inputType="textMultiLine"
         android:maxLines="3"
-        android:padding="20dp"
+        android:padding="15dp"
         android:textSize="10dp" />
 
     <TextView
@@ -105,9 +105,10 @@
         android:textColor="#0E450D"/>
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center">
 
         <EditText
             android:id="@+id/etxt_health"
@@ -120,7 +121,7 @@
             android:hint="Health"
             android:inputType="numberSigned|number"
             android:maxLines="1"
-            android:padding="10dp"
+            android:padding="5dp"
             android:textSize="10dp" />
 
         <EditText
@@ -134,7 +135,7 @@
             android:hint="Social"
             android:inputType="numberSigned|number"
             android:maxLines="1"
-            android:padding="10dp"
+            android:padding="5dp"
             android:textSize="10dp" />
 
         <EditText
@@ -148,7 +149,7 @@
             android:hint="Grades"
             android:inputType="numberSigned|number"
             android:maxLines="1"
-            android:padding="10dp"
+            android:padding="5dp"
             android:textSize="10dp" />
 
         <EditText
@@ -162,7 +163,7 @@
             android:hint="Money"
             android:inputType="numberSigned|number"
             android:maxLines="1"
-            android:padding="10dp"
+            android:padding="5dp"
             android:textSize="10dp" />
 
     </LinearLayout>
