@@ -169,6 +169,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
             AppConstants.deck.getQueue().add(manager.getTopPosition()+1, narrationCard);
             adapter.notifyDataSetChanged();
         }
+        AppConstants.deck.getQueue().remove(manager.getTopPosition());
 
         progressBar_grades.setProgress(AppConstants.player.getGrades());
         progressBar_health.setProgress(AppConstants.player.getHealth());
