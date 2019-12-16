@@ -41,6 +41,9 @@ public class CardListAdapter extends ArrayAdapter<Card> {
 
         cardname = convertView.findViewById(R.id.txt_card_name);
 
+        Card card = getItem(position);
+
+
         cardname.setText("Card " + (position+1)+ "");
 
         return convertView;
