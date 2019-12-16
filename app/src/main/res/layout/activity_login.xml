@@ -28,6 +28,7 @@
         android:ems="5"
         android:fontFamily="@font/pokemon"
         android:hint="Username"
+        android:textColor="#0E450D"
         android:inputType="textEmailAddress"
         android:maxLength="30"
         android:padding="15dp"
@@ -44,6 +45,7 @@
         android:inputType="textPassword"
         android:maxLength="30"
         android:padding="15dp"
+        android:textColor="#0E450D"
         android:textSize="12dp" />
 
     <LinearLayout

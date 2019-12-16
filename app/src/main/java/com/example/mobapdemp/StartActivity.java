@@ -79,20 +79,6 @@ public class StartActivity extends AppCompatActivity {
 
         AppConstants.user = new User(personId, personName, personEmail, personPhoto);
 
-        btn_signout = findViewById(R.id.btn_signout);
-
-//        btn_signout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                switch (v.getId()) {
-//                    case R.id.btn_signout:
-//                        signOut();
-//                        break;
-//                }
-//            }
-//        });
-
-        //view profile dialog, logout onclicklistener is here
 
         profileImg = findViewById(R.id.profile_image);
         Glide.with(this).load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg")).into(profileImg);
@@ -100,49 +86,7 @@ public class StartActivity extends AppCompatActivity {
             Glide.with(this).load(String.valueOf(AppConstants.user.getPhoto())).into(profileImg);
 
         }
-
-//        profileImg.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//
-//                View dialogView = getLayoutInflater().inflate(R.layout.dialog_user_profile, null);
-//
-//                btnLogout = dialogView.findViewById(R.id.btn_logout_dialog);
-//                viewProfileImg = dialogView.findViewById(R.id.view_profile_image_dialog);
-//                viewProfileName = dialogView.findViewById(R.id.view_profile_name_dialog);
-//                viewProfileEmail = dialogView.findViewById(R.id.view_profile_email_dialog);
-//
-//
-//                Glide.with(StartActivity.this)
-//                        .load(String.valueOf("https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg\n"))
-//                        .into(viewProfileImg);
-//                if(AppConstants.user.getPhoto() != null) {
-//                    Glide.with(StartActivity.this)
-//                            .load(String.valueOf(AppConstants.user.getPhoto()))
-//                            .into(viewProfileImg);
-//                }
-//                viewProfileName.setText(AppConstants.user.getName());
-//                viewProfileEmail.setText(AppConstants.user.getEmail());
-//
-//
-//
-//
-//
-//                btnLogout.setOnClickListener(new View.OnClickListener(){
-//                    @Override
-//                    public void onClick(View v) {
-//                        signOut();
-//                    }
-//                });
-//
-//            }
-//        });
-
     }
-
-
 
 
     public void openUserDialog(View view){
@@ -175,9 +119,6 @@ public class StartActivity extends AppCompatActivity {
         alertBuilder.setView(dialogView);
         dialogUserProfile = alertBuilder.create();
         dialogUserProfile.show();
-
-//        profileDialog = new UserProfileDialog(this);
-//        profileDialog.show();
     }
 
 

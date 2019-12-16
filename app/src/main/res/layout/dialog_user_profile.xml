@@ -10,60 +10,50 @@
     android:background="#f4f3d7"
     android:padding="20dp">
 
-    <LinearLayout
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/view_profile_image_dialog"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_centerInParent="true"
+        android:gravity="top"
+        app:civ_border_color="#71db77"
+        app:civ_border_width="2dp" />
+
+    <TextView
+        android:id="@+id/view_profile_name_dialog"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:padding="30dp"
-        android:gravity="center">
+        android:layout_margin="5dp"
+        android:fontFamily="@font/bungee"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Name"
+        android:textColor="#71db77"
+        android:textSize="18dp" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/view_profile_image_dialog"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_centerInParent="true"
-            android:gravity="top"
-            app:civ_border_color="#0E450D"
-            app:civ_border_width="2dp" />
+    <TextView
+        android:id="@+id/view_profile_email_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:fontFamily="@font/bungee"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="Email"
+        android:textColor="#71db77"
+        android:textSize="18dp" />
 
-        <TextView
-            android:id="@+id/view_profile_name_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/bungee"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Name"
-            android:textColor="#71db77"
-            android:textSize="18dp" />
-
-        <TextView
-            android:id="@+id/view_profile_email_dialog"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:fontFamily="@font/bungee"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Email"
-            android:textColor="#71db77"
-            android:textSize="18dp" />
-
-        <Button
-            android:id="@+id/btn_logout_dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
-            android:background="@drawable/button_shape"
-            android:fontFamily="@font/bungee"
-            android:text="Log Out"
-            android:textColor="@android:color/white"
-            android:textSize="15dp" />
-    </LinearLayout>
+    <Button
+        android:id="@+id/btn_logout_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp"
+        android:background="@drawable/button_shape"
+        android:fontFamily="@font/bungee"
+        android:text="Log Out"
+        android:textColor="@android:color/white"
+        android:textSize="15dp" />
 
 
 </LinearLayout>
