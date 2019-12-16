@@ -35,7 +35,7 @@ public class StartActivity extends AppCompatActivity {
     private Button btnPlay, btn_signout, btnLogout;
     private DatabaseReference databaseSample;
     private CircleImageView profileImg;
-    private AlertDialog dialogUserProfile;
+    private AlertDialog dialogUserProfile, dialogStartGame;
 
     private GoogleSignInClient mGoogleSignInClient;
     private FirebaseAuth mAuth;
@@ -142,17 +142,19 @@ public class StartActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
+                dialogStartGame.dismiss();
                 AppConstants.initStandardDeck();
                 Intent intent = new Intent(StartActivity.this, MainActivity.class);
                 intent.putExtra("Inputted Player Name", playerName.getText().toString());
                 startActivity(intent);
+                finish();
             }
         });
 
         alertBuilder.setView(dialogView);
-        AlertDialog dialog = alertBuilder.create();
+        dialogStartGame = alertBuilder.create();
 
-        dialog.show();
+        dialogStartGame.show();
     }
 
     private void signOut() {
