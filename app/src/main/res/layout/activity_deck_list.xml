@@ -16,7 +16,7 @@
         android:fontFamily="@font/bungee"
         android:padding="20dp"
         android:text="Custom Decks"
-        android:textColor="#0E450D"
+        android:textColor="#71db77"
         android:textSize="18dp" />
 
     <Spinner
