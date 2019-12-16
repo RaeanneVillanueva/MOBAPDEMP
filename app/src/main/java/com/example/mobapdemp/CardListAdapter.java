@@ -39,7 +39,7 @@ public class CardListAdapter extends ArrayAdapter<Card> {
             convertView = LayoutInflater.from(context).inflate(R.layout.item_card, null, true);
         }
 
-        cardname = convertView.findViewById(R.id.etxt_deck_name);
+        cardname = convertView.findViewById(R.id.txt_card_name);
 
         cardname.setText("Card " + (position+1)+ "");
 
