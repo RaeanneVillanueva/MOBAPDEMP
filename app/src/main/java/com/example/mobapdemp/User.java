@@ -36,6 +36,7 @@ public class User {
     }
 
     public String getName() {
+        if(name == null || name.equalsIgnoreCase("")) return email;
         return name;
     }
 

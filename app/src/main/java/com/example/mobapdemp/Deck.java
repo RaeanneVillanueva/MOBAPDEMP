@@ -120,6 +120,10 @@ public class Deck {
         scenarioCards.add(new DeathCard(AppConstants.STARVE, "You don't money and ended up starving to death."));
 
 
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATS IT'S TERM 2!!!",
+                new Choice("YAY", "TERM2"),
+                new Choice("WOOT", "TERM2")));
+
 
     }
 

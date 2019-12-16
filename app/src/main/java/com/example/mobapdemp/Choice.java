@@ -22,6 +22,10 @@ public class Choice {
         this(text, consequence, null);
     }
 
+    public Choice(String text, String narration){
+        this(text, new Consequence(), narration);
+    }
+
     public String getText() {
         return text;
     }

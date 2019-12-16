@@ -155,22 +155,22 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
 
         NarrationCard narrationCard = null;
-
+        if(card instanceof DeathCard){
+            gameOver();
+        }
         if(card instanceof ScenarioCard) {
 
             if(direction.equals(Direction.Left)) {
                 AppConstants.player.change(ScenarioCard.getLeftConsequence(card));
-                if(((ScenarioCard)card).getChoiceLeft().getNarration() != null)
+                if(((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText() != null)
                     if(!((ScenarioCard)card).getChoiceLeft().getNarration().getScenarioText().equalsIgnoreCase(""))
                         narrationCard = ScenarioCard.getLeftNarration(card);
             }else {
                 AppConstants.player.change(ScenarioCard.getRightConsequence(card));
-                if(((ScenarioCard)card).getChoiceRight().getNarration() != null)
+                if(((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText() != null)
                     if(!((ScenarioCard)card).getChoiceRight().getNarration().getScenarioText().equalsIgnoreCase(""))
                         narrationCard = ScenarioCard.getRightNarration(card);
             }
-        }else if(card instanceof DeathCard){
-            gameOver();
         }
 
 
@@ -291,7 +291,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         //check leaderboard
         db.addListenerForSingleValueEvent(new ValueEventListener() {
             ArrayList<LeaderboardModel> leaders = new ArrayList<>();
-            LeaderboardModel curr = new LeaderboardModel(AppConstants.player.getName(), 15, AppConstants.user.getName());
+            LeaderboardModel curr = new LeaderboardModel(AppConstants.player.getName(), AppConstants.player.getTerm(), AppConstants.user.getName());
 
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -303,7 +303,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
                 Collections.sort(leaders);
 
-                if(leaders.get(leaders.size()-1).getScore() < curr.getScore()) {
+                if(leaders.size() < 10 || leaders.get(leaders.size()-1).getScore() < curr.getScore()) {
                     leaders.add(curr);
 
 
@@ -315,9 +315,16 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
                     if (k > size)
                         leaders.subList(10, k).clear();
 
-                    Toast.makeText(getApplicationContext(), "Congratulations you are rank "+ leaders.indexOf(curr) +" in the leaderboard!", Toast.LENGTH_LONG).show();
-                }
+                    db.removeValue();
+                    for(LeaderboardModel lm: leaders) {
+                        String id = db.push().getKey();
+                        lm.setId(id);
+                        db.child(id).setValue(lm);
+                    }
 
+                    Toast.makeText(getApplicationContext(), "Congratulations you are rank " + (leaders.indexOf(curr)+1) + " in the leaderboard!", Toast.LENGTH_LONG).show();
+                }
+                finish();
             }
 
             @Override

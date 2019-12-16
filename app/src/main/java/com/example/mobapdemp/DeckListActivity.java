@@ -26,7 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-import br.com.simplepass.loadingbutton.customViews.CircularProgressButton;
 
 public class DeckListActivity extends AppCompatActivity {
 
@@ -40,7 +39,6 @@ public class DeckListActivity extends AppCompatActivity {
     private Spinner spinnerDeckCategory;
     private String choice = "All Decks";
     private  AlertDialog dialogCreateDeck, editDeckDialog;
-    private CircularProgressButton btnPlay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
