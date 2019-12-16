@@ -149,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
     @Override
     public void onCardSwiped(Direction direction) {
         Log.d("CHECKTOPCARD", manager.getTopPosition()+ "");
-        Card card = AppConstants.deck.getCards().get(manager.getTopPosition()-1);
+        Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
 
         if(direction.equals(Direction.Left)) {
 
@@ -158,6 +158,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
                 NarrationCard narrationCard = ScenarioCard.getLeftNarration(card);
                 if(narrationCard!=null){
                     //add narration card if any
+
                 }
             }
         }else{
