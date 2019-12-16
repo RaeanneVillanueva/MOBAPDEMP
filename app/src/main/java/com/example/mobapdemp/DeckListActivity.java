@@ -26,10 +26,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.concurrent.TimeUnit;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 9a1e6ca8396a9e18e7c387f201c7f1651d847144
 public class DeckListActivity extends AppCompatActivity {
 
     private CreateCardDialog dialog;
