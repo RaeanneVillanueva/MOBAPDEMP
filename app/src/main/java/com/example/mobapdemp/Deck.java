@@ -152,7 +152,7 @@ public class Deck {
 
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "Time for your finals!",
                 new Choice("Take it.", new Consequence(), ""),
-                new Choice("Pfft.", new Consequence(0,0,0,0), "`")));
+                new Choice("Pfft.", new Consequence(0,0,0,0), "")));
 
 
 
