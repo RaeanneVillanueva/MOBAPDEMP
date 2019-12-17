@@ -36,6 +36,7 @@ public class Deck {
     public void initializeStandardDeck(){
         this.name = "standard";
         this.id = "0";
+
         scenarioCards.add(  new ScenarioCard(AppConstants.MOM, "DCAT is coming, you should study!",
                     new Choice("Ok", new Consequence(-5, 0, 15, 0), "Welcome to DLSU"),
                     new Choice("Pfft. No", new Consequence(0, 0, -50, 0), "You failed 0/100...")));
@@ -139,6 +140,7 @@ public class Deck {
         scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Would you like my old reviewers for your upcomng DEPEX?",
                 new Choice("Yes please!", new Consequence(0,0, 7, 0), ""),
                 new Choice("No thanks.", new Consequence(0, 0, -3, 0), "")));
+
 
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATS IT'S TERM 2!!!",
                 new Choice("YAY", "TERM2"),
