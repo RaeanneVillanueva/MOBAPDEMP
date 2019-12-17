@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.nfc.tech.NfcA;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -174,6 +175,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
             }
         }
 
+        if(card instanceof NarrationCard && ((NarrationCard)card).getScenarioText().matches("TERM")){
+            playerScore.setText(AppConstants.player.getTerm());
+        }
 
 
         progressBar_grades.setProgress(AppConstants.player.getGrades());
