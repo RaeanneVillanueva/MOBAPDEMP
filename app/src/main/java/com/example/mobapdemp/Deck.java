@@ -37,6 +37,10 @@ public class Deck {
         this.name = "standard";
         this.id = "0";
 
+        scenarioCards.add(  new ScenarioCard(AppConstants.MOM, "DCAT is coming, you should study!",
+                    new Choice("Ok", new Consequence(-5, 0, 15, 0), "Welcome to DLSU"),
+                    new Choice("Pfft. No", new Consequence(0, 0, -50, 0), "You failed 0/100...")));
+
         scenarioCards.add(  new ScenarioCard(AppConstants.DAD, "Here's your allowance, enjoy!",
                 new Choice("Thanks!", new Consequence(0, 0, 0, 30), ""),
                 new Choice("No need, Dad!", new Consequence(0, 0, 0, 0), "")));
@@ -140,6 +144,7 @@ public class Deck {
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "Time for your finals!",
                 new Choice("Take it.", new Consequence(), ""),
                 new Choice("Pfft skip it.", new Consequence(0,0,-100,0), "You skipped a (FINAL) exam ... why?")));
+
 
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "What's the datatype to store whole numbers?",
                 new Choice("Int", new Consequence(0,0,15,0), ""),
