@@ -332,7 +332,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
                     Toast.makeText(getApplicationContext(), "Congratulations you are rank " + (leaders.indexOf(curr)+1) + " in the leaderboard!", Toast.LENGTH_LONG).show();
                 }else{
-                    Toast.makeText(getApplicationContext(), "Congratulations you finished the story", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Thank you for playing!", Toast.LENGTH_LONG).show();
+
                 }
                 Intent intent = new Intent(MainActivity.this, StartActivity.class);
                 startActivity(intent);

@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.concurrent.TimeUnit;
+
 public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     Deck deck;
@@ -50,6 +52,13 @@ public class CardStackAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         if(card instanceof ScenarioCard) {
             ((ScenarioCardViewHolder)holder).choiceLeft.setText(((ScenarioCard) card).getChoiceLeft().getText());
             ((ScenarioCardViewHolder)holder).choiceRight.setText(((ScenarioCard) card).getChoiceRight().getText());
+
+            try {
+                TimeUnit.MICROSECONDS.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             Glide.with(context).load(((ScenarioCard) card).getCharacter().getImagePath()).into(((ScenarioCardViewHolder)holder).cardImage);
         }else if(card instanceof NarrationCard) {
             ((NarrationCardViewHolder)holder).txtNarration.setText(card.getScenarioText());
