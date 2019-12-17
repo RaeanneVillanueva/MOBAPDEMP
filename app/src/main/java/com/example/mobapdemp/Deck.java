@@ -46,6 +46,10 @@ public class Deck {
                 new Choice("No need, Dad!", new Consequence(0, 0, 0, 0), "")));
 
 
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATULATIONS IT'S TERM 1!",
+                new Choice("YAY", new Consequence(), "TERM 1"),
+                new Choice("WOW", new Consequence(), "TERM 1")));
+
         scenarioCards.add(  new ScenarioCard(AppConstants.JAMES, "Hi, I am from Shavier Academy! I like to weightlift in my free time!",
                 new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
                 new Choice("Hi!", new Consequence(0, 0, 0, 0), "")));
