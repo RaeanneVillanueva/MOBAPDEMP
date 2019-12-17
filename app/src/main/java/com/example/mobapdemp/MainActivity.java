@@ -81,6 +81,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Intent intent = getIntent();
         String name = intent.getStringExtra("Inputted Player Name");
         playerName.setText(name);
+        AppConstants.player = new Player(name);
 
         //player points
         playerScore = findViewById(R.id.txt_points);

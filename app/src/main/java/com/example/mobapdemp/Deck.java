@@ -50,8 +50,8 @@ public class Deck {
                 new Choice("Hi!", new Consequence(-10, 0, 0, 0), "")));
 
         scenarioCards.add(  new ScenarioCard(AppConstants.JEAN, " Hi, I am from Dos High School! I know how to play drums!",
-                new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
-                new Choice("Hi!", new Consequence(0, 0, 0, 0), "")));
+                new Choice("Hi!", new Consequence(), ""),
+                new Choice("Hi!", new Consequence(), "")));
 
         scenarioCards.add(  new ScenarioCard(AppConstants.BEK, "Hi, I am from Shanghai Shek College! I like to draw!",
                 new Choice("Hi!", new Consequence(0, 0, 0, 0), ""),
