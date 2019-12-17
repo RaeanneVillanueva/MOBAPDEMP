@@ -177,10 +177,12 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
                         narrationCard = ScenarioCard.getRightNarration(card);
             }
         }
+        if(card instanceof NarrationCard ) {
 
-        if(card instanceof NarrationCard && ((NarrationCard)card).getScenarioText().matches("TERM")){
-            AppConstants.player.setTerm(Integer.parseInt(((NarrationCard)card).getScenarioText().replaceAll("\\D+", "")));
-            playerScore.setText("TERM: "+AppConstants.player.getTerm());
+            if (((NarrationCard) card).getScenarioText().matches("TERM")) {
+                AppConstants.player.setTerm(Integer.parseInt(((NarrationCard) card).getScenarioText().replaceAll("\\D+", "")));
+                playerScore.setText("TERM: " + AppConstants.player.getTerm());
+            }
         }
 
 
@@ -188,7 +190,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         progressBar_health.setProgress(AppConstants.player.getHealth());
         progressBar_money.setProgress(AppConstants.player.getMoney());
         progressBar_social.setProgress(AppConstants.player.getSocial());
-        playerScore.setText(AppConstants.player.getTerm());
 
         if(!AppConstants.player.isSurviving()){
             DeathCard dc = null;
