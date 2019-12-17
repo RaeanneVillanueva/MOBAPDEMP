@@ -159,7 +159,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
 
         NarrationCard narrationCard = null;
-        if(card instanceof DeathCard || AppConstants.deck.getQueue().size() == 0){
+        if(card instanceof DeathCard || manager.getTopPosition() == AppConstants.deck.getQueue().size()){
             gameOver();
         }
 
@@ -331,6 +331,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
                     }
 
                     Toast.makeText(getApplicationContext(), "Congratulations you are rank " + (leaders.indexOf(curr)+1) + " in the leaderboard!", Toast.LENGTH_LONG).show();
+                }else{
+                    Toast.makeText(getApplicationContext(), "Congratulations you finished the story", Toast.LENGTH_LONG).show();
                 }
                 Intent intent = new Intent(MainActivity.this, StartActivity.class);
                 startActivity(intent);

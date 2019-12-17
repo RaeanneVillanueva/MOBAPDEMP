@@ -108,17 +108,17 @@ public class CreateCardDialog extends Dialog{
     private void initCharacterList() {
         characterList = new ArrayList<>();
 
-        characterList.add(new Character("Mom", R.drawable.mom));
-        characterList.add(new Character("Dad", R.drawable.dad));
-        characterList.add(new Character("Jyle", R.drawable.jyle));
-        characterList.add(new Character("Jeanette", R.drawable.jean));
-        characterList.add(new Character("Jean", R.drawable.jean_boy));
-        characterList.add(new Character("James", R.drawable.james));
-        characterList.add(new Character("Bek", R.drawable.bek));
-        characterList.add(new Character("Bob", R.drawable.bob));
-        characterList.add(new Character("Upperclassmen", R.drawable.upperclass1));
-        characterList.add(new Character("Upperclassmen", R.drawable.upperclass2));
-        characterList.add(new Character("Professor", R.drawable.prof1));
-        characterList.add(new Character("Professor", R.drawable.prof2));
+        characterList.add(new Character("Mom", R.drawable.mom, "mom.png"));
+        characterList.add(new Character("Dad", R.drawable.dad, "dad.png"));
+        characterList.add(new Character("Jyle", R.drawable.jyle, "jyle.png"));
+        characterList.add(new Character("Jeanette", R.drawable.jean, "jean.png"));
+        characterList.add(new Character("Jean", R.drawable.jean_boy, "jean_boy.png"));
+        characterList.add(new Character("James", R.drawable.james, "james.png"));
+        characterList.add(new Character("Bek", R.drawable.bek, "bek.png"));
+        characterList.add(new Character("Bob", R.drawable.bob, "bob.png"));
+        characterList.add(new Character("Upperclassmen", R.drawable.upperclass1, "upperclass1.png"));
+        characterList.add(new Character("Upperclassmen", R.drawable.upperclass2, "upperclass2.png"));
+        characterList.add(new Character("Professor", R.drawable.prof1, "prof1.png"));
+        characterList.add(new Character("Professor", R.drawable.prof2, "prof2.png"));
     }
 }

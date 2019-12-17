@@ -209,6 +209,7 @@ public class DeckListActivity extends AppCompatActivity {
 
                         for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                             ScenarioCard sc = postSnapshot.getValue(ScenarioCard.class);
+//                            sc.getCharacter().setImagePath(getResources().getIdentifier(sc.getCharacter().getCharacterName(), "drawable", getPackageName()));
                             AppConstants.deck.getScenarioCards().add(sc);
                         }
                         AppConstants.deck.enQueueCards();
