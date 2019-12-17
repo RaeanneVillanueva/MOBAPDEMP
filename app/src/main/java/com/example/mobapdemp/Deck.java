@@ -155,6 +155,7 @@ public class Deck {
                 new Choice("Pfft.", new Consequence(0,0,0,0), "`")));
 
 
+
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "What's the datatype to store whole numbers?",
                 new Choice("Int", new Consequence(0,0,15,0), ""),
                 new Choice("Char", new Consequence(0,0,-15,0), "")));
