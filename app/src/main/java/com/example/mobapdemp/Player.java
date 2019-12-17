@@ -40,10 +40,14 @@ public class Player extends Character{
     }
 
     public String causeOfDeath(){
-        if(health<=0||health>=100) return "health" + health;
-        if(social<=0||social>=100) return "social" + social;
-        if(money<=0||money>=100) return "money" + money;
-        if(grades<=0||grades>=100) return "grades" + grades;
+        if(health<=0) return "health0";
+        if(health>=100) return "health100";
+        if(social<=0) return "social0";
+        if(social>=100) return "social100";
+        if(money<=0) return "money0";
+        if(money>=100) return "money100";
+        if(grades<=0) return "grades0";
+        if(grades>=100) return "grades100";
         return null;
 
     }

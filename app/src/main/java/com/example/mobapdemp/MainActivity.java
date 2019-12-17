@@ -195,32 +195,24 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
         if(!AppConstants.player.isSurviving()){
             DeathCard dc = null;
-            switch (AppConstants.player.causeOfDeath()){
-                case "health0":
+            String cod = AppConstants.player.causeOfDeath();
+                if(cod.equalsIgnoreCase("health0"))
                     dc = new DeathCard(AppConstants.VOMIT, "You got sick. The university kicked you out of the school for excessive amounts of absences.");
-                    break;
-                case "health100":
+                if(cod.equalsIgnoreCase("health100"))
                     dc = new DeathCard(AppConstants.DRUGS, "You were so healthy that you thought you were immune to anything. So you overdosed");
-                    break;
-                case "social0":
+                if(cod.equalsIgnoreCase("social0"))
                     dc = new DeathCard(AppConstants.LONELINESS, "You neglected your friends so they left you.");
-                    break;
-                case "social100":
+                if(cod.equalsIgnoreCase("social100"))
                     dc = new DeathCard(AppConstants.DRUGS, "You were such a people pleaser that you easily caved in to peer pressure and overdosed drugs");
-                    break;
-                case "money0":
+                if(cod.equalsIgnoreCase("money0"))
                     dc = new DeathCard(AppConstants.STARVE, "You are broke. You starved.");
-                    break;
-                case "money100":
+                if(cod.equalsIgnoreCase("money100"))
                     dc = new DeathCard(AppConstants.LONELINESS, "You were so rich.");
-                    break;
-                case "grades0":
+                if(cod.equalsIgnoreCase("grades0"))
                     dc = new DeathCard(AppConstants.LONELINESS, "You failed every subject imaginable");
-                    break;
-                case "grades100":
+                if(cod.equalsIgnoreCase("grades100"))
                     dc = new DeathCard(AppConstants.VOMIT, "You got a 4.0 in every subject imaginable. The university suspected you of cheating and kicked you out");
-                    break;
-            }
+
             AppConstants.deck.getQueue().add(manager.getTopPosition(), dc);
 
             adapter = new CardStackAdapter(AppConstants.deck, this);

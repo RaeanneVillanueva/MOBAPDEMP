@@ -70,12 +70,12 @@ public class CustomDeckActivity extends AppCompatActivity {
         finish();
     }
 
-    public void saveCustomDeck(View view){
-        DatabaseReference drUpdate = FirebaseDatabase.getInstance().getReference("customDecks").child(deck.getId());
-
-        drUpdate.setValue(deck);
-        finish();
-    }
+//    public void saveCustomDeck(View view){
+//        DatabaseReference drUpdate = FirebaseDatabase.getInstance().getReference("customDecks").child(deck.getId());
+//
+//        drUpdate.setValue(deck);
+//        finish();
+//    }
 
     public void initializeCardListData() {
         databaseCards = FirebaseDatabase.getInstance().getReference("card").child(deck.getId());
