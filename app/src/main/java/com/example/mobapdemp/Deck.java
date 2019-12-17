@@ -137,10 +137,13 @@ public class Deck {
                 new Choice("No sir..", new Consequence(0,-2, 5, -2), ""),
                 new Choice("G!", new Consequence(5, 4, -3, -2), "")));
 
-        scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Would you like my old reviewers for your upcomng DEPEX?",
+        scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Would you like my old reviewers for your upcoming DEPEX?",
                 new Choice("Yes please!", new Consequence(0,0, 7, 0), ""),
                 new Choice("No thanks.", new Consequence(0, 0, -3, 0), "")));
 
+        scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "",
+                new Choice("", new Consequence(0,0, 7, 0), ""),
+                new Choice("", new Consequence(0, 0, -3, 0), "")));
 
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATS IT'S TERM 2!!!",
                 new Choice("YAY", "TERM2"),
