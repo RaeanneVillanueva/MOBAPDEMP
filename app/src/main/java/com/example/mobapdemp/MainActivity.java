@@ -25,8 +25,6 @@ import com.yuyakaido.android.cardstackview.CardStackLayoutManager;
 import com.yuyakaido.android.cardstackview.CardStackListener;
 import com.yuyakaido.android.cardstackview.CardStackView;
 import com.yuyakaido.android.cardstackview.Direction;
-import com.yuyakaido.android.cardstackview.StackFrom;
-import com.yuyakaido.android.cardstackview.SwipeAnimationSetting;
 import com.yuyakaido.android.cardstackview.SwipeableMethod;
 
 import java.util.ArrayList;
@@ -83,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         String name = intent.getStringExtra("Inputted Player Name");
         playerName.setText(name);
 
+        //player points
+        playerScore = findViewById(R.id.txt_points);
+
 
         //getting the marks
         markHealth = findViewById(R.id.mark_health);
@@ -95,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         txtCharacterName = findViewById(R.id.txt_character_name);
 
         AppConstants.player = new Player(name);
+        playerScore.setText(AppConstants.player.getTerm());
     }
 
     @Override
@@ -180,6 +182,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         progressBar_health.setProgress(AppConstants.player.getHealth());
         progressBar_money.setProgress(AppConstants.player.getMoney());
         progressBar_social.setProgress(AppConstants.player.getSocial());
+        playerScore.setText(AppConstants.player.getTerm());
 
         if(!AppConstants.player.isSurviving()){
             DeathCard dc = null;
@@ -259,6 +262,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         }
 
         adapter = new CardStackAdapter(AppConstants.deck, this);
+
     }
 
     @Override

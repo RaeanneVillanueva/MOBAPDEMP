@@ -18,6 +18,7 @@ public class Player extends Character{
     }
 
     public Player(String name){
+
         this(name, 0);
     }
 
