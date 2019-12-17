@@ -69,8 +69,6 @@ public class Deck {
                 new Choice("G!", new Consequence(0, 10, 0, -5), "You gained a lot of friends because of the party!"),
                 new Choice("Need to go home", new Consequence(0, -5, 0, 0), "You ended up forcefully going to the party. You did not enjoy it.")));
 
-        //ended up going to the party
-
         scenarioCards.add(  new ScenarioCard(AppConstants.MOM, "Go home now!",
                 new Choice("Book a Grab", new Consequence(0, 0, 0, -20), ""),
                 new Choice("LRT", new Consequence(-5, 0, 0, 0), "")));
@@ -111,10 +109,15 @@ public class Deck {
                 new Choice("I'm shy..", new Consequence(0,-2,0,0), ""),
                 new Choice("What to do??", new Consequence(0,3,0,0), "")));
 
-
         scenarioCards.add(new ScenarioCard(AppConstants.BEK, "Let’s join the General Assembly, let’s meet new friends! Our other blockmates will come too! Let’s study for the graded recitation after.",
                 new Choice("Yea sure!", new Consequence(-4,5,-3,0), "You gained a lot of friends today! However, you were not able to recite."),
                 new Choice("Priorities..", new Consequence(3,-5,5,0), "You were able to study of the graded recitation. However, the professor forgot about it.")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR2, "Let’s join the General Assembly, let’s meet new friends! Our other blockmates will come too! Let’s study for the graded recitation after.",
+                new Choice("Yea sure!", new Consequence(-4,5,-3,0), "You gained a lot of friends today! However, you were not able to recite."),
+                new Choice("Priorities..", new Consequence(3,-5,5,0), "You were able to study of the graded recitation. However, the professor forgot about it.")));
+
+
 
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATS IT'S TERM 2!!!",
                 new Choice("YAY", "TERM2"),
