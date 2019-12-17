@@ -97,6 +97,11 @@ public class Deck {
                 new Choice("Yes!", new Consequence(0,3,3,0), ""),
                 new Choice("No.", new Consequence(0,-3,-2,0), "")));
 
+        scenarioCards.add(new ScenarioCard(AppConstants.BOB, "Orgs are hassle. I wouldn't join if I were you.",
+                new Choice("Okay..", new Consequence(0,-5,5,0), "You and Bob are the only students who don't have an org."),
+                new Choice("I'll join for the experience!", new Consequence(0, 5,7,0), "You gained a lot of new experiences in your org.")));
+
+
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "We’ll be having a graded recitation tomorrow. Please be ready and review the slides.",
                 new Choice("Ugh", new Consequence(0,0,0,0), ""),
                 new Choice("Okay..", new Consequence(0,0,0,0), "")));
@@ -105,9 +110,6 @@ public class Deck {
                 new Choice("I have to study..", new Consequence(0,-5,5,0), ""),
                 new Choice("Sure!", new Consequence(0,7,-6,0), "")));
 
-        scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN1, "Let's have IceBreakers! Join the game!",
-                new Choice("I'm shy..", new Consequence(0,-2,0,0), ""),
-                new Choice("What to do??", new Consequence(0,3,0,0), "")));
 
         scenarioCards.add(new ScenarioCard(AppConstants.BEK, "Let’s join the General Assembly, let’s meet new friends! Our other blockmates will come too! Let’s study for the graded recitation after.",
                 new Choice("Yea sure!", new Consequence(-4,5,-3,0), "You gained a lot of friends today! However, you were not able to recite."),
@@ -130,9 +132,13 @@ public class Deck {
                 new Choice("I don't have money..", new Consequence(0, -5, 0, 3), ""),
                 new Choice("G!", new Consequence(5, 5, 0, -5), "")));
 
-        scenarioCards.add(new ScenarioCard(AppConstants.JYLE, "I will eat at Agno, wanna join me?",
-                new Choice("Sure!", new Consequence(4,3, 0, -4), ""),
-                new Choice("I'll eat at Tori Box.", new Consequence(6, -2, 0, -6), "")));
+        scenarioCards.add(new ScenarioCard(AppConstants.JEAN, "Let's cut class!",
+                new Choice("No sir..", new Consequence(0,-2, 5, -2), ""),
+                new Choice("G!", new Consequence(5, 4, -3, -2), "")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "Would you like my old reviewers for your upcomng DEPEX?",
+                new Choice("Yes please!", new Consequence(0,0, 7, 0), ""),
+                new Choice("No thanks.", new Consequence(0, 0, -3, 0), "")));
 
         scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATS IT'S TERM 2!!!",
                 new Choice("YAY", "TERM2"),
