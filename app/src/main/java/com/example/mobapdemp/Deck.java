@@ -141,18 +141,40 @@ public class Deck {
                 new Choice("Yes please!", new Consequence(0,0, 7, 0), ""),
                 new Choice("No thanks.", new Consequence(0, 0, -3, 0), "")));
 
+
         scenarioCards.add(new ScenarioCard(AppConstants.UPPERCLASSMEN2, "",
                 new Choice("", new Consequence(0,0, 7, 0), ""),
                 new Choice("", new Consequence(0, 0, -3, 0), "")));
 
-        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATS IT'S TERM 2!!!",
-                new Choice("YAY", "TERM2"),
-                new Choice("WOOT", "TERM2")));
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "Time for your finals!",
+                new Choice("Take it.", new Consequence(), ""),
+                new Choice("Pfft skip it.", new Consequence(0,0,-100,0), "You skipped a (FINAL) exam ... why?")));
 
 
-        scenarioCards.add(new DeathCard(AppConstants.VOMIT, "You partied too hard and vomitted."));
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "What's the datatype to store whole numbers?",
+                new Choice("Int", new Consequence(0,0,15,0), ""),
+                new Choice("Char", new Consequence(0,0,-15,0), "")));
 
-        scenarioCards.add(new DeathCard(AppConstants.STARVE, "You don't money and ended up starving to death."));
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "What is a function?",
+                new Choice("It is a library", new Consequence(0,0,-15,0), ""),
+                new Choice("It is a type of procedure or routine", new Consequence(0,0,15,0), "")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "What is 1010 in decimal",
+                new Choice("10", new Consequence(0,0,15,0), ""),
+                new Choice("12", new Consequence(0,0,-15,0), "")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "scanf('__', &number)",
+                new Choice("%d", new Consequence(0,0,15,0), ""),
+                new Choice("%c", new Consequence(0,0,-15,0), "")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "Good job! For attending the finals, I'll give you an incentive on your final grade",
+                new Choice("Wow", new Consequence(0,0,10,0), ""),
+                new Choice("Thanks!", new Consequence(0,0,10,0), "")));
+
+        scenarioCards.add(new ScenarioCard(AppConstants.PROFESSOR1, "CONGRATULATIONS IT'S TERM 2!",
+                new Choice("YAY", new Consequence(), "TERM 2"),
+                new Choice("WOW", new Consequence(), "TERM 2")));
+
 
     }
 
