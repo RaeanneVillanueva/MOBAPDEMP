@@ -159,9 +159,11 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         Card card = AppConstants.deck.getQueue().get(manager.getTopPosition()-1);
 
         NarrationCard narrationCard = null;
-        if(card instanceof DeathCard){
+        if(card instanceof DeathCard || AppConstants.deck.getQueue().size() == 0){
             gameOver();
         }
+
+
         if(card instanceof ScenarioCard) {
 
             if(direction.equals(Direction.Left)) {
@@ -230,9 +232,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
             adapter = new CardStackAdapter(AppConstants.deck, this);
         }
 
-        if(AppConstants.deck.getQueue().size() == 0){
-            //win
-        }
+
     }
 
     @Override
