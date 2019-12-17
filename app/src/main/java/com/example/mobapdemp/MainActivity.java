@@ -176,6 +176,7 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         }
 
         if(card instanceof NarrationCard && ((NarrationCard)card).getScenarioText().matches("TERM")){
+            AppConstants.player.setTerm(Integer.parseInt(((NarrationCard)card).getScenarioText().replaceAll("\\D+", "")));
             playerScore.setText(AppConstants.player.getTerm());
         }
 

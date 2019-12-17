@@ -95,7 +95,7 @@ public class CreateCardDialog extends Dialog{
                 int health = Integer.parseInt(etxt_health.getText().toString());
                 card.setScenarioText(etxt_scenario.getText().toString());
                 card.setChoiceLeft(new Choice(etxt_choice_left.getText().toString(), new Consequence(health,social,grades,money)));
-                card.setChoiceRight(new Choice(etxt_choice_right.getText().toString(), new Consequence(health,social,grades,money)));
+                card.setChoiceRight(new Choice(etxt_choice_right.getText().toString(), new Consequence(-health,-social,-grades,-money)));
 
                 String id = dbRef.push().getKey();
                 dbRef.child(id).setValue(card);
