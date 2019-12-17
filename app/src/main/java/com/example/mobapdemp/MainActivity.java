@@ -188,7 +188,6 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
         progressBar_health.setProgress(AppConstants.player.getHealth());
         progressBar_money.setProgress(AppConstants.player.getMoney());
         progressBar_social.setProgress(AppConstants.player.getSocial());
-        playerScore.setText(AppConstants.player.getTerm());
 
         if(!AppConstants.player.isSurviving()){
             DeathCard dc = null;
@@ -331,6 +330,8 @@ public class MainActivity extends AppCompatActivity implements CardStackListener
 
                     Toast.makeText(getApplicationContext(), "Congratulations you are rank " + (leaders.indexOf(curr)+1) + " in the leaderboard!", Toast.LENGTH_LONG).show();
                 }
+                Intent intent = new Intent(MainActivity.this, StartActivity.class);
+                startActivity(intent);
                 finish();
             }
 
